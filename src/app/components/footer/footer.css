@@ -1,0 +1,71 @@
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0f0f0f;
+    padding: 3vh 25vh;
+    margin-top: 20vh;
+}
+
+.footerContainer h3 {
+    color: #eee;
+    font-weight: 100;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.footerContainer div p {
+    color: #aaa;
+    cursor: pointer;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    font-size: .85rem;
+    width: 120%;
+}
+
+.footerContainer div span {
+    margin-right: 5%;
+}
+
+.footerContainer .redes {
+    display: flex;
+}
+
+.footerContainer .redes h4 {
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1.5vh;
+    margin-right: 2vh;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.footerContainer .redes h4:hover {
+    background-color: #ff2348;
+    color: #eee;
+}
+
+.programadores {
+    color: #aaa;
+}
+
+.programadores p {
+    font-weight: 100;
+    font-size: .85rem;
+    text-align: center;
+}
+
+.programadores p span {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.programadores p span:hover {
+    color: #ff002b;
+}

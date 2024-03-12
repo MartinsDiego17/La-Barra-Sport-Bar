@@ -2,7 +2,9 @@
     margin: 0 25vh;
     color: #eee;
     line-height: 1;
+    margin-bottom: 0;
     padding: 16vh 0;
+    padding-bottom: 7vh;
 }
 
 .menuContainer h1 {

@@ -13,7 +13,7 @@ export const Tragos = () => {
                 <option value="">MENOR RELEVANCIA</option>
             </select>
         </div>
-        <h1>TRAGOS</h1>
+        <h1>TRAGOS <span className='point' >.</span></h1>
     </div>
     <hr />
 </div>
