@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.primary {
+  color: #d70000;
+}
+
+.secondary {
+  color: #b10303;
+}
+
+.terciary {
+  color: #920a0a;
+}
+
+.light {
+  color: #ffdddd;
+}

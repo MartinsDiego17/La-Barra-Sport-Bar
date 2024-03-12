@@ -1,0 +1,9 @@
+.productosGrid {
+    margin-right: 20vh;
+    margin-left: 20vh;
+    display: grid;
+    grid-template-columns: repeat(4, .8fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

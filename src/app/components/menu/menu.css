@@ -1,0 +1,29 @@
+.menuContainer {
+    margin: 0 25vh;
+    color: #eee;
+    line-height: 1;
+    padding: 16vh 0;
+}
+
+.menuContainer h1 {
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.menuContainer hr {
+    border-color: #aaa;
+}
+
+.menuContainer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuContainer select {
+    color: black;
+    border: none;
+    outline: none;
+    font-size: .8rem;
+    background-color: transparent;
+}

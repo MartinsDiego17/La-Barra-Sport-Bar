@@ -1,0 +1,67 @@
+    .homeContainer {
+        background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)), url('../../images/fondo.jpg');
+        width: 100vw;
+        height: 100vh;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 25vh;
+    }
+
+    .homeContainer .detailsHome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #eee;
+        line-height: 1;
+    }
+
+    .detailsHome h1 {
+        font-size: 4rem;
+        margin-bottom: 0;
+    }
+
+    .detailsHome p {
+        margin-top: 3vh;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 6vh;
+        color: #ff9494;
+    }
+
+    .detailsHome button {
+        cursor: pointer;
+        background-color: transparent;
+        border: solid 1px #eee;
+        color: #eee;
+        transform: skewX(-20deg);
+        padding: 10px 100px;
+        transition: .2s;
+        font-size: 1.2rem;
+    }
+
+    .detailsHome button:hover {
+        background-color: #eee;
+        color: black;
+        transform: scale(1.05) skewX(-20deg);
+    }
+
+
+    .detailsHome button span {
+        display: inline-block;
+        transform: skewX(20deg);
+        /* Invierte la inclinación del botón */
+    }
+
+    .detailsHome .locationDetails {
+        display: flex;
+        text-align: center;
+        margin-top: 6vh;
+        color: #ffdddd;
+    }
+
+    .detailsHome .dotLocation {
+        font-size: 5rem;
+        color: white;
+    }
