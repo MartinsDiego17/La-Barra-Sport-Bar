@@ -3,7 +3,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: black;
-}
+/*   background: radial-gradient(circle at top center, #000000, #000000 0, #000000 20%, #460000 25%, #000 100%);
+ */}
 
 .primary {
   color: #d70000;
@@ -19,4 +20,8 @@ body {
 
 .light {
   color: #ffdddd;
+}
+
+.semiLight {
+  color: #ff9494;
 }

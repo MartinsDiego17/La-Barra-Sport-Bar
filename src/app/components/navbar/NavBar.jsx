@@ -3,7 +3,7 @@ import './navbar.css';
 export const NavBar = () => {
     return (
         <nav className='navContainer' >
-            <h1 className='light' >LA BARRA</h1>
+            <h1 className='semiLight' >LA BARRA</h1>
             <ul>
                 <li>INICIO</li>
                 <li>MENÚ</li>

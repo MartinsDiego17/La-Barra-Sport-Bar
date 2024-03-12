@@ -1,10 +1,11 @@
 .cardContainer {
-    width: 100%;
+    width: auto;
     color: #eee;
     margin: 0 auto;
     transition: .2s;
     margin-bottom: 3vh;
     margin-top: 0;
+    cursor: pointer;
 }
 
 .cardContainer:hover {
@@ -13,9 +14,9 @@
 }
 
 .cardContainer .imagen {
-    border-radius: 10px;
+    border-radius: 4px;
+    width: 100%;
     margin-bottom: 0;
-    width: 100% !important;
 }
 
 .cardContainer .nombre {
@@ -24,6 +25,7 @@
     transition: .2s;
     color: #eee;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .cardContainer .precio {
@@ -34,9 +36,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 0;
 }
 
-.cardContainer .categoria, .cardContainer .precio {
+.cardContainer .categoria,
+.cardContainer .precio {
     font-size: .7rem;
 }
 
@@ -54,15 +58,17 @@
     width: 45%;
     text-align: center;
     cursor: pointer;
+    transition: .2s;
     border: solid 2px #222;
     display: flex;
     justify-content: center;
 }
 
-.cardContainer .gestion { 
-    width: 25%;
+.cardContainer .gestion {
+    width: 27%;
 }
 
 .cardContainer button:hover {
-    background-color: #222;
+    background-color: #b10303;
+    border-color: #b10303;
 }

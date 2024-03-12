@@ -9,8 +9,8 @@ export const Comidas = () => {
         <>
             <div className='menuContainer' >
                 <div >
-                    <h1>COMIDAS <span className='point' >.</span></h1>
-                    <div>
+                    <h1>COMIDAS</h1>
+{/*                     <div>
                         <span>ORDENAR POR</span>
                         <select name="" id="">
                             <option value="">PRECIO MÁS BAJO</option>
@@ -18,7 +18,7 @@ export const Comidas = () => {
                             <option value="">MAYOR RELEVANCIA</option>
                             <option value="">MENOR RELEVANCIA</option>
                         </select>
-                    </div>
+                    </div> */}
                 </div>
                 <hr />
             </div>
