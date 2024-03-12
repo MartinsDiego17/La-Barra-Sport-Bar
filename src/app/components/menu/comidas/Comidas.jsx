@@ -8,8 +8,8 @@ export const Comidas = () => {
     return (
         <>
             <div className='menuContainer' >
-                <div>
-                    <h1>COMIDAS</h1>
+                <div >
+                    <h1>COMIDAS <span className='point' >.</span></h1>
                     <div>
                         <span>ORDENAR POR</span>
                         <select name="" id="">
