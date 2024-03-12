@@ -16,13 +16,18 @@
 
 @keyframes blur {
     0% {
-        background: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0)); /* Fondo inicial transparente */
-        -webkit-backdrop-filter: blur(0px); /* Sin desenfoque inicial */
+        background: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0));
+        /* Fondo inicial transparente */
+        -webkit-backdrop-filter: blur(0px);
+        /* Sin desenfoque inicial */
         backdrop-filter: blur(0px);
     }
+
     100% {
-        background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)); /* Fondo final oscuro */
-        -webkit-backdrop-filter: blur(7px); /* Desenfoque final */
+        background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8));
+        /* Fondo final oscuro */
+        -webkit-backdrop-filter: blur(7px);
+        /* Desenfoque final */
         backdrop-filter: blur(7px);
         padding: 1vh 0;
         border-bottom: solid 2px #222;
@@ -60,7 +65,7 @@
     list-style-type: none;
     font-weight: 100;
     color: #bbb;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     cursor: pointer;
     font-size: .9rem;
     margin: 1.3vh 4vh;
@@ -72,6 +77,6 @@
 }
 
 .navContainer ul li:hover {
-    border-color: red;
+    border-color: #b10303;
     color: white;
 }

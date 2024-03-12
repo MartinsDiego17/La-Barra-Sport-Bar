@@ -3,14 +3,13 @@
     align-items: center;
     justify-content: space-between;
     background-color: #0f0f0f;
-    padding: 3vh 25vh;
+    padding: 7vh 25vh;
     margin-top: 20vh;
 }
 
 .footerContainer h3 {
     color: #eee;
     font-weight: 100;
-    cursor: pointer;
     letter-spacing: 1px;
 }
 
@@ -30,28 +29,35 @@
 
 .footerContainer .redes {
     display: flex;
+    justify-content: end;
+}
+
+.footerContainer .redes h4:first-child {
+    margin-right: 2vh;
 }
 
 .footerContainer .redes h4 {
-    border-radius: 50%;
+    border-radius: 100%;
     background-color: #ddd;
     margin: 0;
     color: #121212;
     display: flex;
     align-items: center;
     font-size: 1.5rem;
-    padding: 1.5vh;
-    margin-right: 2vh;
+    padding: 1.5vh 2vh;
     cursor: pointer;
     transition: .2s;
+    height: 4.5vh;
 }
 
 .footerContainer .redes h4:hover {
-    background-color: #ff2348;
+    background-color: #b10303;
     color: #eee;
 }
 
 .programadores {
+    padding: 0;
+    margin: 0;
     color: #aaa;
 }
 
@@ -59,7 +65,7 @@
     font-weight: 100;
     font-size: .85rem;
     text-align: center;
-}
+    }
 
 .programadores p span {
     transition: .2s;
@@ -67,5 +73,13 @@
 }
 
 .programadores p span:hover {
-    color: #ff002b;
+    color: #ff9494;
+}
+
+.footerContainer div:last-child h3 {
+    text-align: right;
+}
+
+.footerContainer div:last-child {
+    height: 201px;
 }

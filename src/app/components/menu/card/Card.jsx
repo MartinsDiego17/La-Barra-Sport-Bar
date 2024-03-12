@@ -4,7 +4,6 @@ import Image from 'next/image';
 import './card.css';
 
 export const Card = ({ image, name, category, precio }) => {
-  console.log(image)
   return (
     <div className='cardContainer' >
       <Image src={image} width={220} height={220} alt='Hamburguesa' className='imagen' />

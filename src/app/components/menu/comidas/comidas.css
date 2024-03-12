@@ -5,10 +5,5 @@
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
     align-items: center;
-    gap: 20px;
-}
-
-.menuContainer .point {
-    text-shadow: 0px 0px 0px #eee;
-    color: black;
+    gap: 45px;
 }

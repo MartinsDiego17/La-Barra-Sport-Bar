@@ -1,11 +1,11 @@
     .homeContainer {
-        background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)), url('../../images/fondo.jpg');
+        background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url('../../images/fondo.jpg');
         width: 100vw;
         height: 100vh;
         background-position: top center;
         background-repeat: no-repeat;
         background-size: cover;
-        padding-top: 25vh;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
     }
 
     .homeContainer .detailsHome {
@@ -15,6 +15,7 @@
         flex-direction: column;
         color: #eee;
         line-height: 1;
+        padding-top: 25vh;
     }
 
     .detailsHome h1 {
@@ -30,30 +31,6 @@
         color: #ff9494;
     }
 
-    .detailsHome button {
-        cursor: pointer;
-        background-color: transparent;
-        border: solid 1px #eee;
-        color: #eee;
-        transform: skewX(-20deg);
-        padding: 10px 100px;
-        transition: .2s;
-        font-size: 1.2rem;
-    }
-
-    .detailsHome button:hover {
-        background-color: #eee;
-        color: black;
-        transform: scale(1.05) skewX(-20deg);
-    }
-
-
-    .detailsHome button span {
-        display: inline-block;
-        transform: skewX(20deg);
-        /* Invierte la inclinación del botón */
-    }
-
     .detailsHome .locationDetails {
         display: flex;
         text-align: center;
@@ -64,4 +41,46 @@
     .detailsHome .dotLocation {
         font-size: 5rem;
         color: white;
+    }
+
+
+    @keyframes arribaAnimation {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes abajoAnimation {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .detailsHome p {
+        text-align: center;
+    }
+
+    .detailsHome .locationDetails {
+        display: flex;
+        justify-content: center;
+    }
+
+    .detailsHome .arriba {
+        animation: arribaAnimation 1.5s ease;
+    }
+
+    .detailsHome .abajo {
+        animation: abajoAnimation 1.5s ease;
     }

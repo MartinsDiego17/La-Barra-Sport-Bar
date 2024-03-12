@@ -38,8 +38,8 @@ export const Footer = () => {
             </div>
             <div className='programadores' >
                 <p>
-                    Copyright © La Barra. Todos los derechos reservados. <br />
-                    Hecho por <span className='light' >Gonzalo Martins</span> y <span className='light' >Diego Martins</span>.
+                    Copyright © La Barra Sport & Bar. Todos los derechos reservados. <br />
+                    Desarrollado por <span className='light' >Gonzalo Martins</span> y <span className='light' >Diego Martins</span>.
                 </p>
             </div>
         </>
