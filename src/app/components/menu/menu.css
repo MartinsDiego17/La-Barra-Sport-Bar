@@ -22,6 +22,16 @@
     justify-content: space-between;
 }
 
+.menuContainer .elementsMenu:first-child {
+    justify-content: start;
+}
+
+.menuContainer .elementsMenu {
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+}
+
 .menuContainer select {
     color: black;
     border: none;

@@ -4,14 +4,17 @@ import { tragos } from '@/app/tragos';
 import './tragos.css';
 import { Card } from '../card/Card';
 import { Paginado } from '../paginado/Paginado';
+import { Searchbar } from '../../searchbar/Searchbar';
 
 export const Tragos = () => {
     return (
         <>
             <div className='menuContainer' >
+
                 <div >
-                    <div>
-                        <span></span>
+                    <h1 className='elementsMenu' >BEBIDAS</h1>
+                    <div className='elementsMenu' >
+                        <span>ORDENAR</span>
                         {/*                         <select name="" id="">
                             <option value="">PRECIO MÁS BAJO</option>
                             <option value="">PRECIO MÁS ALTO</option>
@@ -19,9 +22,13 @@ export const Tragos = () => {
                             <option value="">MENOR RELEVANCIA</option>
                         </select> */}
                     </div>
-                    <h1>BEBIDAS</h1>
+                    <div className='elementsMenu' >
+                        <Searchbar />
+
+                    </div>
                 </div>
                 <hr />
+
             </div>
 
             <div className='productosGrid' >
@@ -41,7 +48,7 @@ export const Tragos = () => {
 
             </div>
 
-            <Paginado />
+            <Paginado totalPages={5} />
 
         </>
     )

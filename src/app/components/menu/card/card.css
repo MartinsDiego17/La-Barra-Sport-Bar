@@ -6,6 +6,7 @@
     margin-bottom: 3vh;
     margin-top: 0;
     cursor: pointer;
+    height: 100%;
 }
 
 .cardContainer:hover {

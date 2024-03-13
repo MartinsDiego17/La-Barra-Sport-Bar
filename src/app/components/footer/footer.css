@@ -32,7 +32,7 @@
     justify-content: end;
 }
 
-.footerContainer .redes h4:first-child {
+.footerContainer .redes a:first-child h4 {
     margin-right: 2vh;
 }
 
@@ -82,6 +82,19 @@
 
 .footerContainer div:last-child {
     height: 201px;
+}
+
+.footerContainer div .redes {
+    height: fit-content;
+    margin-bottom: 0;
+}
+
+.footerContainer div .redes a:last-child h4 {
+    margin-bottom: 0;
+}
+
+.footerContainer div:last-child {
+    padding-bottom: 0;
 }
 
 .programadores a {
