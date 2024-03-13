@@ -1,0 +1,30 @@
+.nosotrosContainer {
+    padding: 7vh 25vh;
+    line-height: 1;
+    margin-top: 20vh;
+/*     background-color: #080808;
+ */    background: linear-gradient(to right,rgb(5, 5, 5), #080808, #121212);
+}
+
+.nosotrosContainer h1 {
+    font-size: 3.5rem;
+    color: #eee;
+}
+
+.nosotrosContainer div h5 {
+    font-weight: 100;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.nosotrosContainer div p {
+    margin-top: 2vh;
+    color: #aaa;
+    font-weight: 100;
+}
+
+.nosotrosContainer div:last-child  , .nosotrosContainer .primera {
+    text-align: right;
+}
+
