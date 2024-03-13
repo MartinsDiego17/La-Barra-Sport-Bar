@@ -9,7 +9,7 @@
 }
 
 .cardContainer:hover {
-    transform: perspective(1000px) rotateY(10deg);
+    transform: perspective(1000px) rotateX(4deg);
     filter: brightness(1.2);
 }
 

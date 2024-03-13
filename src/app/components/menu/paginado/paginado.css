@@ -1,0 +1,29 @@
+.paginadoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.paginadoContainer span {
+    border-radius: 10px;
+    background-color: #222;
+    color: #eee;
+    padding: 1vh 1.2vh;
+    width: 2%;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin: 0 .5vh;
+    margin-top: 3vh;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.paginadoContainer span:first-child, .paginadoContainer span:last-child {
+    color: #aaa;
+}
+
+.paginadoContainer span:hover {
+    background-color: #333;
+}

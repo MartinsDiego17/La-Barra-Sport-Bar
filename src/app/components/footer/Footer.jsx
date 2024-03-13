@@ -30,8 +30,8 @@ export const Footer = () => {
                 <div>
                     <h3>Síguenos en nuestras <br /> redes sociales y enterate  <br />de todas las novedades</h3>
                     <div className='redes' >
-                        <h4><FaInstagram /></h4>
-                        <h4><TiSocialFacebook /></h4>
+                        <a target='_BLANK' href='https://www.instagram.com/labarrasportbar/'><h4><FaInstagram /></h4></a>
+                        <a target='_BLANK' href='https://www.facebook.com/LaBarraSportBarIqq' ><h4><TiSocialFacebook /></h4></a>
                     </div>
                 </div>
 
@@ -39,7 +39,18 @@ export const Footer = () => {
             <div className='programadores' >
                 <p>
                     Copyright © La Barra Sport & Bar. Todos los derechos reservados. <br />
-                    Desarrollado por <span className='light' >Gonzalo Martins</span> y <span className='light' >Diego Martins</span>.
+                    Desarrollado por
+
+                    <a target='_BLANK' href='https://www.linkedin.com/in/gonzalo-martins-3b43101b2/' >
+                        <span className='light' > Gonzalo Martins </span>
+                    </a>
+
+                    y
+
+                    <a target='_BLANK' href='https://www.linkedin.com/in/diego-martins-563954278/' >
+                        <span className='light' > Diego Martins</span>
+                    </a>
+                    .
                 </p>
             </div>
         </>

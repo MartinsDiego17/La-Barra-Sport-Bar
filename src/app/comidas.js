@@ -1,11 +1,10 @@
-import maravilla from './images/maravilla.jpg';
-import esmeralda from './images/esmeralda.jpg';
-import dragon from './images/dragon.jpg';
-import pollorose from './images/pollorose.jpg';
-import polloensalada from './images/polloensalada.jpg';
-import pollocesar from './images/pollocesar.jpg';
+import maravilla from './images/comidas/maravilla.jpg';
+import esmeralda from './images/comidas/esmeralda.jpg';
+import dragon from './images/comidas/dragon.jpg';
+import pollorose from './images/comidas/pollorose.jpg';
+import polloensalada from './images/comidas/polloensalada.jpg';
+import pollocesar from './images/comidas/pollocesar.jpg';
 
-const imagenes = [];
 
 export const comidas = [
     {
