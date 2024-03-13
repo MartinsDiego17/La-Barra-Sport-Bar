@@ -1,6 +1,7 @@
 import { Button } from '../button/Button';
 import './inicio.css';
 import { FaLocationDot } from "react-icons/fa6";
+import { IoMdTime } from "react-icons/io";
 
 export const Inicio = () => {
     return (
@@ -15,7 +16,7 @@ export const Inicio = () => {
                 <div className='abajo' >
                     <Button text={"reservas"} />
                     <div className='locationDetails' >
-                        <FaLocationDot /> Av. Francisco Bilbao 3420
+                        <FaLocationDot /> Av. Francisco Bilbao 3420 
                     </div>
                 </div>
 

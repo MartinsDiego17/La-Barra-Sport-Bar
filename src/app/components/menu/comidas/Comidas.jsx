@@ -3,6 +3,7 @@
 import { comidas } from '@/app/comidas';
 import './comidas.css';
 import { Card } from '../card/Card';
+import { Paginado } from '../paginado/Paginado';
 
 export const Comidas = () => {
     return (
@@ -10,7 +11,7 @@ export const Comidas = () => {
             <div className='menuContainer' >
                 <div >
                     <h1>COMIDAS</h1>
-{/*                     <div>
+                    {/*                     <div>
                         <span>ORDENAR POR</span>
                         <select name="" id="">
                             <option value="">PRECIO MÁS BAJO</option>
@@ -39,6 +40,8 @@ export const Comidas = () => {
                 }
 
             </div>
+
+            <Paginado />
 
         </>
     )

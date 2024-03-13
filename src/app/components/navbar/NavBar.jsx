@@ -1,15 +1,25 @@
+'use client';
+
 import './navbar.css';
 
 export const NavBar = () => {
+
+    const scroll = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     return (
         <nav className='navContainer' >
-            <h1 className='semiLight' >LA BARRA</h1>
+            <h1 className='semiLight' onClick={() => scroll()} >LA BARRA</h1>
             <ul>
-                <li>INICIO</li>
-                <li>MENÚ</li>
-                <li>RESERVAS</li>
-                <li>DELIVERY</li>
-                <li>CONTACTO</li>
+                <li onClick={() => scroll()} >INICIO</li>
+                <li onClick={() => scroll()} >MENÚ</li>
+                <li onClick={() => scroll()} >RESERVAS</li>
+                <li onClick={() => scroll()} >NOSOTROS</li>
+                <li onClick={() => scroll()} >CONTACTO</li>
             </ul>
         </nav>
     )
