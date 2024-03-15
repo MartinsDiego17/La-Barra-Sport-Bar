@@ -7,7 +7,8 @@ export const Nosotros = () => {
 
             <div className='primera' >
                 <h5 className='semiLight' >¿QUIÉNES SOMOS?</h5>
-                <p>Hola</p>
+                <p>
+                    La Barra Sport & Bar: El punto de encuentro para los amantes del deporte en Iquique. Con cinco años en la escena, ofrecemos emocionantes partidos en pantalla gigante, excelente comida y un ambiente acogedor. ¡Ven y únete a la pasión en La Barra!</p>
             </div>
 
             <div>

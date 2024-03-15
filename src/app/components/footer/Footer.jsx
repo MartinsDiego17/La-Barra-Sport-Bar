@@ -5,11 +5,13 @@ import { MdOutlineMail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebook } from "react-icons/ti";
+import { Logo } from '../logo/Logo';
 
 export const Footer = () => {
     return (
         <>
             <div className='footerContainer' >
+
 
                 <div>
                     <h3>Categorías</h3>

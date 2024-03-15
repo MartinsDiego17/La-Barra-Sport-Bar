@@ -30,7 +30,7 @@ export const Comidas = () => {
                     </div>
                 </div>
                 <hr />
-                
+
             </div>
 
             <div className='productosGrid' >
