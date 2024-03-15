@@ -1,7 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { NavBar } from "./components/navbar/NavBar";
+import { Footer } from './components/footer/Footer';
 
-const poppins = Poppins({ subsets: ["latin"], weight:"500" });
+const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 
 export const metadata = {
   title: "LA BARRA SPORT & BAR",
@@ -11,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <NavBar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

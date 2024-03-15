@@ -7,13 +7,23 @@ export const Paginado = ({ totalPages }) => {
 
     return (
         <div className='paginadoContainer' >
-            <span><IoIosArrowBack /></span>
+
+            <div>
+                <span><IoIosArrowBack /></span>
+            </div>
+
             {
                 pages.map((page, index) => (
-                    <span>{index+1}</span>
+                    <div key={index}>
+                        <span>{index + 1}</span>
+                    </div>
                 ))
             }
-            <span><IoIosArrowForward /></span>
+
+            <div>
+                <span><IoIosArrowForward /></span>
+            </div>
+
         </div>
     )
 }

@@ -1,9 +1,13 @@
 .nosotrosContainer {
     padding: 7vh 25vh;
     line-height: 1;
-    margin-top: 20vh;
-/*     background-color: #080808;
- */    background: linear-gradient(to right,rgb(5, 5, 5), #080808, #121212);
+    margin: 20vh 0;
+    /*COLOCAR IMAGEN*/
+    background-color: black;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
 }
 
 .nosotrosContainer h1 {
@@ -19,12 +23,13 @@
 }
 
 .nosotrosContainer div p {
-    margin-top: 2vh;
+    margin-top: 1vh;
     color: #aaa;
+    line-height: 1;
     font-weight: 100;
 }
 
-.nosotrosContainer div:last-child  , .nosotrosContainer .primera {
+.nosotrosContainer div:last-child,
+.nosotrosContainer .primera {
     text-align: right;
 }
-

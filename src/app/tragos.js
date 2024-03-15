@@ -10,84 +10,84 @@ export const tragos = [
         id: 1,
         image: margarita,
         name: 'margarita',
-        category: 'trago',
+        category: 'bebida',
         precio: '6.500'
     },
     {
         id: 2,
         image: mojito,
         name: 'mojito',
-        category: 'trago',
+        category: 'bebida',
         precio: '7.500'
     },
     {
         id: 3,
         image: martini,
         name: 'martini',
-        category: 'trago',
+        category: 'bebida',
         precio: '8.000'
     },
     {
         id: 4,
         image: daiquiri,
         name: 'daiquiri',
-        category: 'trago',
+        category: 'bebida',
         precio: '6.500'
     },
     {
         id: 5,
         image: piñaColada,
         name: 'piña colada',
-        category: 'trago',
+        category: 'bebida',
         precio: '7.000'
     },
     {
         id: 6,
         image: oldFashioned,
         name: 'old fashioned',
-        category: 'trago',
+        category: 'bebida',
         precio: '8.000'
     },
     {
         id: 7,
         image: margarita,
         name: 'margarita',
-        category: 'trago',
+        category: 'bebida',
         precio: '6.500'
     },
     {
         id: 8,
         image: mojito,
         name: 'mojito',
-        category: 'trago',
+        category: 'bebida',
         precio: '7.500'
     },
     {
         id: 9,
         image: martini,
         name: 'martini',
-        category: 'trago',
+        category: 'bebida',
         precio: '8.000'
     },
     {
         id: 10,
         image: daiquiri,
         name: 'daiquiri',
-        category: 'trago',
+        category: 'bebida',
         precio: '6.500'
     },
     {
         id: 11,
         image: piñaColada,
         name: 'piña colada',
-        category: 'comida',
+        category: 'bebida',
         precio: '7.000'
     },
     {
         id: 12,
         image: oldFashioned,
         name: 'old fashioned',
-        category: 'comida',
+        category: 'bebida',
         precio: '8.000'
     },
 ];

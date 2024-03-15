@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
 #btnPersonalizado {
     cursor: pointer;
     background-color: transparent;
     border: solid 2px #eee;
     color: #eee;
     transform: skewX(-20deg);
-    padding: 10px 100px;
+    padding: 10px 20px;
     transition: .4s;
-    font-size: 17px;
+    font-size: 16px;
+    width: 275px;
 }
 
 #btnPersonalizado:hover {
-    transform: scale(1.07) skewX(-20deg);
+    transform: scale(1.07) skewX(-21deg);
     color: black;
 }
 
@@ -48,7 +51,8 @@
 #btnPersonalizado span {
     display: inline-block;
     transform: skewX(20deg);
+    font-family: "Jost", sans-serif;
     font-weight: 500;
-    letter-spacing: 1px;
-    /* Invierte la inclinación del botón */
+/*     letter-spacing: 1px;
+ */     /* Invierte la inclinación del botón */
 }

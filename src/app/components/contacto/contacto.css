@@ -1,0 +1,22 @@
+.contactContainer {
+    padding: 7vh 25vh;
+    border-top: solid 2px #222;
+    margin-top: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    flex-direction: column;
+}
+
+.contactContainer h1 {
+    text-align: center;
+    margin-top: 5vh;
+    color: #eee;
+    padding-top: 0;
+    font-size: 3rem;
+}
+
+.contactContainer button {
+    margin-bottom: 5vh;
+}

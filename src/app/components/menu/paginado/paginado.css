@@ -3,7 +3,7 @@
     justify-content: center;
 }
 
-.paginadoContainer span {
+.paginadoContainer div {
     border-radius: 10px;
     background-color: #222;
     color: #eee;
@@ -20,10 +20,13 @@
     transition: .2s;
 }
 
-.paginadoContainer span:first-child, .paginadoContainer span:last-child {
+.paginadoContainer div:first-child span,
+.paginadoContainer div:last-child span {
     color: #aaa;
+    display: flex;
+    align-items: center;
 }
 
-.paginadoContainer span:hover {
+.paginadoContainer div:hover {
     background-color: #333;
 }
