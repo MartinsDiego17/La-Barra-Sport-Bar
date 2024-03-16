@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0f0f0f;
+    background-color: #222;
     padding: 7vh 25vh;
 }
 
@@ -94,6 +94,11 @@
 
 .footerContainer div:last-child {
     padding-bottom: 0;
+}
+
+.programadores {
+    background-color: black;
+    padding: 1px;
 }
 
 .programadores a {

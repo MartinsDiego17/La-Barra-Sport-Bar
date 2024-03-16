@@ -1,6 +1,6 @@
 .detailContainer {
     height: 75vh;
-    margin: 17vh 25vh;
+    margin: 25vh 25vh;
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
@@ -15,6 +15,11 @@
     width: 50%;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    transition: .2s;
+}
+
+.detailContainer img:hover {
+    filter: brightness(120%);
 }
 
 .productDetails h1 {
@@ -28,6 +33,7 @@
     color: #ccc;
     line-height: 1;
     padding: 7vh 0;
+    width: 45%;
     padding-top: 0;
 }
 
@@ -122,4 +128,40 @@
 
 .productDetails #btnPersonalizado::before {
     background-color: #127700;
+}
+
+.payMetods {
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payMetods div {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.payMetods img {
+    width: 40px; 
+    height: 25px;
+    border-radius: 0;
+}
+
+.payMetods img:hover {
+    filter: brightness(100%);
+}
+
+.productDetails p {
+    text-align: right;
+    font-size: .8rem;
+}
+
+.productDetails p:last-child span{
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }

@@ -1,35 +1,57 @@
 .nosotrosContainer {
-    padding: 7vh 25vh;
-    line-height: 1;
-    margin: 20vh 0;
-    /*COLOCAR IMAGEN*/
-    background-color: black;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(10px);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 18% 100%, 0 86%);
+    margin: 25vh;
+    height: 70vh;
+    padding: 20vh;
+    padding-bottom: 20vh;
+    padding-top: 10vh;
+    background: linear-gradient(rgb(0 0 0 /.5), rgb(0 0 0 / .5));
+    backdrop-filter: blur(20px);
 }
 
-.nosotrosContainer h1 {
-    font-size: 3.5rem;
+.nosotrosContainer .info {
+    display: flex;
+    align-items: center;
     color: #eee;
+    border-bottom: 1px solid #222;
 }
 
-.nosotrosContainer div h5 {
-    font-weight: 100;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    margin-bottom: 0;
+.nosotrosContainer img {
+    border-radius: 5px;
+    border: solid 3px transparent;
+    height: 30vh;
+    cursor: pointer;
+    transition: .3s;
+    padding: 2px;
 }
 
-.nosotrosContainer div p {
-    margin-top: 1vh;
-    color: #aaa;
-    line-height: 1;
-    font-weight: 100;
+.nosotrosContainer img:hover {
+    border-color: #eee;
 }
 
-.nosotrosContainer div:last-child,
-.nosotrosContainer .primera {
+.nosotrosContainer .info:first-child div h5 {
     text-align: right;
+}
+
+.nosotrosContainer .info div h5 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.nosotrosContainer .info:first-child p {
+    padding-left: 10%;
+    text-align: right;
+}
+
+.nosotrosContainer .info:last-child p {
+    padding-right: 10%;
+}
+
+.nosotrosContainer .info p {
+    margin-top: 0;
+    font-size: .8rem;
+}
+
+.nosotrosContainer .info:first-child {
+    margin-bottom: 7%;
 }

@@ -7,3 +7,9 @@
     align-items: center;
     gap: 55px;
 }
+
+#btnSelected {
+background-color: #eee;
+color: #222;
+border-color: #eee;
+}

@@ -1,12 +1,11 @@
-import { Comidas } from './comidas/Comidas';
-import { Tragos } from './tragos/Tragos';
+import { Productos } from './productos/Productos';
 import './menu.css';
 
 export const Menu = () => {
     return (
         <div className='menuPather' >
-            <Comidas />
-            <Tragos />
+            <Productos />
+            {/* <Tragos /> */}
         </div>
     )
 }

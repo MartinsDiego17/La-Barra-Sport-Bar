@@ -20,15 +20,18 @@ export const NavBar = () => {
             ) : (
                 <h1 className='semiLight' onClick={() => scroll()} >LA BARRA</h1>
             )}
-            <ul>
-                <li onClick={() => scroll()} >INICIO</li>
-                <li onClick={() => scroll()} >NOSOTROS</li>
-                <li onClick={() => scroll()} >MENÚ</li>
-                <li onClick={() => scroll()} >CONTACTO</li>
-                <li onClick={() => scroll()} >RESERVAS</li>
-                <li className='iconNav' onClick={() => scroll()} ><span className='light' ><FaUser /></span></li>
-                <li className='iconNav' onClick={() => scroll()} ><span className='light' ><FaShoppingCart /></span></li>
+            <ul className='itemsNav' >
+                <li onClick={() => scroll()} >Inicio</li>
+                <li onClick={() => scroll()} >Menú</li>
+                <li onClick={() => scroll()} >Novedades</li>
+                <li onClick={() => scroll()}  className='liprueba' >Contacto</li>
             </ul>
+
+            <ul className='userAndCart' >
+                <li onClick={() => scroll()} >Ingresar</li>
+                <li onClick={() => scroll()} >Carrito de compras</li>
+            </ul>
+
         </nav>
     )
 }

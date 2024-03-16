@@ -5,6 +5,10 @@ body {
   background-color: black;
   /*   background: radial-gradient(circle at top center, #222, #000000 0, #000000 20%, #121212 25%, #000 100%);
  */
+ background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)),url('./images/fondoBody.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center center;
 }
 
 .primary {
