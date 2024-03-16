@@ -14,7 +14,7 @@
 }
 
 .menuContainer hr {
-    border-color: #aaa;
+    border-color: transparent;
 }
 
 .menuContainer div {
@@ -39,4 +39,30 @@
     outline: none;
     font-size: .8rem;
     background-color: transparent;
+}
+
+.menuContainer .optionsMenu {
+    width: 33.33%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menuContainer .optionsMenu button {
+    margin: 0;
+    background-color: #222;
+    color: #ccc;
+    border-radius: 20px;
+    padding: 5px 12px;
+    border: solid 2px #333;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.optionsMenu button:first-child {
+    margin-left: -5%;
+}
+
+.optionsMenu button:hover {
+    color: #eee;
+    border-color: #666;
 }

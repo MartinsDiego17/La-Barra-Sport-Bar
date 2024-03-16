@@ -1,12 +1,13 @@
 .contactContainer {
     padding: 7vh 25vh;
-    border-top: solid 2px #222;
     margin-top: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 0;
+    background-color: black;
     flex-direction: column;
+    border-top: 2px solid #222;
 }
 
 .contactContainer h1 {
@@ -14,7 +15,7 @@
     margin-top: 5vh;
     color: #eee;
     padding-top: 0;
-    font-size: 3rem;
+    font-size: 2.8rem;
 }
 
 .contactContainer button {
