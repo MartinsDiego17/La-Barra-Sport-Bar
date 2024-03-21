@@ -1,0 +1,36 @@
+.redes {
+    display: flex;
+    justify-content: end;
+}
+
+.redes a:first-child h4 {
+    margin-right: 2vh;
+}
+
+.redes h4 {
+    border-radius: 100%;
+    background-color: #ddd;
+    margin: 0;
+    color: #121212;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1.5vh 2vh;
+    cursor: pointer;
+    transition: .2s;
+    height: 4.5vh;
+}
+
+.redes h4:hover {
+    background-color: #b10303;
+    color: #eee;
+}
+
+.redes {
+    height: fit-content;
+    margin-bottom: 0;
+}
+
+.redes a:last-child h4 {
+    margin-bottom: 0;
+}

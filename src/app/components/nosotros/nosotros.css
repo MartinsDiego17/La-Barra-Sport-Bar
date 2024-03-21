@@ -7,6 +7,11 @@
     padding-top: 10vh;
     background: linear-gradient(rgb(0 0 0 /.5), rgb(0 0 0 / .5));
     backdrop-filter: blur(20px);
+    transition: .5s;
+}
+
+.nosotrosContainer:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 82% 100%, 0 86%);
 }
 
 .nosotrosContainer .info {
@@ -22,7 +27,6 @@
     height: 30vh;
     cursor: pointer;
     transition: .3s;
-    padding: 2px;
 }
 
 .nosotrosContainer img:hover {
@@ -54,4 +58,14 @@
 
 .nosotrosContainer .info:first-child {
     margin-bottom: 7%;
+}
+
+.nosotrosContainer .redes {
+    justify-content: center;
+    margin: auto;
+    margin-top: 2.5vh;
+}
+
+.redes a h4 {
+    margin: 0 2vh;
 }

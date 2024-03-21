@@ -5,41 +5,41 @@
     transition: .2s;
     margin-bottom: 3vh;
     margin-top: 0;
-    cursor: pointer;
     height: 100%;
     border-bottom: 1px solid transparent;
     padding-bottom: 3vh;
     background: linear-gradient(rgba(78, 78, 78, 0.1), rgb(0 0 0 / .1));
     border-color: #222;
     backdrop-filter: blur(10px);
-    filter: brightness(1.2);
+    filter: brightness(.9);
 }
 
 .cardContainer:hover {
-    filter: brightness(1.4);
-    border-color: #666;
+    filter: brightness(1.1);
 }
 
 .cardContainer .imagen {
+    cursor: pointer;
     border-radius: 4px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     width: 100%;
-    height: 30vh;
+    height: 35vh;
     margin-bottom: 0;
 }
 
 .cardContainer .nombre {
-    font-size: .85rem;
+    font-size: .70rem;
     text-align: left;
     transition: .2s;
-    color: #eee;
-    margin-top: 0;
+    color: #aaa;
+    margin-top: 4%;
     margin-bottom: 0;
 }
 
 .cardContainer .precio {
-    color: #127700;
+    color: #eee;
+    font-weight: 600;
 }
 
 .cardContainer div {
@@ -83,15 +83,24 @@
     border-color: #b10303;
 }
 
-/* .cardContainer #btnPersonalizado {
-    font-size: .7rem;
-    border-radius: 0;
+.saberMas {
+    padding: 0;
+    padding-top: 1vh;
+    transition: .2s;
+    cursor: pointer;
+    margin: 0;
+    font-size: .65rem;
+    width: fit-content;
+    color: #777;
     display: flex;
-    justify-content: center;
+}
+
+.saberMas:hover {
+    color: #999;
+}
+
+.saberMas span {
+    display: flex;
     align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    font-weight: 500;
-    padding: 1.5vh 0;
-    margin-top: 5%;
-} */
+    margin-left: .5vh;
+}

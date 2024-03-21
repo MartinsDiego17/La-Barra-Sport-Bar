@@ -2,6 +2,9 @@ import Image from 'next/image';
 import './nosotros.css';
 import bar from '../../images/bar.jpg';
 import drink from '../../images/bar2.jpg';
+import { FaInstagram } from "react-icons/fa";
+import { TiSocialFacebook } from "react-icons/ti";
+import Redes from '../footer/redes/Redes';
 
 export const Nosotros = () => {
     return (
@@ -11,7 +14,9 @@ export const Nosotros = () => {
                 <Image src={bar} alt='Bar' width={300} height={250} />
                 <div>
                     <h5 className='semiLight' >Nosotros</h5>
-                    <p>La Barra Sport & Bar es un bar deportivo dedicado a todos los apasionados del buen comer y del espíritu deportivo. Acá podrás sentir toda la emoción que transmite un partido de futbol compartido con amigos.</p>
+                    <p>
+                        La Barra Sport & Bar es el lugar favoritos de los apasionados del buen comer y beber, y del deporte. Acá podrás disfrutar los mejores platos de comida de distintas regiones y países, acompañado de unos maravillosos tragos mientras que disfrutas de un partido con amigos.
+                    </p>
                 </div>
             </div>
 
@@ -22,6 +27,8 @@ export const Nosotros = () => {
                 </div>
                 <Image src={drink} alt='Trago' width={300} height={250} />
             </div>
+
+            <Redes />
 
         </div>
     )

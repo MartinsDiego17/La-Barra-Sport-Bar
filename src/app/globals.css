@@ -3,12 +3,11 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: black;
-  /*   background: radial-gradient(circle at top center, #222, #000000 0, #000000 20%, #121212 25%, #000 100%);
- */
- background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)),url('./images/fondoBody.jpg');
- background-size: cover;
- background-repeat: no-repeat;
- background-position: center center;
+  background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)), url('./images/fondoBody.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .primary {
@@ -33,4 +32,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.patherContainer {
+  background-color: black;
 }
