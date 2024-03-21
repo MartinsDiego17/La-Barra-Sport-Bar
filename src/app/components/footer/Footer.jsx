@@ -3,9 +3,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { LuPhone } from "react-icons/lu";
 import { MdOutlineMail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
-import { FaInstagram } from "react-icons/fa";
-import { TiSocialFacebook } from "react-icons/ti";
 import { Logo } from '../logo/Logo';
+import Redes from './redes/Redes';
 
 export const Footer = () => {
     return (
@@ -31,10 +30,7 @@ export const Footer = () => {
 
                 <div>
                     <h3>Síguenos en nuestras <br /> redes sociales y enterate  <br />de todas las novedades</h3>
-                    <div className='redes' >
-                        <a target='_BLANK' href='https://www.instagram.com/labarrasportbar/'><h4><FaInstagram /></h4></a>
-                        <a target='_BLANK' href='https://www.facebook.com/LaBarraSportBarIqq' ><h4><TiSocialFacebook /></h4></a>
-                    </div>
+                    <Redes />
                 </div>
 
             </div>

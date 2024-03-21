@@ -1,0 +1,105 @@
+.optionsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7vh 25vh;
+    margin-top: 30vh;
+}
+
+.optionsContainer div {
+    width: 42%;
+    height: 38vw;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: .2s;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 3vh;
+    flex-direction: column;
+    line-height: 1;
+    border: solid 2px black;
+}
+
+.optionsContainer div:hover {
+    filter: brightness(1.1);
+    border-color: #ccc;
+    transform: translateY(-10px);
+}
+
+.optionsContainer .cancha {
+    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/cancha.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.optionsContainer .cancha:hover {
+    background:linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)) , url(../../images/cancha.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.optionsContainer .bar {
+    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/bar2.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.optionsContainer .bar:hover {
+    background:linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)), url(../../images/bar2.jpg) ;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.optionsContainer div h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 2vh;
+    font-size: 2rem;
+}
+
+.optionsContainer div h2,
+.optionsContainer p {
+    margin: 1vh;
+}
+
+.optionsContainer div p {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.optionsContainer div button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: #ddd;
+    color: #121212;
+    padding: 10px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 3%;
+    font-weight: 500;
+}
+
+.optionsContainer div button:hover {
+    background-color: #640404;
+    color: #ccc;
+    transform: scale(.95);
+}
+
+#infoOption {
+    width: 100%;
+    border-color: transparent;
+    padding-bottom: 20vh;
+}
+
+#infoOption:hover {
+    transform: translateY(0px);
+    border-color: transparent;
+}

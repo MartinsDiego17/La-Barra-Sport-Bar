@@ -12,7 +12,7 @@ export const comidas = [
         image: maravilla,
         name: 'hamburguesa maravilla',
         category: 'comida',
-        precio: '6.500',
+        precio: '6500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -20,7 +20,7 @@ export const comidas = [
         image: esmeralda,
         name: 'cerro esmeralda',
         category: 'comida',
-        precio: '7.500',
+        precio: '7500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -28,7 +28,7 @@ export const comidas = [
         image: dragon,
         name: 'cerro dragón',
         category: 'comida',
-        precio: '8.000',
+        precio: '8000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -36,7 +36,7 @@ export const comidas = [
         image: pollorose,
         name: 'pollo rose',
         category: 'comida',
-        precio: '6.500',
+        precio: '6500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -44,7 +44,7 @@ export const comidas = [
         image: polloensalada,
         name: 'pollo con ensalada',
         category: 'comida',
-        precio: '7.000',
+        precio: '7000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -52,7 +52,7 @@ export const comidas = [
         image: pollocesar,
         name: 'pollo con ensalada cesar',
         category: 'comida',
-        precio: '8.000',
+        precio: '8000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -60,7 +60,7 @@ export const comidas = [
         image: maravilla,
         name: 'hamburguesa maravilla',
         category: 'comida',
-        precio: '6.500',
+        precio: '6500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -68,7 +68,7 @@ export const comidas = [
         image: esmeralda,
         name: 'cerro esmeralda',
         category: 'comida',
-        precio: '7.500',
+        precio: '7500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -76,7 +76,7 @@ export const comidas = [
         image: dragon,
         name: 'cerro dragón',
         category: 'comida',
-        precio: '8.000',
+        precio: '8000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -84,7 +84,7 @@ export const comidas = [
         image: pollorose,
         name: 'pollo rose',
         category: 'comida',
-        precio: '6.500',
+        precio: '6500',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -92,7 +92,7 @@ export const comidas = [
         image: polloensalada,
         name: 'pollo con ensalada',
         category: 'comida',
-        precio: '7.000',
+        precio: '7000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
     {
@@ -100,7 +100,7 @@ export const comidas = [
         image: pollocesar,
         name: 'pollo con ensalada cesar',
         category: 'comida',
-        precio: '8.000',
+        precio: '8000',
         ingredientes: ["carne", "cebolla", "lechuga"]
     },
 ];
