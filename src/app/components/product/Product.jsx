@@ -1,7 +1,7 @@
 import './product.css';
 import Image from 'next/image';
 import { MdVerifiedUser } from "react-icons/md";
-import { Button } from '@/app/components/button/Button';
+import { Button } from '@/app/button/Button';
 import visaUrl from '../../images/tarjetas/visa.png';
 import masterCardUrl from '../../images/tarjetas/mastercard.png';
 import americanUrl from '../../images/tarjetas/american.png';
@@ -44,6 +44,7 @@ const Product = ({ product }) => {
                     <div className='ingredientes' >
                         <h5>INGREDIENTES</h5>
                         {
+                            product.ingredientes &&
                             product.ingredientes.map(ingrediente => (
                                 <span>{ingrediente} <br /></span>
                             ))

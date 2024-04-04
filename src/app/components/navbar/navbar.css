@@ -59,6 +59,7 @@
     cursor: pointer;
     font-size: .9rem;
     transition: .2s;
+
 }
 
 .navContainer ul li:hover {
@@ -110,3 +111,97 @@
     width: 100%;
 }
 
+.navbarAdmin {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    padding: 1.5vh 0;
+    animation: adminNav linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+    border-bottom: solid 2px transparent;
+    z-index: 50;
+}
+
+.navbarAdmin section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbarAdmin * {
+    padding: 0;
+    margin: 0;
+}
+
+.navbarAdmin ul {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.navbarAdmin article {
+    width: 33.33%;
+}
+
+.navbarAdmin ul li {
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 2px 30px;
+    border: solid 2px #777;
+    color: #777;
+    transition: .3s;
+}
+
+.navbarAdmin ul li:hover {
+    background-color: #0099ff;
+    color: #eee;
+    border-color: #0099ff;
+    transform: scale(.97);
+}
+
+.navbarAdmin section {
+    margin: 0 10%;
+}
+
+.navbarAdmin h1 {
+    font-size: 1.7rem;
+    width: fit-content;
+    color: #0e3b5d;
+    cursor: pointer;
+    margin: 0 auto;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+.navbarAdmin a {
+    color: #0e3b5d;
+}
+
+@keyframes adminNav {
+    0% {}
+
+    100% {
+        background-color: white;
+        border-color: #ddd;
+    }
+}
+ .activate {
+        color: #eee !important;
+}
+
+.linkUserNav {
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    width: fit-content !important;
+}
+
+.iconUserNav {
+    color: white;
+    display: flex;
+    align-items: center;
+}

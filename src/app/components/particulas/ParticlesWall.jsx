@@ -11,6 +11,7 @@ const ParticlesWall = () => {
     document.body.appendChild(script);
 
     script.onload = () => {
+      if(typeof window === undefined) return;
       if (window.particlesJS) {
         window.particlesJS({
           "particles": {

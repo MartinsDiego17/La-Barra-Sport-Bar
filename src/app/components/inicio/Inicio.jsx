@@ -1,4 +1,4 @@
-import { Button } from '../button/Button';
+import { Button } from '../../button/Button';
 import './inicio.css';
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";

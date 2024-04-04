@@ -1,0 +1,42 @@
+.cardCartContainer {
+    width: 90%;
+    background-color: rgba(70, 70, 70, 0.5);
+    color: #ccc;
+    margin: 1% 0;
+    margin-right: 10%;
+    padding: 1.3vh 2.6vh;
+    border-radius: 30px;
+    border: solid 1px transparent;
+    transition: .3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardCartContainer * {
+    padding: 0;
+    margin: 0;
+}
+
+.cardCartContainer img {
+    border-radius: 30px;
+}
+
+.cardCartContainer:hover {
+    background-color: rgba(70, 70, 70, 0.2);
+    color: #eee;
+}
+
+.cardCartContainer h4 {
+    font-weight: 100;
+    font-size: .8rem;
+}
+
+.trash {
+    transition: .2s;
+    cursor: pointer;
+}
+
+.trash:hover {
+    color: #ff5757;
+}

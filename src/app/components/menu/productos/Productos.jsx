@@ -1,6 +1,7 @@
 'use client';
 
-import { comidas } from '@/app/comidas';
+import burga from '../../../images/comidas/dragon.jpg';
+/* import { comidas } from '@/app/comidas'; */
 import { tragos } from '@/app/tragos';
 import './productos.css';
 import { Card } from '../card/Card';
@@ -9,24 +10,35 @@ import { Searchbar } from '../../searchbar/Searchbar';
 import { useEffect, useState } from 'react';
 import searchFn from './search';
 
-export const Productos = () => {
+export const Productos = ({ products }) => {
 
-    const [data, setData] = useState(comidas);
+    let comidas = [];
+
+    if (products.length > 0) {
+        comidas = products.filter(product => product.category === "Comida");
+    }
+
+    const [data, setData] = useState([]);
     const [btnSelected, setBtnSelected] = useState({
         comida: "btnSelected",
         bebida: ""
     });
-
     const [textNotFound, setTextNotFound] = useState("");
-
     useEffect(() => {
         if (btnSelected.comida.length > 1) {
-            setTextNotFound("Lo siento, no tenemos esa comida.");
+            setTextNotFound("No tenemos comidas que coincidan con tu búsqueda");
             return;
         } else if (btnSelected.bebida.length > 1) {
-            setTextNotFound("Lo siento, no tenemos esa bebida.")
+            setTextNotFound("No tenemos bebidas que coincidan con tu búsqueda")
         }
     }, [btnSelected])
+
+    useEffect(() => {
+        if (comidas.length > 0) {
+            setData(comidas);
+        }
+    }, [products]);
+
 
     const selectFood = () => {
         setData(comidas);
@@ -35,7 +47,6 @@ export const Productos = () => {
             comida: "btnSelected"
         })
     }
-
     const selectDrink = () => {
         setData(tragos);
         setBtnSelected({
@@ -43,17 +54,14 @@ export const Productos = () => {
             bebida: "btnSelected"
         })
     }
-
     const mayor = () => {
         const newData = [...data].sort((a, b) => b.precio - a.precio);
         setData(newData);
     }
-
     const menor = () => {
         const newData = [...data].sort((a, b) => a.precio - b.precio);
         setData(newData);
     }
-
     const handleChange = (event) => {
         const selectedOption = event.target.value;
 
@@ -72,7 +80,6 @@ export const Productos = () => {
             menor();
         }
     }
-
     const handleSearch = (letters) => {
 
         let categoria;
@@ -122,8 +129,8 @@ export const Productos = () => {
                 <hr />
 
             </div>
-
             {
+                data.length > 0 &&
                 data[0]?.id ?
                     <div className='patherProducts' >
                         <div className='productosGrid' >
@@ -132,10 +139,11 @@ export const Productos = () => {
                                 data.map(producto => (
                                     <div key={producto.id} >
                                         <Card
-                                            image={producto.image}
+                                            product={producto}
+/*                                             image={burga}
                                             name={producto.name}
                                             category={producto.category}
-                                            precio={producto.precio}
+                                            precio={producto.price} */
                                         />
                                     </div>
                                 ))
@@ -143,7 +151,12 @@ export const Productos = () => {
 
                         </div>
                         <Paginado totalPages={5} />
-                    </div> : <h3 className="notFound semiLight" >{textNotFound}</h3>
+                    </div> :
+                    <div className='divNotFound' >
+                        <h3 className="notFound semiLight" >{textNotFound}</h3>
+                        <p><span className='semiLight' >-</span>Revisa la ortografía de la palabra</p>
+                        <p><span className='semiLight' >-</span>Utiliza palabras más genéricas o menos palabras </p>
+                    </div>
             }
 
 

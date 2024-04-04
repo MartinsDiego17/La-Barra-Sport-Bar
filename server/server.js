@@ -3,11 +3,11 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const { conn } = require("./db");
-const routes = require("./routes");
+const routes = require("./routes/routes");
 const cors = require("cors"); // Agrega esta línea para importar el middleware CORS
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
 // Agrega los middleware
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));

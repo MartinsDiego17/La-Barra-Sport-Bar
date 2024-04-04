@@ -1,0 +1,39 @@
+.emptyContainer {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(70, 70, 70, 0.1);
+    padding: 5%;
+    border-radius: 30px;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.emptyContainer h5 {
+    font-size: 12rem;
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    justify-content: center;
+}
+
+.emptyContainer p {
+    color: #eee;
+}
+
+.emptyContainer button {
+    padding: 14px 30px;
+    color: #eee;
+    width: 100%;
+    margin-top: 2%;
+    font-weight: 600;
+    background-color: rgba(215, 0, 0, 0.5);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.emptyContainer button:hover {
+    background-color: rgba(215, 0, 0, 1);
+}

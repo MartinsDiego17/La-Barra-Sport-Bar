@@ -1,0 +1,87 @@
+.panelAdminContainer {
+    width: 100vw;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subContainerAdmin {
+    margin: 10vh 0;
+    margin-top: 19vh;
+    width: 80vw;
+    height: fit-content;
+    border: solid 1px #eee;
+    background-color: rgb(250, 250, 250);
+    color: #333;
+    padding: 7vh 5vh;
+}
+
+.subContainerAdmin * {
+    margin: 0;
+    padding: 0;
+}
+
+.subContainerAdmin h2 {
+    font-size: 1.8rem;
+    color: #0e3b5d;
+    opacity: .8;
+    display: flex;
+    align-items: center;
+}
+
+.subContainerAdmin h2 span {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    opacity: .4;
+}
+
+.subContainerAdmin .titleAndButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subContainerAdmin .titleAndButton button {
+
+    border: none;
+    color: none;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 7px 30px;
+    cursor: pointer;
+    font-size: .8rem;
+    transition: .3s;
+    background-color: transparent;
+    border: solid 2px #333;
+    color: #333;
+}
+
+.subContainerAdmin .titleAndButton button:hover {
+    background-color: #0099ff;
+    transform: scale(.98);
+    color: #eee;
+    border-color: #0099ff;
+}
+
+.subContainerAdmin .titleAndButton button span {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.subContainerAdmin .gridItemsAdmin {
+    display: grid;
+    grid-template-columns: repeat(3,.5fr);
+    justify-content: center;
+    gap: 60px;
+    margin-top: 5vh;
+}
+
+#prueba {
+    color: white;
+    font-size: 200px;
+}

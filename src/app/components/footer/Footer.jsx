@@ -1,3 +1,5 @@
+"use client";
+
 import './footer.css';
 import { FaWhatsapp } from "react-icons/fa";
 import { LuPhone } from "react-icons/lu";
@@ -5,8 +7,14 @@ import { MdOutlineMail } from "react-icons/md";
 import { CiLocationOn } from "react-icons/ci";
 import { Logo } from '../logo/Logo';
 import Redes from './redes/Redes';
+import { usePathname } from 'next/navigation';
 
 export const Footer = () => {
+
+    const path = usePathname();
+
+    if (path.startsWith("/paneladmin")) return;
+
     return (
         <>
             <div className='footerContainer' >

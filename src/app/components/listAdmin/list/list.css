@@ -1,0 +1,65 @@
+.listContainer {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.listContainer .itemMapped {
+    background-color: #eee;
+    color: #222;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 5px 30px;
+    transition: .3s;
+    border: solid 1px transparent;
+}
+
+.listContainer div:hover {
+    background-color: #e2e2e2;
+}
+
+.listContainer div h3 {
+    font-size: 1rem;
+    padding: 0;
+    font-weight: 300;
+    color: #777;
+    margin: 0;
+}
+
+.listContainer .itemMapped {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listContainer .itemMapped img {
+    border-radius: 15px;
+}
+
+.itemMapped h3,
+.itemMapped p,
+.itemMapped .itemImg {
+    width: 33.33%;
+}
+
+.listContainer .itemImg { 
+    display: flex;
+    justify-content: end;
+    padding: 0;
+    margin: 0;
+}
+
+.itemMapped p {
+    color: #777;
+    font-weight: 100;
+    text-align: center;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
