@@ -1,10 +1,10 @@
 import CardAdmin from '../components/cardAdmin/CardAdmin';
 import './paneladmin.css';
 import { FaArrowLeft } from "react-icons/fa";
-import products from '../../app/images/adminImages/productosAdmin.jpg'
+import products from '../../app/images/adminImages/productosAdmin.webp'
 import { LuLayoutPanelLeft } from "react-icons/lu";
 import Link from 'next/link';
-import productos from '../../app/images/adminImages/productosCard.jpeg'
+import productos from '../../app/images/adminImages/productosCard.jpeg';
 
 const page = () => {
 

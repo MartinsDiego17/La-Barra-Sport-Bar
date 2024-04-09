@@ -1,14 +1,14 @@
 import './paginado.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export const Paginado = ({ totalPages }) => {
+export const Paginado = ({ totalPages, fn   }) => {
 
     const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     return (
         <div className='paginadoContainer' >
 
-            <div>
+            <div onClick={() => { fn("prev") }} >
                 <span><IoIosArrowBack /></span>
             </div>
 
@@ -20,7 +20,7 @@ export const Paginado = ({ totalPages }) => {
                 ))
             }
 
-            <div>
+            <div onClick={() => { fn("next") }} >
                 <span><IoIosArrowForward /></span>
             </div>
 

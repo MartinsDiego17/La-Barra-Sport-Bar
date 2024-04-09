@@ -1,5 +1,5 @@
     .homeContainer {
-        background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url('../../images/fondo.jpg');
+        background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url('../../images/fondo.webp');
         width: 100vw;
         height: 100vh;
         background-position: top center;

@@ -35,8 +35,36 @@
 .trash {
     transition: .2s;
     cursor: pointer;
+    opacity: 0;
+}
+
+.cardCartContainer:hover .trash {
+    opacity: 1;
 }
 
 .trash:hover {
     color: #ff5757;
+}
+
+.cardCartContainer h4:first-child {
+    width: 40%;
+}
+
+.cardCartContainer h4:nth-child(2),
+.cardCartContainer div
+{
+    text-align: center;
+    width: 20%;
+}
+
+.cardCartContainer h4:last-child {
+    text-align: right;
+}
+
+.cardCartContainer div {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -17,10 +17,10 @@
     padding: 20px;
 }
 
-.cartContainer .subtotal {
+.cartContainer article:last-child {
     color: #eee;
+    background-color: red;
     width: 27%;
-    margin-left: 1%;
     flex-direction: column;
     display: flex;
     justify-content: start;
@@ -29,11 +29,11 @@
     border-radius: 5px;
 }
 
-.cartContainer .subtotal h2 {
+.cartContainer article:last-child h2 {
     font-size: 2rem;
 }
 
-.cartContainer .subtotal p {
+.cartContainer article:last-child p {
     color: #ccc;
     margin-top: 2%;
     font-size: 1.5rem;
@@ -41,7 +41,7 @@
     font-weight: 100;
 }
 
-.cartContainer .subtotal button {
+.cartContainer article:last-child button {
     width: 70% !important;
     margin: 5% 0;
     font-size: .7rem !important;
@@ -50,7 +50,7 @@
     border: solid 1px #aaa;
 }
 
-.cartContainer .mappeds {
+.cartContainer article:first-child {
     display: flex;
     flex-direction: column;
     max-height: 65vh;
@@ -66,33 +66,6 @@
     align-items: center;
 }
 
-.cartContainer .mappeds .cardCartContainer .mappeds {
+.cartContainer .mappeds .cardCartContainer:first-child {
     margin-top: 0 !important;
-}
-
-#empty {
-    width: 100%;
-    display: flex;
-    background-color: transparent;
-    min-height: 65vh;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.mappeds::-webkit-scrollbar {
-    width: 12px;
-}
-
-.mappeds::-webkit-scrollbar-track {
-    background-color: #222;
-    border-radius: 6px;
-}
-
-.mappeds::-webkit-scrollbar-thumb {
-    background-color: #920a0a;
-    border-radius: 6px;
-}
-
-.mappeds::-webkit-scrollbar-thumb:hover {
-    background-color: #b10303;
 }

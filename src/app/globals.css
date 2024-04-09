@@ -3,7 +3,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: black;
-  background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)), url('./images/fondoBody.jpg');
+  background: linear-gradient(rgb(0 0 0 / .8), rgb(0 0 0 / .8)), url('./images/fondoBody.webp');
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center center;

@@ -1,9 +1,8 @@
-const searchFn = (data, letters) => {
-
+export const searchItems = (letters, array) => {
     letters = letters.trim();
     letters = letters.split(' ').join('');
 
-    let dataCopy = data;
+    let dataCopy = array;
 
     const finds = dataCopy.filter(
         product =>
@@ -16,5 +15,3 @@ const searchFn = (data, letters) => {
     return finds;
 
 }
-
-export default searchFn;

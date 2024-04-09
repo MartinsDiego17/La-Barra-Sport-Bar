@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import './list.css';
-import burga from '../../../images/comidas/dragon.jpg';
+import burga from '../../../images/comidas/dragon.webp';
 import { Oval } from 'react-loader-spinner';
 import Link from 'next/link';
 
@@ -45,7 +45,7 @@ const List = ({ data }) => {
             <h3>{item.name}</h3>
             <p>${item.price}{item.price === 19 && "00"}</p>
             <div className='itemImg'>
-              <Image src={burga} width={50} height={50} />
+              <Image src={item.image} width={50} height={50} />
             </div>
           </div>
         </Link >

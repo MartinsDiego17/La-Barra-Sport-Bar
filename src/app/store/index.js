@@ -21,7 +21,9 @@ export const useStoreCart = create((set) => ({
     addProducts: (product) => {
         set((state) => {
             let updatedProducts;
-            updatedProducts = [...state.productsInCart, product];
+            let updated = JSON.parse(localStorage.getItem("productsInCart"));
+            if (updated === null) updated = [];
+            updatedProducts = [...updated, product];
 
             if (typeof window !== "undefined") {
                 localStorage.setItem("productsInCart", JSON.stringify(updatedProducts));
@@ -33,22 +35,7 @@ export const useStoreCart = create((set) => ({
     chargeProducts: () => {
         const productsInStorage = localStorage.getItem("productsInCart");
         if (!productsInStorage) return [];
-
-        if (productsInStorage) {
-            try {
-                const arrProducts = JSON.parse(productsInStorage);
-                set((state) => ({
-                    productsInCart: [...state.productsInCart, ...arrProducts],
-                    error: null
-                }));
-                return arrProducts;
-            } catch (error) {
-                set({ error: error.message });
-                return [];
-            }
-        } else {
-            set({ productsInCart: [], error: null });
-        }
+        return JSON.parse(productsInStorage)
     },
 
     clearProducts: () => {
@@ -62,9 +49,12 @@ export const useStoreCart = create((set) => ({
 
     removeProduct: (id) => {
         let products = JSON.parse(localStorage.getItem('productsInCart')) || [];
-        let updatedProducts = products.filter(product => product.id !== id);
-        console.log(updatedProducts)
-        localStorage.setItem('productsInCart', JSON.stringify(updatedProducts));
+        let allById = [];
+        products.forEach(product => {
+            if (product.id === id) allById.push(product);
+        })
+        let updated = products.filter(product => product !== allById[0]);
+        localStorage.setItem('productsInCart', JSON.stringify(updated));
     }
 
 }));

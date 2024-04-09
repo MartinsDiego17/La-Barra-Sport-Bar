@@ -34,11 +34,11 @@
     color: #aaa;
     margin-top: 4%;
     margin-bottom: 0;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 .cardContainer .precio {
-    color: #eee;
+    color: #eee !important;
     font-weight: 600;
 }
 
@@ -59,22 +59,16 @@
 }
 
 .cardContainer button {
-    background-color: black;
-    color: #eee;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    border: none;
+    color: #aaa;
+    font-size: .7rem;
+    background-color: transparent;
     outline: none;
-    width: 45%;
     text-align: center;
     cursor: pointer;
     transition: .2s;
-    display: flex;
-    justify-content: center;
-}
-
-.cardContainer button:last-child {
-    padding-right: 10px;
+    border: solid 1px #aaa;
+    padding: 5px 15px;
+    border-radius: 30px;
 }
 
 .cardContainer .gestion {
@@ -82,8 +76,9 @@
 }
 
 .cardContainer button:hover {
-    background-color: #b10303;
-    border-color: #b10303;
+    background-color: #eee;
+    color: #222;
+    border-color: #eee;
 }
 
 .saberMas {

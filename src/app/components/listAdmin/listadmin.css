@@ -47,7 +47,7 @@
 }
 
 .subContainerList .buttons {
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: end;
 }
@@ -62,6 +62,15 @@
     margin-right: 2%;
     cursor: pointer;
     transition: .2s;
+}
+
+.subContainerList .buttons button:last-child {
+    background-color: #666;
+    color: #eee;
+}
+
+.subContainerList .buttons button:last-child:hover {
+    background-color: #222;
 }
 
 .subContainerList button:hover {
@@ -90,3 +99,9 @@
     margin-left: 10px;
 }
 
+
+.listAdminContainer #selected {
+    background-color: #09f;
+    color: white;
+    cursor: auto;
+}

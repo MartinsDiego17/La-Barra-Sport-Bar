@@ -11,6 +11,7 @@ const Carrito = () => {
 
     const { productsInCart, chargeProducts, clearProducts, removeProduct } = useStoreCart();
     const [localProducts, setLocalProducts] = useState([]);
+    const [overflowStyle, setOverflowStyle] = useState('hidden');
     const [cartCleared, setCartCleared] = useState(false);
 
     const empty = () => {
@@ -18,8 +19,16 @@ const Carrito = () => {
         setCartCleared(!cartCleared);
     }
 
+    useEffect(() => {
+        if (localProducts.length > 5) {
+            setOverflowStyle('scroll');
+        } else {
+            setOverflowStyle('hidden');
+        }
+    }, [localProducts.length]);
+
     const handleRemove = (id) => {
-        removeProduct(id)
+            removeProduct(id)
         setCartCleared(!cartCleared);
     }
 
@@ -51,14 +60,15 @@ const Carrito = () => {
                 localProducts.length > 0
                 &&
                 <>
-                    <article className='mappeds' >
+                    <article className='mappeds'style={{ overflowY: overflowStyle }} >
                         {
-                            localProducts.map(local => (
-                                <div key={local.id} >
+                            localProducts.map((local, index) => (
+                                <div key={local.id * index} >
                                     <CardCart
                                         id={local.id}
                                         name={local.name}
                                         price={local.price}
+                                        image={local.image}
                                         quantity={local.quantity}
                                         fn={handleRemove}
                                     />

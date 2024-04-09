@@ -4,15 +4,13 @@ import Image from 'next/image';
 import './card.css';
 import { IoMdArrowForward } from "react-icons/io";
 import Swal from 'sweetalert2';
-import burga from '../../../images/comidas/dragon.jpg';
 import { useStoreCart } from '@/app/store';
 import { addProduct } from './addProduct';
 
 export const Card = ({ product }) => {
 
   const { addProducts } = useStoreCart();
-  const { image, name, category, precio } = product;
-  const imageP = burga;
+  const { image, name, category, price } = product;
   let site;
   if (category === "comida") {
     site = 'comida';
@@ -51,16 +49,13 @@ export const Card = ({ product }) => {
     <div className='cardContainer' >
 
       <a href={`http://localhost:3000/${site}/${name}`}>
-        <Image src={imageP} width={220} height={220} alt='Hamburguesa' className='imagen' />
+        <Image src={image} width={220} height={220} alt='Hamburguesa' className='imagen' />
         <p className='nombre' >{name.toUpperCase()}</p>
       </a>
 
       <div>
-        <span className='precio' >${precio}</span>
-        <div className='gestion' >
-          <button>-</button>
-          <button onClick={handleAdd} >+</button>
-        </div>
+        <span className='precio' >${price}</span>
+        <button onClick={handleAdd} >Añadir</button>
       </div>
 
       <p className='saberMas' onClick={openModal} >Saber más<span><IoMdArrowForward /></span></p>

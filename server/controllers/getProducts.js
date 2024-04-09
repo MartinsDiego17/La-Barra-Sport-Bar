@@ -2,7 +2,7 @@ const { product } = require("../db");
 
 const getProducts = async () => {
     const products = await product.findAll();
-
+    
     const allProducts = products.map(product => {
         return {
             id: product.id,
@@ -13,7 +13,7 @@ const getProducts = async () => {
             stock: product.stock
         };
     });
-
+    
     return allProducts;
 };
 

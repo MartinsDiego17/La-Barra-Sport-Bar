@@ -19,38 +19,36 @@
     padding: 0 3vh;
     flex-direction: column;
     line-height: 1;
-    border: solid 2px black;
 }
 
 .optionsContainer div:hover {
     filter: brightness(1.1);
-    border-color: #ccc;
     transform: translateY(-10px);
 }
 
 .optionsContainer .cancha {
-    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/cancha.jpg);
+    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/cancha.webp);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 .optionsContainer .cancha:hover {
-    background:linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)) , url(../../images/cancha.jpg);
+    background: linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)), url(../../images/cancha.webp);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 .optionsContainer .bar {
-    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/bar2.jpg);
+    background: linear-gradient(rgb(0 0 0 / .7), rgb(0 0 0 / .7)), url(../../images/bar2.webp);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 .optionsContainer .bar:hover {
-    background:linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)), url(../../images/bar2.jpg) ;
+    background: linear-gradient(rgb(0 0 0 / .5), rgb(0 0 0 / .5)), url(../../images/bar2.webp);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -76,15 +74,13 @@
     background-color: transparent;
     border: none;
     outline: none;
-    border-radius: 30px;
     background-color: #ddd;
-    color: #121212;
+    color: #555;
     padding: 10px 30px;
     font-size: 1rem;
     cursor: pointer;
     transition: .3s;
     margin-top: 3%;
-    font-weight: 500;
 }
 
 .optionsContainer div button:hover {

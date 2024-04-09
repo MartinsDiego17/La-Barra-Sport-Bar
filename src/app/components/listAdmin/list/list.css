@@ -63,3 +63,7 @@
     align-items: center;
     margin-top: 5%;
 }
+
+.listContainer .itemMapped .itemImg:hover {
+    background-color: inherit;
+}

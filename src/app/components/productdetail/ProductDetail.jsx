@@ -1,14 +1,30 @@
 import './productdetail.css';
-import burga from '../../images/comidas/dragon.jpg'
+import burga from '../../images/comidas/dragon.webp'
 import Image from 'next/image';
+import { deleteProduct } from './deleteProduct';
+import Link from 'next/link';
+import { FaArrowLeft } from 'react-icons/fa';
+
+
 
 const ProductDetail = ({ product }) => {
+
+    const handleDelete = (id) => {
+        deleteProduct(id);
+    }
 
     return (
         <>
             <div className='productContainerAdmin' >
 
+
                 <div className='sonDetailProduct' >
+                    <Link href="/paneladmin/productos" >
+                        <button className='buttonBack'>
+                            <FaArrowLeft />
+                            <span>Volver</span>
+                        </button>
+                    </Link>
 
                     <section>
 
@@ -36,11 +52,11 @@ const ProductDetail = ({ product }) => {
                                 <button>Sin stock</button>
                             </div>
                             <button className='buttonsChange' >Deshacer cambios</button> <br />
-                            <button className='buttonsChange' >Eliminar producto</button>
+                            <button className='buttonsChange' onClick={() => handleDelete(product.id)}>Eliminar producto</button>
                         </article>
 
                         <article className='imageDetail'>
-                            <Image src={burga} alt={product.name} width={200} height={200} />
+                            <Image src={product.image} alt={product.name} width={200} height={200} />
                             <button>Cambiar imagen</button>
                         </article>
 

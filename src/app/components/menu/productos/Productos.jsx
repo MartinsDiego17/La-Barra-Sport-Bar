@@ -1,28 +1,29 @@
 'use client';
 
-import burga from '../../../images/comidas/dragon.jpg';
-/* import { comidas } from '@/app/comidas'; */
-import { tragos } from '@/app/tragos';
 import './productos.css';
 import { Card } from '../card/Card';
 import { Paginado } from '../paginado/Paginado';
 import { Searchbar } from '../../searchbar/Searchbar';
 import { useEffect, useState } from 'react';
 import searchFn from './search';
+import { changePage } from './paginado';
 
 export const Productos = ({ products }) => {
 
+    const [data, setData] = useState([]);
     let comidas = [];
-
+    let bebidas = [];
     if (products.length > 0) {
-        comidas = products.filter(product => product.category === "Comida");
+        comidas = products.filter(product => product.category === "Comida" || product.category === "comida");
+        bebidas = products.filter(product => product.category === "Bebida" || product.category === "bebida");
     }
 
-    const [data, setData] = useState([]);
+    const pages = Math.ceil(data.length / 12);
     const [btnSelected, setBtnSelected] = useState({
         comida: "btnSelected",
         bebida: ""
     });
+    const [currentPage, setCurrentPage] = useState(1);
     const [textNotFound, setTextNotFound] = useState("");
     useEffect(() => {
         if (btnSelected.comida.length > 1) {
@@ -32,14 +33,11 @@ export const Productos = ({ products }) => {
             setTextNotFound("No tenemos bebidas que coincidan con tu búsqueda")
         }
     }, [btnSelected])
-
     useEffect(() => {
         if (comidas.length > 0) {
             setData(comidas);
         }
     }, [products]);
-
-
     const selectFood = () => {
         setData(comidas);
         setBtnSelected({
@@ -48,7 +46,7 @@ export const Productos = ({ products }) => {
         })
     }
     const selectDrink = () => {
-        setData(tragos);
+        setData(bebidas);
         setBtnSelected({
             comida: "a",
             bebida: "btnSelected"
@@ -70,7 +68,7 @@ export const Productos = ({ products }) => {
                 setData(comidas);
                 return;
             }
-            setData(tragos);
+            setData(bebidas);
             return;
         }
 
@@ -95,12 +93,28 @@ export const Productos = ({ products }) => {
                 setData(comidas);
                 return;
             }
-            setData(tragos);
+            setData(bebidas);
             return;
         };
-        setData(searchFn(categoria, letters))
+        setData(searchFn(data, letters))
         return data;
     }
+    const handlePage = (oper) => {
+
+        const prev = currentPage - 1;
+        const next = currentPage + 1;
+
+        if (oper === "prev" && currentPage > 1) {
+            setData(changePage(data, prev))
+            setCurrentPage(prev);
+            return;
+        } else if (oper === "next" && currentPage !== pages) {
+            setData(changePage(data, next));
+            setCurrentPage(next);
+        }
+    }
+
+    let dataRender = data.slice(0, 13);
 
     return (
         <>
@@ -123,7 +137,7 @@ export const Productos = ({ products }) => {
                         </select>
                     </div>
                     <div className='elementsMenu' >
-                        <Searchbar fn={handleSearch} />
+                        <Searchbar fn={handleSearch} change={btnSelected} />
                     </div>
                 </div>
                 <hr />
@@ -131,27 +145,24 @@ export const Productos = ({ products }) => {
             </div>
             {
                 data.length > 0 &&
-                data[0]?.id ?
+                    data[0]?.id ?
                     <div className='patherProducts' >
                         <div className='productosGrid' >
 
                             {
-                                data.map(producto => (
+                                dataRender.map(producto => (
+                                    producto.stock &&
                                     <div key={producto.id} >
                                         <Card
                                             product={producto}
-/*                                             image={burga}
-                                            name={producto.name}
-                                            category={producto.category}
-                                            precio={producto.price} */
                                         />
                                     </div>
                                 ))
                             }
 
                         </div>
-                        <Paginado totalPages={5} />
-                    </div> :
+                        <Paginado totalPages={pages} fn={handlePage} />
+                    </div > :
                     <div className='divNotFound' >
                         <h3 className="notFound semiLight" >{textNotFound}</h3>
                         <p><span className='semiLight' >-</span>Revisa la ortografía de la palabra</p>

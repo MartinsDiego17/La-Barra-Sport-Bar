@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import './nosotros.css';
-import bar from '../../images/bar.jpg';
-import drink from '../../images/bar2.jpg';
+import bar from '../../images/bar.webp';
+import drink from '../../images/bar2.webp';
 import { FaInstagram } from "react-icons/fa";
 import { TiSocialFacebook } from "react-icons/ti";
 import Redes from '../footer/redes/Redes';
