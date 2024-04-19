@@ -1,5 +1,4 @@
 import './productdetail.css';
-import burga from '../../images/comidas/dragon.webp'
 import Image from 'next/image';
 import { deleteProduct } from './deleteProduct';
 import Link from 'next/link';
@@ -12,6 +11,7 @@ const ProductDetail = ({ product }) => {
     const handleDelete = (id) => {
         deleteProduct(id);
     }
+
 
     return (
         <>

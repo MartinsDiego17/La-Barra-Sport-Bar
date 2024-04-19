@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
+import { isAdmin } from '../paneladmin/fetchUsers';
 
 export const useStoreProducts = create((set) => ({
     allProducts: [],
@@ -35,7 +36,8 @@ export const useStoreCart = create((set) => ({
     chargeProducts: () => {
         const productsInStorage = localStorage.getItem("productsInCart");
         if (!productsInStorage) return [];
-        return JSON.parse(productsInStorage)
+        const parsedProducts = JSON.parse(productsInStorage);
+        return parsedProducts;
     },
 
     clearProducts: () => {
@@ -57,4 +59,31 @@ export const useStoreCart = create((set) => ({
         localStorage.setItem('productsInCart', JSON.stringify(updated));
     }
 
+}));
+
+export const useStoreAdmin = create((set) => ({
+    isAdmin: false,
+
+    checkAdmin: async (user) => {
+        const data = await user?.user?.getOrganizationMemberships();
+        if (data.length == 0) {
+            return false;
+        }
+        return true;
+    },
+
+    checkAdmin: async (user) => {
+
+        const data = await user?.user?.getOrganizationMemberships();
+        if(data.length == 0) {
+            set((state) => ({
+                isAdmin: state.isAdmin = false
+            }));
+            return false;
+        }
+        set((state) => ({
+            isAdmin: state.isAdmin = true
+        }));
+        return true;
+    },
 }));

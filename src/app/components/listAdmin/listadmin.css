@@ -23,6 +23,12 @@
     font-size: 2rem;
 }
 
+.subContainerList section article:first-child h1 {
+    display: flex;
+    justify-content: start;
+    align-items: center ;
+}
+
 .subContainerList section article:last-child {
     display: flex;
     justify-content: space-between;
@@ -104,4 +110,11 @@
     background-color: #09f;
     color: white;
     cursor: auto;
+}
+
+.quantityItems {
+    color: #999;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-left: 1%;
 }

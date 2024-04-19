@@ -3,16 +3,51 @@
 import Link from 'next/link';
 import './navbar.css';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { FaUser } from 'react-icons/fa';
+import { useStoreAdmin, useStoreCart } from '@/app/store';
 
 export const NavBar = () => {
 
     const user = useUser();
+    const [admin, setAdmin] = useState();
+    const { checkAdmin } = useStoreAdmin();
     const isLogin = user?.isSignedIn;
+    const [length, setLength] = useState(0);
+
+    const { chargeProducts, addProducts, clearProducts, removeProduct } = useStoreCart();
+
+    useEffect(() => {
+        setLength(chargeProducts().length);
+    }, [chargeProducts, addProducts, clearProducts, removeProduct])
+
 
     const path = usePathname();
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        const checkAdminStatus = async () => {
+            if(!user.user) return;
+            try {
+                const isAdminUser = await checkAdmin(user);
+                setAdmin(isAdminUser);
+            } catch (error) {
+                console.error("Error al verificar el estado de administrador:", error);
+            }
+        };
+
+        checkAdminStatus();
+
+    }, [user]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+    }, [setLoading])
+
     const [liSelect, setLiSelect] = useState({
         inicio: "",
         menu: "",
@@ -24,21 +59,21 @@ export const NavBar = () => {
         setLiSelect({
             inicio: "activate"
         })
-        if(path === "/") return;
+        if (path === "/") return;
         window.location.href = "/";
     }
     const reservasFn = () => {
         setLiSelect({
             reservas: "activate"
         })
-        if(path === "/") return;
+        if (path === "/") return;
         window.location.href = "/";
     }
     const contactoFn = () => {
         setLiSelect({
             contacto: "activate"
         })
-        if(path === "/") return;
+        if (path === "/") return;
         window.location.href = "/";
     }
     const menuFn = () => {
@@ -47,11 +82,11 @@ export const NavBar = () => {
             top: 1500,
             behavior: 'smooth'
         });
-        
+
         setLiSelect({
             menu: "activate"
         })
-        if(path === "/") return;
+        if (path === "/") return;
         window.location.href = "/";
 
     }
@@ -61,31 +96,33 @@ export const NavBar = () => {
 
     const renderNavbar = () => {
         if (path.startsWith("/paneladmin")) {
-            return (
-                <nav className='navbarAdmin'>
-                    <section>
+            if (admin) {
+                return (
+                    <nav className='navbarAdmin'>
+                        <section>
 
-                        <article>
-                            <ul>
-                                <li>Productos</li>
-                                <li>Usuarios</li>
-                            </ul>
-                        </article>
+                            <article>
+                                <ul>
+                                    <li>Productos</li>
+                                    <li>Usuarios</li>
+                                </ul>
+                            </article>
 
-                        <article>
-                            <h1><Link href="/" >La Barra</Link></h1>
-                        </article>
+                            <article>
+                                <h1><Link href="/" >La Barra</Link></h1>
+                            </article>
 
-                        <article>
-                            <ul>
-                                <li>Ventas</li>
-                                <li>Reservas</li>
-                            </ul>
-                        </article>
+                            <article>
+                                <ul>
+                                    <li>Ventas</li>
+                                    <li>Reservas</li>
+                                </ul>
+                            </article>
 
-                    </section>
-                </nav>
-            );
+                        </section>
+                    </nav>
+                );
+            }
         } else {
             return (
                 <nav className='navContainer'>
@@ -126,7 +163,7 @@ export const NavBar = () => {
                                 </a>
                             )
                         }
-                        <li onClick={goCart}>Mi carrito</li>
+                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({length})</span></li>
                     </ul>
                 </nav>
             );

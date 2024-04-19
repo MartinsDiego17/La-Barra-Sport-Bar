@@ -28,7 +28,7 @@ const Carrito = () => {
     }, [localProducts.length]);
 
     const handleRemove = (id) => {
-            removeProduct(id)
+        removeProduct(id)
         setCartCleared(!cartCleared);
     }
 
@@ -60,7 +60,7 @@ const Carrito = () => {
                 localProducts.length > 0
                 &&
                 <>
-                    <article className='mappeds'style={{ overflowY: overflowStyle }} >
+                    <article className='mappeds' style={{ overflowY: overflowStyle }} >
                         {
                             localProducts.map((local, index) => (
                                 <div key={local.id * index} >

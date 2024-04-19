@@ -5,10 +5,10 @@ import { Nosotros } from "./components/nosotros/Nosotros"
 import { Contacto } from "./components/contacto/Contacto"
 import ParticlesWall from "./components/particulas/ParticlesWall"
 import Options from "./components/options/Options"
-import { useStoreProducts } from "./store"
+import { useStoreProducts, useStoreAdmin } from "./store"
 import { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
 
-import { Clerk } from '@clerk/clerk-sdk-node';
 
 export default function Home() {
 

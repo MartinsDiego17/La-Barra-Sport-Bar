@@ -1,32 +1,43 @@
 .paginadoContainer {
-    display: flex;
+    margin-top: 1vh;
     justify-content: center;
+    display: flex;
 }
 
-.paginadoContainer div {
-    border-radius: 10px;
+.paginadoContainer button {
+    padding: 1.3vh 1.2vh;
     background-color: #222;
-    color: #eee;
-    padding: 1vh 1.2vh;
-    width: 2%;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    margin: 0 .5vh;
-    margin-top: 3vh;
+    margin: 0 .2%;
+    width: 3.2%;
+    border: none;
     cursor: pointer;
-    transition: .2s;
+    transition: .3s;
+    color: #eee;
+    border-radius: 10px;
+    font-size: 1rem;
 }
 
-.paginadoContainer div:first-child span,
-.paginadoContainer div:last-child span {
+.paginadoContainer button a {
+    text-decoration: none;
+    align-items: center;
     color: #aaa;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
-.paginadoContainer div:hover {
+.paginadoContainer button:hover {
     background-color: #333;
+}
+
+.paginadoContainer button[disabled] {
+    cursor: auto;
+    opacity: .5;
+}
+
+.paginadoContainer button[disabled] a {
+    cursor: auto;
+}
+
+.paginadoContainer button[disabled] {
+    background-color: #222;
 }

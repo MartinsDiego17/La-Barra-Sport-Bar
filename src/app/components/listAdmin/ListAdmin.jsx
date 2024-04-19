@@ -81,7 +81,7 @@ const ListAdmin = ({ title, options, arr }) => {
 
                     <section>
                         <article>
-                            <h1>{title}</h1>
+                            <h1>{title} <span className='quantityItems' >({arr.length})</span></h1>
                         </article>
 
                         <article>

@@ -214,7 +214,7 @@
     outline: none;
     cursor: pointer;
     transition: .3s;
-    border-radius: 30px;
+    border-radius: 5px;
 }
 
 .divConfirmButton button:hover {

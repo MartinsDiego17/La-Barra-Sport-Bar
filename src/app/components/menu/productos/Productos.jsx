@@ -11,6 +11,18 @@ import { changePage } from './paginado';
 export const Productos = ({ products }) => {
 
     const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [textNotFound, setTextNotFound] = useState("");
+    const [btnSelected, setBtnSelected] = useState({
+        comida: "btnSelected",
+        bebida: ""
+    });
+    const [pages, setPages] = useState(Math.ceil(products.length / 12));
+    const [disabled, setDisabled] = useState({
+        dsf: true,
+        dsl: false
+    })
+
     let comidas = [];
     let bebidas = [];
     if (products.length > 0) {
@@ -18,13 +30,6 @@ export const Productos = ({ products }) => {
         bebidas = products.filter(product => product.category === "Bebida" || product.category === "bebida");
     }
 
-    const pages = Math.ceil(data.length / 12);
-    const [btnSelected, setBtnSelected] = useState({
-        comida: "btnSelected",
-        bebida: ""
-    });
-    const [currentPage, setCurrentPage] = useState(1);
-    const [textNotFound, setTextNotFound] = useState("");
     useEffect(() => {
         if (btnSelected.comida.length > 1) {
             setTextNotFound("No tenemos comidas que coincidan con tu búsqueda");
@@ -38,19 +43,42 @@ export const Productos = ({ products }) => {
             setData(comidas);
         }
     }, [products]);
+    useEffect(() => {
+        setPages(Math.ceil(data.length / 12));
+    }, [products]);
+    useEffect(() => {
+        const category = data[0]?.category;
+        let arr = products.filter(product => product.category === category);
+        setPages(Math.ceil(arr.length / 12));
+    }, [data]);
+
     const selectFood = () => {
+        setCurrentPage(1);
         setData(comidas);
         setBtnSelected({
             bebida: "a",
             comida: "btnSelected"
         })
+        if (comidas.length < 12) {
+            setDisabled({
+                dsf: true,
+                dsl: true
+            })
+        }
     }
     const selectDrink = () => {
+        setCurrentPage(1);
         setData(bebidas);
         setBtnSelected({
             comida: "a",
             bebida: "btnSelected"
         })
+        if (bebidas.length < 12) {
+            setDisabled({
+                dsf: true,
+                dsl: true
+            })
+        }
     }
     const mayor = () => {
         const newData = [...data].sort((a, b) => b.precio - a.precio);
@@ -104,14 +132,30 @@ export const Productos = ({ products }) => {
         const prev = currentPage - 1;
         const next = currentPage + 1;
 
+        const category = data[0].category;
+        let arr = products.filter(product => product.category === category);
+
         if (oper === "prev" && currentPage > 1) {
-            setData(changePage(data, prev))
+            setData(changePage(arr, prev))
+            if (currentPage === 2) {
+                setDisabled({
+                    dsf: true,
+                    dsl: false
+                })
+            }
             setCurrentPage(prev);
             return;
         } else if (oper === "next" && currentPage !== pages) {
-            setData(changePage(data, next));
+            setData(changePage(arr, next));
+            if (next === pages) {
+                setDisabled({
+                    dsf: false,
+                    dsl: true
+                })
+            }
             setCurrentPage(next);
         }
+
     }
 
     let dataRender = data.slice(0, 13);
@@ -122,7 +166,7 @@ export const Productos = ({ products }) => {
 
                 <div >
                     <div className='optionsMenu' >
-                        <h1 className='elementsMenu' >MENÚ</h1>
+                        <h1 className='elementsMenu' id='MENU' >MENÚ</h1>
                         <div>
                             <button onClick={selectFood} id={btnSelected.comida} >Comidas</button>
                             <button onClick={selectDrink} id={btnSelected.bebida} >Bebidas</button>
@@ -159,9 +203,13 @@ export const Productos = ({ products }) => {
                                     </div>
                                 ))
                             }
-
                         </div>
-                        <Paginado totalPages={pages} fn={handlePage} />
+                        <Paginado
+                            totalPages={pages}
+                            fn={handlePage}
+                            dsf={disabled.dsf}
+                            dsl={disabled.dsl}
+                        />
                     </div > :
                     <div className='divNotFound' >
                         <h3 className="notFound semiLight" >{textNotFound}</h3>

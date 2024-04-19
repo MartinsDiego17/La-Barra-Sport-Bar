@@ -46,7 +46,7 @@ export const Card = ({ product }) => {
   }
 
   return (
-    <div className='cardContainer' >
+    <div className='cardContainer'>
 
       <a href={`http://localhost:3000/${site}/${name}`}>
         <Image src={image} width={220} height={220} alt='Hamburguesa' className='imagen' />

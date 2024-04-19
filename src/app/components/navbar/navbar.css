@@ -189,8 +189,9 @@
         border-color: #ddd;
     }
 }
- .activate {
-        color: #eee !important;
+
+.activate {
+    color: #eee !important;
 }
 
 .linkUserNav {
@@ -204,4 +205,20 @@
     color: white;
     display: flex;
     align-items: center;
+}
+
+.quantityProducts {
+    opacity: .5;
+}
+
+.userAndCart li:last-child,
+.userAndCart li:last-child * {
+    margin: 0;
+    padding: 0;
+}
+
+.userAndCart li:last-child {
+    padding: 5px 20px;
+    padding-right: 19px;
+    width: fit-content !important;
 }

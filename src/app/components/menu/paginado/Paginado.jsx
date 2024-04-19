@@ -1,28 +1,34 @@
 import './paginado.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export const Paginado = ({ totalPages, fn   }) => {
+export const Paginado = ({ totalPages, fn, dsf, dsl }) => {
 
     const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
 
     return (
-        <div className='paginadoContainer' >
+        <div className='paginadoContainer' id='paginadoID' >
 
-            <div onClick={() => { fn("prev") }} >
-                <span><IoIosArrowBack /></span>
-            </div>
+            <button disabled={dsf} onClick={() => { fn("prev") }} >
+                <div>
+                    <a  ><IoIosArrowBack /></a>
+                </div>
+            </button>
 
             {
                 pages.map((page, index) => (
-                    <div key={index}>
-                        <span>{index + 1}</span>
-                    </div>
+                    <button key={index} >
+                        <div key={index}>
+                            {index + 1}
+                        </div>
+                    </button>
                 ))
             }
 
-            <div onClick={() => { fn("next") }} >
-                <span><IoIosArrowForward /></span>
-            </div>
+            <button disabled={dsl} onClick={() => { fn("next") }} >
+                <div>
+                    <a> <IoIosArrowForward /></a>
+                </div>
+            </button>
 
         </div>
     )

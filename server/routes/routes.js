@@ -10,5 +10,6 @@ router.get('/getProducts', handlerGetProducts);
 router.get('/getProducts/:name', handlerGetByName);
 router.post('/product', handlerCreateProduct);
 router.delete('/product/delete/:id', handlerDeleteProduct);
+router.update('/product/update/:id');
 
 module.exports = router;

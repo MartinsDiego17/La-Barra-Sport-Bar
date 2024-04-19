@@ -1,5 +1,7 @@
 export const changePage = (arr, page) => {
     
+    console.log(arr)
+
     const totalRender = page * 12;
     const prevRender = totalRender - 12;
 

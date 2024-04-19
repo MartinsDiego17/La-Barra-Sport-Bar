@@ -125,7 +125,8 @@ const FormCreate = () => {
         }
         if (
             newProductErrors.length > 1 ||
-            newProduct.image === test
+            newProduct.image === test ||
+            newProduct.price < 1
         ) return true;
     }
     const handleFileChange = (e) => {
@@ -143,12 +144,24 @@ const FormCreate = () => {
         }
     }
     const handleSubmit = () => {
+
+        const checkExistent = async () => {
+            const checked = await createProduct(newProduct);
+            if (!checked) return true;
+        }
+
+        if (checkExistent()) return;
+
         setNewProduct({
             image: test,
             name: "Nombre",
             category: "",
             price: "00",
             stock: true
+        })
+        setBtnSelected({
+            comida: "",
+            bebida: ""
         })
         createProduct(newProduct)
     }
@@ -196,7 +209,7 @@ const FormCreate = () => {
                         <article className='imageDetail'>
                             <Image src={newProduct.image} alt={"image"} width={200} height={200} />
                             <form action="">
-                                <input type="file" name='archivo' id='file' onChange={handleFileChange} />
+                                <input type="file" name='archivo' accept="image/*" id='file' onChange={handleFileChange} />
                                 <input onClick={() => { document.getElementById('file').click() }} type="button" value={"Subir archivo"} id='cargarImg' />
                             </form>
                         </article>

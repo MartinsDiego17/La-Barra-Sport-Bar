@@ -8,7 +8,7 @@
 
 .subContainerAdmin {
     margin: 10vh 0;
-    margin-top: 19vh;
+    margin-top: 0;
     width: 80vw;
     height: fit-content;
     border: solid 1px #eee;
@@ -75,7 +75,7 @@
 
 .subContainerAdmin .gridItemsAdmin {
     display: grid;
-    grid-template-columns: repeat(3,.5fr);
+    grid-template-columns: repeat(3, .5fr);
     justify-content: center;
     gap: 60px;
     margin-top: 5vh;
@@ -84,4 +84,43 @@
 #prueba {
     color: white;
     font-size: 200px;
+}
+
+.usernameAdmin {
+    text-align: center;
+    color: #aaa;
+    font-size: 100;
+}
+
+.patherAdmin {
+    min-height: 100vh;
+    background-color: rgb(245, 245, 245);
+    padding-top: 10%;
+}
+
+.patherAdmin .userData {
+    width: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #ddd;
+    padding: 10px 30px;
+    border-radius: 30px;
+    color: #555;
+    transition: .2s;
+    margin-bottom: 15vh;
+    box-shadow: 0px 0px 150px rgb(0, 75, 124);
+    border: solid 1px #ccc;
+}
+
+.patherAdmin .userData:hover {
+    background-color: #ccc;
+    box-shadow: 0px 0px 120px #09f;
+    color: #222;
+    border-color: transparent;
+}
+
+.patherAdmin .userData img {
+    border-radius: 50%;
 }

@@ -29,7 +29,6 @@ export const deleteProduct = async (id) => {
             }, 2000);
             return data;
         } catch (error) {
-            console.log('hola')
             return { error: error.message }
         }
     });

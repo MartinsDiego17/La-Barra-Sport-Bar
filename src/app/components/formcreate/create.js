@@ -4,7 +4,20 @@ import Swal from 'sweetalert2';
 export const createProduct = async (product) => {
     product.price = Number(product.price);
 
-    //VALIDACIONES
+    try {
+        const { data } = await axios("http://localhost:3002/getProducts");
+        const existingProduct = data.find(producto => producto.name.toUpperCase() === product.name.toUpperCase());
+
+        if (existingProduct) {
+            Swal.fire("Ya hay productos con ese nombre.");
+            return false;  
+        }
+    } catch (error) {
+        console.log({ error: error.message });
+        return;
+    }
+
+
     {
         if (product.name === "Nombre") {
             Swal.fire("Debes ponerle otro nombre al producto.");
@@ -31,13 +44,13 @@ export const createProduct = async (product) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Ir a lista de productos",
             cancelButtonText: "Crear otro producto"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = "/paneladmin/productos"
                 return data;
             }
             window.location.reload()
-          });
+        });
         return data;
     } catch (error) {
         console.log("Error: ", error.message);

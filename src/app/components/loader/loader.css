@@ -1,0 +1,11 @@
+.loadingContainer {
+    position: sticky !important;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    border-color: white;
+    display: flex;
+    justify-content: center;
+    z-index: 50;
+    align-items: center;
+}
