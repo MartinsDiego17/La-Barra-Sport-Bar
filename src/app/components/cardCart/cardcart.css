@@ -1,9 +1,8 @@
 .cardCartContainer {
-    width: 90%;
+    width: 65%;
     background-color: rgba(70, 70, 70, 0.5);
     color: #ccc;
     margin: 1% 0;
-    margin-right: 10%;
     padding: 1.3vh 2.6vh;
     border-radius: 30px;
     border: solid 1px transparent;
@@ -51,8 +50,7 @@
 }
 
 .cardCartContainer h4:nth-child(2),
-.cardCartContainer div
-{
+.cardCartContainer div {
     text-align: center;
     width: 20%;
 }
@@ -67,4 +65,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.patherCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.patherCard p {
+    color: #ccc;
+    font-size: 12px;
+    padding: 1.3vh 2.6vh;
+    margin-left: 2%;
+    background-color: rgba(70, 70, 70, 0.2);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+    width: 18%;
+    text-align: center;
+}
+
+.patherCard p:hover {
+    background-color: rgba(70, 70, 70, 0.5);
+    color: #eee;
 }

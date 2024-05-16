@@ -16,12 +16,7 @@ export const NavBar = () => {
     const isLogin = user?.isSignedIn;
     const [length, setLength] = useState(0);
 
-    const { chargeProducts, addProducts, clearProducts, removeProduct } = useStoreCart();
-
-    useEffect(() => {
-        setLength(chargeProducts().length);
-    }, [chargeProducts, addProducts, clearProducts, removeProduct])
-
+    const { chargeProducts } = useStoreCart();
 
     const path = usePathname();
     const [loading, setLoading] = useState(true);
@@ -29,7 +24,7 @@ export const NavBar = () => {
     useEffect(() => {
 
         const checkAdminStatus = async () => {
-            if(!user.user) return;
+            if (!user.user) return;
             try {
                 const isAdminUser = await checkAdmin(user);
                 setAdmin(isAdminUser);
@@ -163,7 +158,7 @@ export const NavBar = () => {
                                 </a>
                             )
                         }
-                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({length})</span></li>
+                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({chargeProducts().length})</span></li>
                     </ul>
                 </nav>
             );

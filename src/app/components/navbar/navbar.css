@@ -218,7 +218,7 @@
 }
 
 .userAndCart li:last-child {
-    padding: 5px 20px;
-    padding-right: 19px;
-    width: fit-content !important;
+    padding: 6px 15px;
+    width: 10vw;
+    text-align: center;
 }

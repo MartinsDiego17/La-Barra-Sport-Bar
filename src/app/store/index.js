@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { isAdmin } from '../paneladmin/fetchUsers';
+import Swal from 'sweetalert2';
 
 export const useStoreProducts = create((set) => ({
     allProducts: [],
@@ -8,7 +9,6 @@ export const useStoreProducts = create((set) => ({
     getAllProducts: async () => {
         try {
             const { data } = await axios.get("http://localhost:3002/getProducts");
-            set({ allProducts: data });
             return data;
         } catch (error) {
             throw new Error("Ha ocurrido un error en la solicitud de los productos");
@@ -21,16 +21,50 @@ export const useStoreCart = create((set) => ({
 
     addProducts: (product) => {
         set((state) => {
-            let updatedProducts;
+
+            let text;
+
             let updated = JSON.parse(localStorage.getItem("productsInCart"));
             if (updated === null) updated = [];
-            updatedProducts = [...updated, product];
+
+            if (product instanceof Array) {
+                product.forEach(producto => {
+                    producto.comentario = "";
+                    updated.push(producto);
+                })
+                text = "Productos agregados al carrito";
+            }
+
+            else {
+                product.comentario = "";
+                updated.push(product);
+                text = "Producto agregado al carrito";
+            }
 
             if (typeof window !== "undefined") {
-                localStorage.setItem("productsInCart", JSON.stringify(updatedProducts));
+                localStorage.setItem("productsInCart", JSON.stringify(updated));
             }
-            return { productsInCart: updatedProducts };
+
+            set((state) => ({
+                productsInCart: state.productsInCart = updated,
+            }));
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: text,
+                showConfirmButton: false,
+                timer: 1500
+            });
+
+            return updated;
         });
+    },
+
+    addComent: (index, coment) => {
+        let products = JSON.parse(localStorage.getItem('productsInCart')) || [];
+        let product = products[index];
+        product.comentario = coment;
+        localStorage.setItem('productsInCart', JSON.stringify(products));
     },
 
     chargeProducts: () => {
@@ -75,7 +109,7 @@ export const useStoreAdmin = create((set) => ({
     checkAdmin: async (user) => {
 
         const data = await user?.user?.getOrganizationMemberships();
-        if(data.length == 0) {
+        if (data.length == 0) {
             set((state) => ({
                 isAdmin: state.isAdmin = false
             }));

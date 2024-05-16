@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { updateProduct } from './update';
 import Swal from 'sweetalert2';
 import { createProduct } from './create';
+import ButtonBack from '../buttonback/ButtonBack';
 
 const FormCreate = () => {
 
@@ -171,6 +172,8 @@ const FormCreate = () => {
             <div className='productContainerAdmin' >
 
                 <div className='sonDetailProduct' >
+
+                    <ButtonBack route={"/paneladmin/productos"} />
 
                     <section>
 

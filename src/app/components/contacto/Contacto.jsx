@@ -8,7 +8,7 @@ export const Contacto = () => {
                 ¿TE QUEDASTE CON DUDAS O INQUIETUDES? <br />
                 <span className='semiLight' >NO DUDES EN CONTACTARNOS</span>
             </h1>
-            <Button text={"ENVIAR MENSAJE"} />
+            <a href='https://wa.me/543417506932' target='_blank' ><Button text={"ENVIAR MENSAJE"} /></a>
         </div>
     )
 }

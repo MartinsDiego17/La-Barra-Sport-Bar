@@ -2,9 +2,8 @@ import axios from "axios"
 import Swal from "sweetalert2"
 
 export const deleteProduct = async (id) => {
-
     Swal.fire({
-        title: "¿Estás seguro de eliminar el producto?",
+        title: "¿Estás seguro de que deseas eliminar el producto?",
         text: "No podrás deshacer esta acción",
         showCancelButton: true,
         cancelButtonText: "Cancelar",
@@ -32,7 +31,4 @@ export const deleteProduct = async (id) => {
             return { error: error.message }
         }
     });
-
-
-
 }

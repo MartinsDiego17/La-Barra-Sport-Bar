@@ -19,8 +19,8 @@ export const Card = ({ product }) => {
   }
   const openModal = () => {
     Swal.fire({
-      title: "Custom animation with Animate.css",
-      imageUrl: image.src,
+      title: name,
+      imageUrl: image,
       imageWidth: 300,
       imageHeight: 300,
       imageAlt: name,

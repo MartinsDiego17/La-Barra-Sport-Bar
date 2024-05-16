@@ -4,7 +4,9 @@ export const Button = ({ text, fn }) => {
 
   const handleFn = () => {
     if (!fn || fn === undefined) {
-      fn = "Botón sin función."
+      fn = () => {
+        
+      }
       return;
     }
     fn();

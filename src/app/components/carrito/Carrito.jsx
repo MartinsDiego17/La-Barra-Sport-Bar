@@ -30,6 +30,7 @@ const Carrito = () => {
     const handleRemove = (id) => {
         removeProduct(id)
         setCartCleared(!cartCleared);
+        chargeProducts();
     }
 
     useEffect(() => {
@@ -71,6 +72,8 @@ const Carrito = () => {
                                         image={local.image}
                                         quantity={local.quantity}
                                         fn={handleRemove}
+                                        comentario={local.comentario}
+                                        index={index}
                                     />
                                 </div>
                             ))

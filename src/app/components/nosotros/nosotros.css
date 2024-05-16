@@ -69,3 +69,13 @@
 .redes a h4 {
     margin: 0 2vh;
 }
+
+.info a {
+    text-decoration: none;
+    color: #ff9494;
+    border-bottom: 1px solid transparent;
+}
+
+.info a:hover {
+    border-color: #ff9494;
+}

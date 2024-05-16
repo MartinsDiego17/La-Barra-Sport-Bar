@@ -1,22 +1,40 @@
-import { comidas } from '@/app/comidas';
+"use client";
 import Product from '@/app/components/product/Product';
 import Relacionado from '@/app/components/relacionado/Relacionado';
+import { useEffect, useState } from 'react';
+import Loader from '@/app/components/loader/Loader';
+import { useStoreProducts } from '@/app/store';
 
 const comidaPage = ({ params }) => {
 
-    const name = decodeURIComponent(params.name);
-    let comida = comidas.find(comida => comida.name === name);
-    let product;
+    const [allProducts, setAllProducts] = useState([]);
+    const { getAllProducts } = useStoreProducts();
+    const [product, setProduct] = useState({});
 
-    if (comida.id) {
-        product = comida;
-    }
+    useEffect(() => {
+        const name = decodeURIComponent(params.name);
+        const fetchData = async () => {
+            try {
+                const products = await getAllProducts();
+                let producto = products.find(comida => comida.name === name);
+                setProduct(producto);
+                setAllProducts(products)
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
 
-    const relacionados = [comidas[0], comidas[1], comidas[2], comidas[3]]
+        fetchData();
+    }, [getAllProducts]);
 
+    const allFoods = allProducts.filter(producto => producto.category === "comida");
+    const relacionados = [allFoods[0], allFoods[1], allFoods[2], allFoods[3]]
+
+
+    if (allProducts.length < 1 || !product.image || !relacionados[0].id) return <Loader />
     return (
         <div className='patherContainer' >
-            <Product product={comida} />
+            <Product product={product} />
             <Relacionado relacionados={relacionados} />
         </div>
     );

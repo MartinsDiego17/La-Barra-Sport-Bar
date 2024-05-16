@@ -4,7 +4,9 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    align-items: center;
+    align-items: top;
+    min-height: 180vh;
+    max-height: 180vh;
     gap: 55px;
 }
 
@@ -60,4 +62,14 @@
 
 .divNotFound p span {
     margin-right: 1vh;
+}
+
+
+#selectOrder {
+    background-color: #ddd;
+}
+
+#selectOrder option {
+    color: black;
+    background-color: white;
 }

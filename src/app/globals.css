@@ -37,3 +37,20 @@ a {
 .patherContainer {
   background-color: black;
 }
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #222;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #920a0a;
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #b10303;
+}

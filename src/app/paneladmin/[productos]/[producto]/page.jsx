@@ -22,10 +22,12 @@ const productPage = ({ params }) => {
     fetchData();
   }, [getProduct]);
 
-
-  return (
+  if (product?.name?.length > 1) {
+    return (
       <ProductDetail product={product} />
-  );
+    );
+  }
+
 };
 
 export default productPage;

@@ -1,0 +1,198 @@
+.payContainer {
+    background-color: #eee;
+    width: 80%;
+    height: 80vh;
+    margin: 10% auto;
+    margin-top: 7%;
+    border-radius: 5px;
+}
+
+.noProducts {
+    background-color: #eee;
+    width: 80%;
+    height: 80vh;
+    margin: 10% auto;
+    margin-top: 7%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.noProducts button {
+    width: 30%;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background-color: white;
+    border: transparent;
+    box-shadow: 0px 0px 50px #ddd;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+    color: #555;
+}
+
+.noProducts button:hover {
+    box-shadow: 0px 0px 50px #ccc;
+}
+
+.noProducts h1 {
+    color: #aaa;
+    font-size: 2rem;
+}
+
+.payContainer * {
+    padding: 0;
+    margin: 0;
+}
+
+.payContainer section {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 8%;
+    padding-left: 8%;
+}
+
+.payContainer section article {
+    width: 45%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.payContainer section article h3 {
+    font-weight: 100;
+    padding-top: 10vh;
+    padding-bottom: 3%;
+    color: #333;
+    width: 90%;
+    border-bottom: 1px solid #ddd;
+}
+
+.payContainer section article .metods {
+    padding-top: 3vh;
+}
+
+.payContainer .optionsPay div:first-child {
+    margin-top: 3vh;
+}
+
+.payContainer .optionsPay div {
+    background-color: white;
+    margin: 1.5vh 0;
+    border-radius: 6px;
+    border: solid 1px transparent;
+    box-shadow: 0px 0px 50px #eee;
+    width: 90%;
+    height: 5%;
+    padding: 8% 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s;
+    font-weight: 100;
+    color: #555;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.payContainer .optionsPay div:hover {
+    box-shadow: 0px 0px 50px #ccc;
+}
+
+.payContainer .optionsPay div p {
+    font-size: 12px;
+    transition: .2s;
+    color: #aaa;
+    border-bottom: solid 1px transparent;
+}
+
+.payContainer .optionsPay div p:hover {
+    color: #333;
+    border-color: #999;
+}
+
+.optionsPay ul {
+    display: flex;
+    width: 100%;
+    margin-top: 3vh;
+    align-items: center;
+    list-style-type: none;
+}
+
+.optionsPay ul li {
+    margin: 0 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.optionsPay ul li:first-child {
+    margin-left: 0;
+}
+
+.optionsPay ul h4 {
+    font-weight: 100;
+    border: solid 1px #ccc;
+    color: #888;
+    padding: 2px 10px;
+}
+
+.payContainer .resumePay {
+    display: flex;
+    align-items: flex-end;
+}
+
+.payContainer .resumePay h5 {
+    color: #888;
+    padding: 2vh 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 100;
+    width: 90%;
+    border-bottom: 1px solid #ddd;
+}
+
+.payContainer h3 .time {
+    font-size: 12px;
+}
+
+.payContainer .timeTarget {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payContainer .buttonResume {
+    width: 90%;
+    margin-top: 12%;
+    padding: 13px 0;
+    background-color: #b10303;
+    border: none;
+    outline: none;
+    color: #eee;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.payContainer .buttonResume:hover {
+    background-color: #d70000;
+}
+
+.payContainer .optionsPay #selected {
+    background-color: white;
+    box-shadow: 0px 0px 50px #aaa;
+    border-color: #ccc;
+}
+
+.resumePay .buttonResume[disabled] {
+    cursor: no-drop;
+    opacity: .3;
+}

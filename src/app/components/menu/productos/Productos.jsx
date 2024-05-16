@@ -22,14 +22,12 @@ export const Productos = ({ products }) => {
         dsf: true,
         dsl: false
     })
-
     let comidas = [];
     let bebidas = [];
     if (products.length > 0) {
         comidas = products.filter(product => product.category === "Comida" || product.category === "comida");
         bebidas = products.filter(product => product.category === "Bebida" || product.category === "bebida");
     }
-
     useEffect(() => {
         if (btnSelected.comida.length > 1) {
             setTextNotFound("No tenemos comidas que coincidan con tu búsqueda");
@@ -51,8 +49,24 @@ export const Productos = ({ products }) => {
         let arr = products.filter(product => product.category === category);
         setPages(Math.ceil(arr.length / 12));
     }, [data]);
-
+    useEffect(() => {
+        if (pages > 0) {
+            setDisabled({
+                dsf: true,
+                dsl: false
+            })
+        }
+    }, [pages]);
+    useEffect(() => {
+        setPages(Math.ceil(products.length / 12));
+    }, []);
     const selectFood = () => {
+        if (pages === 0) {
+            setDisabled({
+                dsf: true,
+                dsl: true
+            })
+        }
         setCurrentPage(1);
         setData(comidas);
         setBtnSelected({
@@ -67,6 +81,13 @@ export const Productos = ({ products }) => {
         }
     }
     const selectDrink = () => {
+        if (setPages(Math.ceil(bebidas.length) / 12));
+        if (Math.ceil(bebidas.length / 12) == 1) {
+            setDisabled({
+                dsf: true,
+                dsl: true
+            })
+        }
         setCurrentPage(1);
         setData(bebidas);
         setBtnSelected({
@@ -81,14 +102,36 @@ export const Productos = ({ products }) => {
         }
     }
     const mayor = () => {
-        const newData = [...data].sort((a, b) => b.precio - a.precio);
+        let dataCopy;
+        if (data[0].category === "comida") dataCopy = comidas;
+        if (data[0].category === "bebida") dataCopy = bebidas;
+        const newData = [...dataCopy].sort((a, b) => b.price - a.price);
         setData(newData);
     }
     const menor = () => {
-        const newData = [...data].sort((a, b) => a.precio - b.precio);
+        let dataCopy;
+        if (data[0].category === "comida") dataCopy = comidas;
+        if (data[0].category === "bebida") dataCopy = bebidas;
+        const newData = [...dataCopy].sort((a, b) => a.price - b.price);
         setData(newData);
     }
     const handleChange = (event) => {
+
+
+        if (pages === 1) {
+            setDisabled({
+                dsf: true,
+                dsl: true
+            })
+        } else if (pages > 1) {
+            setDisabled({
+                dsf: true,
+                dsl: false
+            })
+        }
+
+        setCurrentPage(1);
+
         const selectedOption = event.target.value;
 
         if (selectedOption === "sinOrden") {
@@ -108,12 +151,12 @@ export const Productos = ({ products }) => {
     }
     const handleSearch = (letters) => {
 
-        let categoria;
+        let dataCopy;
 
         if (btnSelected.comida.length > 1) {
-            categoria = "comida";
+            dataCopy = comidas;
         } else if (btnSelected.bebida.length > 1) {
-            categoria = "bebida";
+            dataCopy = bebidas;
         }
 
         if (letters.length < 4) {
@@ -124,13 +167,46 @@ export const Productos = ({ products }) => {
             setData(bebidas);
             return;
         };
-        setData(searchFn(data, letters))
+        setData(searchFn(dataCopy, letters))
         return data;
     }
-    const handlePage = (oper) => {
+    const handlePage = (oper, numberPage) => {
 
         const prev = currentPage - 1;
         const next = currentPage + 1;
+
+        if (numberPage || numberPage == 0) {
+
+            if (numberPage + 1 == 1) {
+                setDisabled({
+                    dsf: true,
+                    dsl: false
+                })
+            }
+
+            if (numberPage + 1 == pages) {
+                setDisabled({
+                    dsf: false,
+                    dsl: true
+                })
+            }
+
+            if (pages == 1) {
+                setDisabled({
+                    dsf: true,
+                    dsl: true
+                })
+            }
+
+            setCurrentPage(numberPage + 1)
+
+            let dataOrder;
+
+            if (data[0].category == "comida") setData(changePage(comidas, null, numberPage));
+            if (data[0].category == "bebida") setData(changePage(bebidas, null, numberPage));
+
+            return;
+        }
 
         const category = data[0].category;
         let arr = products.filter(product => product.category === category);
@@ -158,7 +234,7 @@ export const Productos = ({ products }) => {
 
     }
 
-    let dataRender = data.slice(0, 13);
+    let dataRender = data.slice(0, 12);
 
     return (
         <>
@@ -174,7 +250,7 @@ export const Productos = ({ products }) => {
                     </div>
                     <div className='elementsMenu' >
                         <span>ORDENAR</span>
-                        <select name="" id="" onChange={handleChange}>
+                        <select name="" id="selectOrder" onChange={handleChange}>
                             <option value="sinOrden">Sin orden</option>
                             <option value="mayor">Precio más alto</option>
                             <option value="menor">Precio más bajo</option>
@@ -209,6 +285,7 @@ export const Productos = ({ products }) => {
                             fn={handlePage}
                             dsf={disabled.dsf}
                             dsl={disabled.dsl}
+                            current={currentPage}
                         />
                     </div > :
                     <div className='divNotFound' >

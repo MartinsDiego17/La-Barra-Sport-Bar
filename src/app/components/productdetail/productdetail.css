@@ -37,6 +37,10 @@
 
 .sonDetailProduct section article h1 {
     font-size: 1.8rem;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 0;
 }
 
 .sonDetailProduct .fieldsProduct input {
@@ -83,9 +87,11 @@
 
 .fieldsProduct .buttonsStock button {
     width: 45%;
+    background-color: #0e3b5d;
+    color: #eee;
     background-color: transparent;
-    border: solid 2px #ccc;
     color: #0e3b5d;
+    border: solid 2px #ccc;
 }
 
 .fieldsProduct button {
@@ -109,9 +115,8 @@
 }
 
 .fieldsProduct .buttonsStock button:hover {
-    background-color: #0874c5;
-    border-color: #0874c5;
-    color: #eee;
+    background-color: rgba(8, 116, 197, 0.3);
+    border-color: transparent;
 }
 
 .sonDetailProduct .imageDetail {
@@ -122,36 +127,19 @@
 }
 
 .sonDetailProduct .imageDetail img {
-    border-radius: 30px;
+    border-radius: 3px;
     width: 75%;
-    opacity: .8;
+    opacity: 1;
     margin-bottom: 0;
     transition: .2s;
-    height: 90%;
+    min-height: 90%;
+    max-height: 90%;
 }
 
 .sonDetailProduct .imageDetail img:hover {
-    opacity: .9;
+    opacity: .95;
 }
 
-.sonDetailProduct .imageDetail button {
-    width: 75%;
-    margin-top: 2%;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    border-radius: 30px;
-    transition: .2s;
-    background-color: transparent;
-    border: solid 3px #444;
-    color: #444;
-    cursor: pointer;
-}
-
-.sonDetailProduct .imageDetail button:hover {
-    background-color: #444;
-    color: #eee;
-}
 
 
 .ingredientsDetail button {
@@ -165,30 +153,127 @@
 .ingredientsDetail button:hover {
     background-color: #333;
 }
-.categoryP {
-    padding: 5px 20px !important;
-    padding-left: 0px !important;
-    border: solid 2px transparent;
+
+/* CREATE */
+
+.optionsCategory {
+    display: flex;
 }
 
- .buttonBack {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    color: #888;
-    padding: 0;
-    border: none;
-    margin-bottom: 2%;
+.optionsCategory p {
+    padding: 5px 20px !important;
+    border: solid 2px #ccc;
+    border-radius: 30px;
     cursor: pointer;
     transition: .2s;
 }
 
- .buttonBack:hover {
-    color: #444;
-    background-color: transparent;
+.optionsCategory p:hover {
+    background-color: #ddd;
 }
 
- .buttonBack span {
-    margin-left: 10px;
+.optionsCategory p:first-child {
+    margin-right: 2%;
+}
+
+.optionsCategory #comida {
+    background-color: #0874c5;
+    border-color: #0874c5;
+    color: #eee;
+}
+
+.optionsCategory #bebida {
+    background-color: #0874c5;
+    color: #eee;
+    border-color: #0874c5;
+}
+
+#inputError:focus {
+    border-color: #ff5757;
+}
+
+#buttonStock {
+    background-color: #0874c5;
+    border-color: #0874c5;
+    color: #eee;
+}
+
+.divConfirmButton {
+    margin-top: 3%;
+    width: 100%;
+    display: flex;  
+    justify-content: center;
+}
+
+.divConfirmButton button {
+    background-color: #0874c5;
+    color: #eee;
+    width: 17%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0 1.5%;
+    transition: .3s;
+    border-radius: 5px;
+}
+
+.divConfirmButton button:hover {
+    background-color: #09f;
+    transform: scale(1.01);
+}
+
+.divConfirmButton .deleteButton {
+    background-color: #b10303;
+}
+
+.divConfirmButton .deleteButton:hover {
+    background-color: #d70000;
+}
+
+.divConfirmButton button[disabled] {
+    opacity: .3;
+    cursor: no-drop;
+}
+
+.divConfirmButton button[disabled]:hover {
+    transform: scale(1);
+}
+
+.imageDetail form {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+#file {
+    display: none;
+}
+
+#cargarImg {
+    background-color: #222;
+    border: none;
+    outline: none;
+    color: #eee;
+    margin-top: 3%;
+    border-radius: 3px;
+    transition: .2s;
+    padding: 10px 70px !important;
+    cursor: pointer;
+}
+
+#cargarImg:hover {
+    background-color: #333;
+}
+
+.optionsCategory #category {
+    background-color: transparent;
+    border-radius: 0;
+    color: #222;
+    padding-left: 0 !important;
+    cursor: auto;
+    border: none;
 }

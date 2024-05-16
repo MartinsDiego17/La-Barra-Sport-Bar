@@ -1,9 +1,17 @@
 import './paginado.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export const Paginado = ({ totalPages, fn, dsf, dsl }) => {
+export const Paginado = ({ totalPages, fn, dsf, dsl, current     }) => {
 
     const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+    if (pages.length == 1) {
+        dsf = true;
+        dsl = true;
+    }
+
+    const handleNumber = (numberPage) => {
+        fn(null, numberPage)
+    }
 
     return (
         <div className='paginadoContainer' id='paginadoID' >
@@ -16,7 +24,7 @@ export const Paginado = ({ totalPages, fn, dsf, dsl }) => {
 
             {
                 pages.map((page, index) => (
-                    <button key={index} >
+                    <button onClick={() => { handleNumber(index) }} key={index} id={index + 1 == current && "currentPage"} >
                         <div key={index}>
                             {index + 1}
                         </div>

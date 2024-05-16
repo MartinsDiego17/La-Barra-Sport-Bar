@@ -23,8 +23,8 @@ export const Footer = () => {
                 <div>
                     <h3>Categorías</h3>
                     <p>Productos</p>
-                    <p>Delívery</p>
                     <p>Reservas</p>
+                    <p>Nosotros</p>
                     <p>Contacto</p>
                 </div>
 
@@ -46,12 +46,6 @@ export const Footer = () => {
                 <p>
                     Copyright © La Barra Sport & Bar. Todos los derechos reservados. <br />
                     Desarrollado por
-
-                    <a target='_BLANK' href='https://www.linkedin.com/in/gonzalo-martins-3b43101b2/' >
-                        <span className='light' > Gonzalo Martins </span>
-                    </a>
-
-                    y
 
                     <a target='_BLANK' href='https://www.linkedin.com/in/diego-martins-563954278/' >
                         <span className='light' > Diego Martins</span>

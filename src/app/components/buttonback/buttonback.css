@@ -1,0 +1,21 @@
+.buttonBack {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #888;
+    padding: 0;
+    border: none;
+    margin-bottom: 2%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.buttonBack:hover {
+    color: #444;
+    background-color: transparent;
+}
+
+.buttonBack span {
+    margin-left: 10px;
+}

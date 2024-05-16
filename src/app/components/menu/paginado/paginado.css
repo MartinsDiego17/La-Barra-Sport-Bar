@@ -1,5 +1,5 @@
 .paginadoContainer {
-    margin-top: 1vh;
+    margin-top: 8vh;
     justify-content: center;
     display: flex;
 }
@@ -40,4 +40,15 @@
 
 .paginadoContainer button[disabled] {
     background-color: #222;
+}
+
+#currentPage {
+    color: white;
+    transform: scale(0.95);
+    background-color: rgba(146, 10, 10, 0.5);
+}
+
+
+#currentPage:hover {
+    background-color: rgba(146, 10, 10, 0.9);
 }

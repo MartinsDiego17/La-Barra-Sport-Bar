@@ -9,6 +9,7 @@ const ListAdmin = ({ title, options, arr }) => {
 
     const [value, setValue] = useState("");
     const [products, setProducts] = useState(arr);
+    const [currentCategory, setCurrentCategory] = useState("");
 
     const [btnSelected, setBtnSelected] = useState({
         todos: "selected",
@@ -19,8 +20,9 @@ const ListAdmin = ({ title, options, arr }) => {
     const handleBtn = (option) => {
         option = option.toLowerCase();
         let finalProducts;
+        setValue("");
 
-        if(option === "todos") {
+        if (option === "todos") {
             setBtnSelected({
                 todos: "selected",
                 comidas: "",
@@ -29,23 +31,26 @@ const ListAdmin = ({ title, options, arr }) => {
             setProducts(arr);
             return;
         }
-        if(option === "comidas") {
+        if (option === "comidas") {
             setBtnSelected({
                 todos: "",
                 comidas: "selected",
                 bebidas: ""
             });
             finalProducts = arr.filter(product => product.category === "Comida" || product.category === "comida");
+            setCurrentCategory("comida");
             setProducts(finalProducts);
             return;
         }
-        if(option === "bebidas") {
+        if (option === "bebidas") {
             setBtnSelected({
                 todos: "",
                 comidas: "",
                 bebidas: "selected"
             });
             finalProducts = arr.filter(product => product.category === "Bebida" || product.category === "bebida");
+            setCurrentCategory("bebida");
+            console.log(currentCategory)
             setProducts(finalProducts);
             return;
         }
@@ -55,16 +60,28 @@ const ListAdmin = ({ title, options, arr }) => {
     const handleChange = (e) => {
         setValue(e.target.value);
         if (e.target.value.length < 3) {
-            setProducts(arr);
+
+            const foods = arr.filter(product => product.category === "comida");
+            const drinks = arr.filter(product => product.category === "bebida");
+
+            if (currentCategory === "comida") {
+                setProducts(foods);
+            } else if (currentCategory === "bebida") {
+                setProducts(drinks);
+            } else if (currentCategory === "todos") {
+                setProducts(arr);
+            }
+
             return;
         }
-        setProducts(searchItems(e.target.value, arr))
+        setProducts(searchItems(e.target.value, products))
     }
 
     useEffect(() => {
-        if(arr.length > 0){
+        if (arr.length > 0) {
+            setCurrentCategory("todos");
             setProducts(arr);
-        } 
+        }
     }, [arr])
 
     return (
