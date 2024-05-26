@@ -1,11 +1,11 @@
 import './button.css';
 
-export const Button = ({ text, fn }) => {
+export const Button = ({ text, fn, ds }) => {
 
   const handleFn = () => {
+    if (!ds) ds = false;
     if (!fn || fn === undefined) {
       fn = () => {
-        
       }
       return;
     }
@@ -13,6 +13,6 @@ export const Button = ({ text, fn }) => {
   }
 
   return (
-    <button id='btnPersonalizado' onClick={() => handleFn()} ><span>{text.toUpperCase()}</span></button>
+    <button disabled={ds} id='btnPersonalizado' onClick={() => handleFn()} ><span>{text.toUpperCase()}</span></button>
   )
 }

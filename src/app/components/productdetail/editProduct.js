@@ -2,6 +2,7 @@ import axios from "axios";
 import Swal from 'sweetalert2';
 
 export const editProduct = async (product) => {
+
     product.price = Number(product.price);
 
     {

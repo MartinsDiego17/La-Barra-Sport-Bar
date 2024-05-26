@@ -6,11 +6,18 @@ import { IoMdArrowForward } from "react-icons/io";
 import Swal from 'sweetalert2';
 import { useStoreCart } from '@/app/store';
 import { addProduct } from './addProduct';
+import { useEffect, useState } from 'react';
 
 export const Card = ({ product }) => {
 
+  if (!product.stock) return null;
+
   const { addProducts } = useStoreCart();
   const { image, name, category, price } = product;
+  const [textIngredient, setTextIngredient] = useState("");
+  useEffect(() => {
+    setTextIngredient(product.ingredients.join(' - '));
+  }, []);
   let site;
   if (category === "comida") {
     site = 'comida';
@@ -20,6 +27,7 @@ export const Card = ({ product }) => {
   const openModal = () => {
     Swal.fire({
       title: name,
+      text: `Ingredientes: ${textIngredient}`,
       imageUrl: image,
       imageWidth: 300,
       imageHeight: 300,

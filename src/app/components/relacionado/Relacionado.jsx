@@ -3,7 +3,7 @@ import './relacionado.css';
 
 const Relacionado = ({ relacionados }) => {
 
-
+    console.log("RELACIONADOS: ", relacionados);    
 
     return (
         <div className='relacionadoContainer' >

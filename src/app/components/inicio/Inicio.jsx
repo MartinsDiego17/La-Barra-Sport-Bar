@@ -4,6 +4,11 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
 
 export const Inicio = () => {
+
+    const handleRoute = () => {
+        window.location.href = "/reservas";
+    };
+
     return (
         <div className='homeContainer'>
             <div className='detailsHome'>
@@ -14,9 +19,9 @@ export const Inicio = () => {
                 </div>
 
                 <div className='abajo' >
-                    <Button text={"reservas"} />
+                    <Button text={"reservas"} fn={handleRoute} />
                     <div className='locationDetails' >
-                        <FaLocationDot /> Av. Francisco Bilbao 3420 
+                        <FaLocationDot /> Av. Francisco Bilbao 3420
                     </div>
                 </div>
 

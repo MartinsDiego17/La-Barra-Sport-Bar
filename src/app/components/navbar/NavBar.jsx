@@ -50,14 +50,24 @@ export const NavBar = () => {
         contacto: ""
     })
 
+    const handleRoute = (route) => {
+        window.location.href = route;
+    }
     const inicioFn = () => {
         setLiSelect({
             inicio: "activate"
         })
-        if (path === "/") return;
+        if (path === "/") {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
+        }
         window.location.href = "/";
     }
-    const reservasFn = () => {
+    const reservasFn = (ruta) => {
+        handleRoute(ruta);
         setLiSelect({
             reservas: "activate"
         })
@@ -68,22 +78,14 @@ export const NavBar = () => {
         setLiSelect({
             contacto: "activate"
         })
-        if (path === "/") return;
-        window.location.href = "/";
-    }
-    const menuFn = () => {
-
+        if (path !== "/") {
+            window.location.href = "/";
+            return;
+        }
         window.scrollTo({
-            top: 1500,
+            top: 10000,
             behavior: 'smooth'
         });
-
-        setLiSelect({
-            menu: "activate"
-        })
-        if (path === "/") return;
-        window.location.href = "/";
-
     }
     const goCart = () => {
         window.location.href = "/carro";
@@ -130,8 +132,7 @@ export const NavBar = () => {
                     {path !== "/comidas/:name" &&
                         <ul className='itemsNav' >
                             <li onClick={inicioFn} className={liSelect.inicio} >Inicio</li>
-                            <li onClick={menuFn} className={liSelect.menu} >Menú</li>
-                            <li onClick={reservasFn} className={liSelect.reservas} >Reservas</li>
+                            <li onClick={() => reservasFn("/reservas")} className={liSelect.reservas} >Reservas</li>
                             <li onClick={contactoFn} className={liSelect.contacto} >Contacto</li>
                         </ul>
                     }

@@ -68,13 +68,9 @@
 .fieldsProduct .ingredientsDetail {
     margin-top: 3%;
     font-weight: 900;
-}
-
-.fieldsProduct .ingredientsDetail span {
-    font-weight: 100;
-    color: #444;
-    font-size: .8rem;
-    margin-left: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .fieldsProduct .buttonsStock {
@@ -258,4 +254,31 @@
 
 #cargarImg:hover {
     background-color: #333;
+}
+
+.ingredient {
+    font-weight: 100;
+    color: #777;
+    font-size: 12px;
+    display: flex;
+    width: fit-content;
+    align-items: center;    
+    margin-right: 6% !important;
+}
+
+.ingredient .delete {
+    font-weight: 900;
+    border-radius: 50%;
+    cursor: pointer;
+    color: rgb(165, 0, 0);
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+}
+
+.ingredientsSpan {
+    display: flex;
+    justify-content: flex-start;
+    height: 3vh;
+    align-items: center;
 }

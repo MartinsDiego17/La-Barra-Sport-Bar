@@ -3,7 +3,7 @@ const updateProduct = require("../controllers/updateProduct");
 const handlerUpdateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const { image, name, category, price, stock } = req.body;
+        const { image, name, category, price, stock, ingredients } = req.body;
         
         const updatedProduct = await updateProduct({ 
             id, 
@@ -11,7 +11,8 @@ const handlerUpdateProduct = async (req, res) => {
             name, 
             category, 
             price, 
-            stock 
+            stock,
+            ingredients
         });
         
         res.status(200).json(updatedProduct);

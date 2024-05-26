@@ -2,15 +2,15 @@
 import CardAdmin from '../components/cardAdmin/CardAdmin';
 import './paneladmin.css';
 import { FaArrowLeft } from "react-icons/fa";
-import products from '../../app/images/adminImages/productosAdmin.webp'
+import users from '../../app/images/adminImages/users.webp'
+import history from '../../app/images/adminImages/history.webp';
 import { LuLayoutPanelLeft } from "react-icons/lu";
 import Link from 'next/link';
-import productos from '../../app/images/adminImages/productosCard.jpeg';
+import productos from '../../app/images/adminImages/productosAdmin.jpg';
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from 'react';
 import { useStoreAdmin, useStoreProducts } from '../store';
 import Loader from '../components/loader/Loader';
-import Image from 'next/image';
 
 const page = () => {
 
@@ -33,6 +33,30 @@ const page = () => {
 
 
     useEffect(() => {
+
+        const path = window.location.href.split("/");
+        if (path) {
+          const style = document.createElement('style');
+          style.textContent = `
+            body::-webkit-scrollbar {
+              width: 15px;
+            }
+        
+            body::-webkit-scrollbar-track {
+              background-color: #aaa;
+            }
+        
+            body::-webkit-scrollbar-thumb {
+              background-color: #222;
+            }
+        
+            body::-webkit-scrollbar-thumb:hover {
+              background-color: #b10303;
+            }
+          `;
+          document.head.appendChild(style);
+        }
+
         const fetchData = async () => {
             try {
                 const products = await getAllProducts();
@@ -73,10 +97,10 @@ const page = () => {
     }
 
 
-    if (isAdmin !== undefined && !isAdmin) {
-        window.location.href = "/";
-        return;
-    }
+    /*     if (isAdmin !== undefined && !isAdmin) {
+            window.location.href = "/";
+            return;
+        } */
 
     return (
         <div className='patherAdmin' >
@@ -93,17 +117,13 @@ const page = () => {
                     <section>
 
                         <article className='titleAndButton' >
-                            <h2>Panel de administrador<span><LuLayoutPanelLeft /></span></h2>
-                            <Link href={"/"} ><button><span><FaArrowLeft /></span>VOLVER AL INICIO</button></Link>
+                            <Link href={"/"} ><button><span><FaArrowLeft /></span>Volver</button></Link>
                         </article>
 
                         <article className='gridItemsAdmin' >
                             <CardAdmin image={productos} title={"Lista de productos"} paragraph={`Productos totales: ${localProducts.length}`} />
-                            <CardAdmin image={products} title={"Lista de usuarios"} paragraph={"Usuarios totales: 24"} />
-                            <CardAdmin image={products} title={"Historial de ventas"} paragraph={"Ventas totales: 87"} />
-                            <CardAdmin image={products} title={"Reservas restaurante/bar"} paragraph={"Reservas totales: 2"} />
-                            <CardAdmin image={products} title={"Reservas cancha"} paragraph={"Reservas totales: 6"} />
-                            <CardAdmin image={products} title={"Productos más vendidos"} paragraph={"Tragos y comidas"} />
+                            <CardAdmin image={users} title={"Lista de usuarios"} paragraph={"Usuarios totales: 24"} />
+                            <CardAdmin image={history} title={"Historial de ventas"} paragraph={"Ventas totales: 87"} />
                         </article>
 
                     </section>

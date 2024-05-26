@@ -16,6 +16,9 @@ export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
 
   useEffect(() => {
+
+    console.log("PATH ACTUAL: ", window.location);  
+
     const fetchData = async () => {
       try {
         const products = await getAllProducts();

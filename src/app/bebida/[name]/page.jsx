@@ -28,9 +28,12 @@ const bebidaPage = ({ params }) => {
     }, [getAllProducts]);
 
     const allDrinks = allProducts.filter(producto => producto.category === "bebida");
-    const relacionados = [allDrinks[0], allDrinks[1], allDrinks[2], allDrinks[3]]
+    let relacionados = [];
+    for (let i = 0; i < 5; i++) {
+        if (allDrinks[i] || allDrinks[i] !== undefined) relacionados.push(allDrinks[i]);
+    }
 
-    if (allProducts.length < 1 || !product.image || !relacionados[0].id) return <Loader />
+    if (allProducts.length < 1 || !product.image || !relacionados[0].id || !product) return <Loader />
     return (
         <div className='patherContainer' >
             <Product product={product} />

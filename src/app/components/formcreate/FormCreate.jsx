@@ -10,14 +10,15 @@ import Swal from 'sweetalert2';
 import { createProduct } from './create';
 import ButtonBack from '../buttonback/ButtonBack';
 
-const FormCreate = () => {
+const FormCreate = ({ ingredients }) => {
 
     const [newProduct, setNewProduct] = useState({
         image: test,
         name: "Nombre",
         category: "",
         price: "00",
-        stock: true
+        stock: true,
+        ingredientes: []
     })
     const [format, setFormat] = useState(false);
     const [newProductErrors, setNewProductErrors] = useState("");
@@ -117,8 +118,15 @@ const FormCreate = () => {
         });
     }
     const validationsDisabled = () => {
-        const values = Object.values(newProduct);
-        const keys = Object.keys(newProduct)
+        const copyProduct = {
+            image: newProduct.image,
+            name: newProduct.name,
+            category: newProduct.category,
+            price: newProduct.price,
+            stock: newProduct.stock,
+        }
+        const values = Object.values(copyProduct);
+        const keys = Object.keys(copyProduct)
         for (let i = 0; i < values.length; i++) {
             if (keys[i] !== "image") {
                 if (values[i].length < 1) return true;
@@ -126,8 +134,9 @@ const FormCreate = () => {
         }
         if (
             newProductErrors.length > 1 ||
-            newProduct.image === test ||
-            newProduct.price < 1
+            copyProduct.image === test ||
+            copyProduct.price < 1 ||
+            newProduct.ingredientes.length < 1
         ) return true;
     }
     const handleFileChange = (e) => {
@@ -165,6 +174,28 @@ const FormCreate = () => {
             bebida: ""
         })
         createProduct(newProduct)
+    };
+    const handleChange = (e) => {
+        const filtereds = newProduct.ingredientes.filter(ingrediente => ingrediente === e.target.value);
+        if (filtereds.length > 0) {
+            Swal.fire("Ya haz agregado este ingrediente.");
+            return;
+        }
+        if (newProduct.ingredientes.length > 2) {
+            Swal.fire("Puedes agregar hasta 3 ingredientes.");
+            return;
+        }
+        setNewProduct({
+            ...newProduct,
+            ingredientes: [...newProduct.ingredientes, e.target.value]
+        })
+    }
+    const handleDelete = (name) => {
+        const updated = newProduct.ingredientes.filter(ingredient => ingredient != name);
+        setNewProduct({
+            ...newProduct,
+            ingredientes: updated
+        })
     }
 
     return (
@@ -191,12 +222,21 @@ const FormCreate = () => {
                             <input value={newProduct.price} autoComplete='off' id={newProductErrors} name='price' type="text" placeholder="Ingresar precio (Máximo $150.000)" onChange={handleUpdate} />
 
                             <p className='ingredientsDetail' >
-                                Ingredientes
-                                <span>
-                                    Carne - Lechuga - Cebolla
-                                </span>
-                                <button>+</button>
-                                <button>-</button>
+                                Agregar ingredientes
+
+                                <select name="" id="" onChange={handleChange} >
+                                    <option value=""></option>
+                                    {ingredients.map(ingrediente => (
+                                        <option value={ingrediente.name} >{ingrediente.name}</option>
+                                    ))}
+                                </select>
+                            </p>
+                            <p className='ingredientsSpan' >
+                                {newProduct.ingredientes.map(ingrediente => (
+                                    <span className='ingredient' >
+                                        {ingrediente} <span onClick={() => { handleDelete(ingrediente) }} className='delete' > x</span>
+                                    </span>
+                                ))}
                             </p>
 
                             <div className='buttonsStock' >

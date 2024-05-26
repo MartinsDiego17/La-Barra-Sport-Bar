@@ -12,6 +12,7 @@ const comidaPage = ({ params }) => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
+
         const name = decodeURIComponent(params.name);
         const fetchData = async () => {
             try {
@@ -28,10 +29,13 @@ const comidaPage = ({ params }) => {
     }, [getAllProducts]);
 
     const allFoods = allProducts.filter(producto => producto.category === "comida");
-    const relacionados = [allFoods[0], allFoods[1], allFoods[2], allFoods[3]]
+    let relacionados = [];
+    for (let i = 0; i < 5; i++) {
+        if (allFoods[i] || allFoods[i] !== undefined) relacionados.push(allFoods[i]);
+    }
 
 
-    if (allProducts.length < 1 || !product.image || !relacionados[0].id) return <Loader />
+    if (allProducts.length < 1 || !product.image || !relacionados[0].id || !product) return <Loader />
     return (
         <div className='patherContainer' >
             <Product product={product} />

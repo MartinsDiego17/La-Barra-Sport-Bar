@@ -1,0 +1,93 @@
+.reservasContainer {
+    background-color: rgba(44, 44, 44, 0.5);
+    margin: 25vh;
+    color: #eee;
+    padding: 2% 3%;
+    border-radius: 5px;
+}
+
+.reservasContainer .title {
+    line-height: 1;
+}
+
+.reservasContainer .title h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+    height: fit-content;
+}
+
+.reservasContainer .title p {
+    margin-top: 1%;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.reservasContainer .fechas {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reservasContainer .fechas div h4 {
+    font-weight: 100;
+    color: #ccc;
+    margin-bottom: 2%;
+}
+
+.fechas .day {
+    width: 12%;
+    text-align: center;
+}
+
+.fechas .day button {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 4% 0;
+    margin-bottom: 5%;
+    border-radius: 3px;
+    background-color: rgba(63, 63, 63, 0.5);
+    color: #eee;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.fechas .day button:hover {
+    background-color: #5f0707;
+}
+
+.fechas .day button.selected {
+    background-color: #920a0a;
+    color: #fff;
+}
+
+.buttonsReserva {
+    display: flex;
+    margin-top: 3%;
+    justify-content: space-evenly;
+}
+
+.buttonsReserva button {
+    width: 30%;
+    border: none;
+    outline: none;
+    background-color: #920a0a;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 10px 0;
+    transition: .2s;
+    color: rgb(255, 132, 132);
+}
+
+.buttonsReserva button:hover {
+    color: white;
+    box-shadow: 0px 20px 150px #420d0d;
+    background-color: #5f0707;
+}
+
+.buttonsReserva button[disabled] {
+    opacity: .3;
+    background-color: #920a0a;
+    color: rgb(255, 132, 132);
+    cursor: no-drop;
+    box-shadow: 0px 20px 150px transparent;
+}

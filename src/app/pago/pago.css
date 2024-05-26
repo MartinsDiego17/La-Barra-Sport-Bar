@@ -1,16 +1,25 @@
+#boxPay {
+    background-color: #eee;
+    width: 80%;
+    height: 85vh;
+    margin: 10% auto;
+    margin-top: 5%;
+    border-radius: 5px;
+}
+
 .payContainer {
     background-color: #eee;
     width: 80%;
-    height: 80vh;
+    height: 85vh;
     margin: 10% auto;
-    margin-top: 7%;
+    margin-top: 5%;
     border-radius: 5px;
 }
 
 .noProducts {
     background-color: #eee;
     width: 80%;
-    height: 80vh;
+    height: 85vh;
     margin: 10% auto;
     margin-top: 7%;
     border-radius: 5px;
@@ -68,7 +77,7 @@
 
 .payContainer section article h3 {
     font-weight: 100;
-    padding-top: 10vh;
+    padding-top: 5vh;
     padding-bottom: 3%;
     color: #333;
     width: 90%;
@@ -188,11 +197,104 @@
 
 .payContainer .optionsPay #selected {
     background-color: white;
-    box-shadow: 0px 0px 50px #aaa;
-    border-color: #ccc;
+    box-shadow: 0px 0px 50px #ccc;
 }
 
 .resumePay .buttonResume[disabled] {
     cursor: no-drop;
     opacity: .3;
+}
+
+.resumePay .atention {
+    color: #777;
+    margin-top: 3%;
+    font-weight: 100;
+    display: flex;
+    transition: .2s;
+    justify-content: flex-end;
+    width: 30%;
+    cursor: pointer;
+}
+
+.resumePay .atention:hover {
+    color: #444;
+}
+
+.resumePay .atention span {
+    display: flex;
+    align-items: center;
+    padding-left: 3%;
+}
+
+.optionsPay .circleCheck {
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    transition: .2s;
+    background-color: #920a0a;
+    opacity: 0;
+}
+
+.optionsPay #selected span {
+    opacity: 1;
+}
+
+.messageDelivery {
+    color: #a8a8a8;
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.localConfirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.localConfirm button {
+    width: 65%;
+    margin: 0 auto;
+    background-color: #920a0a;
+    cursor: pointer;
+    color: #eee;
+    border-radius: 3px;
+    padding: 13px 20px;
+    outline: none;
+    border: none;
+    transition: .2s;
+    margin-bottom: 3%;
+}
+
+.localConfirm button:hover {
+    background-color: rgba(146, 10, 10, 0.8);
+    transform: scale(1.02);
+}
+
+.localConfirm div {
+    background-color: white;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 50px #d6d6d6;
+}
+
+.localConfirm * {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    line-height: 1;
+    padding: 0;
+    color: #444;
+    text-align: center;
+}
+
+.localConfirm p {
+    width: 100%;
+    text-align: center;
+}
+
+.codigo {
+    margin-left: 1%;
+    color: #920a0a;
+    font-weight: 900;
+    letter-spacing: 2px;
 }

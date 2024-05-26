@@ -1,11 +1,17 @@
-const { product } = require('../db');
+const { product, ingredient } = require('../db');
 
 const getProductByName = async ({ name }) => {
 
     const formattedName = name.replace(/-/g, ' ');
+    const productFound = await product.findOne({
+        where: { name: name },
+        include: { model: ingredient, through: { attributes: [] }, },
+    });
 
-    const productFound = await product.findOne({ where: { name: formattedName } });
-
+    let ingres = [];
+    productFound.dataValues.ingredients.forEach(ingre => {
+        ingres.push(ingre.dataValues.name);
+    })
 
     if (productFound) {
         const producto = {
@@ -14,8 +20,8 @@ const getProductByName = async ({ name }) => {
             name: productFound.name,
             category: productFound.category,
             price: productFound.price,
-            stock: productFound.stock/* ,
-            ingredients: producto.ingredients, */
+            stock: productFound.stock,
+            ingredients: ingres
         }
         return producto;
     }

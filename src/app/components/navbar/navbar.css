@@ -120,7 +120,6 @@
     animation: adminNav linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-    border-bottom: solid 2px transparent;
     z-index: 50;
 }
 
@@ -150,17 +149,12 @@
     list-style-type: none;
     cursor: pointer;
     border-radius: 30px;
-    padding: 2px 30px;
-    border: solid 2px #777;
     color: #777;
     transition: .3s;
 }
 
 .navbarAdmin ul li:hover {
-    background-color: #0099ff;
-    color: #eee;
-    border-color: #0099ff;
-    transform: scale(.97);
+    color: #222;
 }
 
 .navbarAdmin section {
@@ -186,7 +180,6 @@
 
     100% {
         background-color: white;
-        border-color: #ddd;
     }
 }
 

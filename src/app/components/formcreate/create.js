@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 export const createProduct = async (product) => {
     product.price = Number(product.price);
 
+    product.ingredients = product.ingredientes;
+
     try {
         const { data } = await axios("http://localhost:3002/getProducts");
         const existingProduct = data.find(producto => producto.name.toUpperCase() === product.name.toUpperCase());

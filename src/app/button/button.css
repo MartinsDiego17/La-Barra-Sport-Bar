@@ -56,3 +56,8 @@
 /*     letter-spacing: 1px;
  */     /* Invierte la inclinación del botón */
 }
+
+#btnPersonalizado[disabled] {
+    opacity: .3;
+    cursor: no-drop;
+}

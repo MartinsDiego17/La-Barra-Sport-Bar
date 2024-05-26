@@ -9,7 +9,7 @@ import ButtonBack from '../buttonback/ButtonBack';
 import { deleteProduct } from './deleteProduct';
 import { editProduct } from './editProduct';
 
-const ProductDetail = ({ product }) => {
+const ProductDetail = ({ product, ingredients }) => {
 
     const alertFn = (text1, text2, fn) => {
         Swal.fire({
@@ -44,7 +44,7 @@ const ProductDetail = ({ product }) => {
         setStockSelected({
             sinStock: "buttonStock"
         })
-    }, [])
+    }, []);
 
     const handleBtn = (btn) => {
         setBtnSelected({
@@ -55,6 +55,7 @@ const ProductDetail = ({ product }) => {
             category: btn
         })
     }
+
     const handleUpdate = (event) => {
 
         const { name, value } = event.target;
@@ -94,12 +95,12 @@ const ProductDetail = ({ product }) => {
             product.price === newProduct.price &&
             product.image === newProduct.image &&
             product.stock === newProduct.stock &&
-            product.name === newProduct.name
+            product.name === newProduct.name &&
+            product.ingredients === newProduct.ingredients
         ) {
             Swal.fire("Aún no haz realizado cambios.");
             return;
         }
-
 
         setFormat(true);
         Swal.fire({
@@ -137,12 +138,31 @@ const ProductDetail = ({ product }) => {
     }
     const validationsDisabled = () => {
 
+        let iguales = 1;
+        if (newProduct.ingredients.length < 0) return true;
+        const original = product.ingredients.sort((a, b) => a.localeCompare(b));
+        const update = newProduct.ingredients.sort((a, b) => a.localeCompare(b));
+
+        if (original.length !== update.length) {
+            return false;
+        } else if (original.length === update.length) {
+            original.forEach((ingre, index) => {
+                if (ingre === update[index]) {
+                    iguales = 1;
+                    return true;
+                } else if (ingre !== update[index]) iguales = 0;
+
+            });
+        }
+
         if (product.price === newProduct.price &&
             product.image === newProduct.image &&
             product.stock === newProduct.stock &&
+            product.ingredients === newProduct.ingredients &&
+            iguales &&
             product.name === newProduct.name) return true;
 
-            const values = Object.values(newProduct);
+        const values = Object.values(newProduct);
         const keys = Object.keys(newProduct)
         for (let i = 0; i < values.length; i++) {
             if (keys[i] !== "image") {
@@ -153,6 +173,8 @@ const ProductDetail = ({ product }) => {
             newProductErrors.length > 1 ||
             newProduct.price < 1
         ) return true;
+
+
     }
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -169,6 +191,7 @@ const ProductDetail = ({ product }) => {
         }
     }
     const handleSubmit = () => {
+
         const localFn = () => {
             editProduct(newProduct);
         }
@@ -178,8 +201,31 @@ const ProductDetail = ({ product }) => {
             localFn
         )
     }
-    const handleDelete = (id) => {
+    const handleDelete = (iFd) => {
         deleteProduct(id);
+    };
+    const handleChange = (e) => {
+        const filtereds = newProduct.ingredients.filter(ingrediente => ingrediente === e.target.value);
+        const sortereds = [...newProduct.ingredients.sort((a, b) => a.localeCompare(b)), e.target.value];
+        if (filtereds.length > 0) {
+            Swal.fire("Ya haz agregado este ingrediente.");
+            return;
+        }
+        if (newProduct.ingredients.length > 2) {
+            Swal.fire("Puedes agregar hasta 3 ingredientes.");
+            return;
+        }
+        setNewProduct({
+            ...newProduct,
+            ingredients: sortereds
+        })
+    }
+    const handleDeleteIng = (name) => {
+        const updated = newProduct.ingredients.filter(ingredient => ingredient != name);
+        setNewProduct({
+            ...newProduct,
+            ingredients: updated
+        })
     }
 
     return (
@@ -205,12 +251,22 @@ const ProductDetail = ({ product }) => {
                             <input value={newProduct.price} autoComplete='off' id={newProductErrors} name='price' type="text" placeholder="Ingresar precio (Máximo $150.000)" onChange={handleUpdate} />
 
                             <p className='ingredientsDetail' >
-                                Ingredientes
-                                <span>
-                                    Carne - Lechuga - Cebolla
-                                </span>
-                                <button>+</button>
-                                <button>-</button>
+                                Lista de ingredientes
+
+                                <select name="" id="" onChange={handleChange} >
+                                    <option value=""></option>
+                                    {ingredients.map(ingrediente => (
+                                        <option value={ingrediente.name} >{ingrediente.name}</option>
+                                    ))}
+                                </select>
+                            </p>
+
+                            <p className='ingredientsSpan' >
+                                {newProduct.ingredients.map(ingrediente => (
+                                    <span className='ingredient' >
+                                        {ingrediente} <span onClick={() => { handleDeleteIng(ingrediente) }} className='delete' > x</span>
+                                    </span>
+                                ))}
                             </p>
 
                             <div className='buttonsStock' >
