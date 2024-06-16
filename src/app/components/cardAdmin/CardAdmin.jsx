@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import './cardadmin.css';
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const CardAdmin = ({ image, title, paragraph }) => {
@@ -16,15 +15,6 @@ const CardAdmin = ({ image, title, paragraph }) => {
       break;
     case "Historial de ventas":
       link = "paneladmin/ventas"
-      break;
-    case "Reservas restaurante/bar":
-      link = "paneladmin/reservas/bar"
-      break;
-    case "Reservas cancha":
-      link = "paneladmin/reservas/cancha"
-      break;
-    case "Productos más vendidos":
-      link = "paneladmin/masvendidos"
       break;
   }
 

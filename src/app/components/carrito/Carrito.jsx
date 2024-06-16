@@ -82,7 +82,7 @@ const Carrito = () => {
                     <article className='subtotal' >
                         <h2>Subtotal</h2>
                         <p>${subtotal}</p>
-                        <Button text={"Ir a pagar"} />
+                        <Button text={"Ir a pagar"} fn={() => window.location.href = '/pago'} />
                         <Button text={"Vaciar carrito"} fn={empty} />
                         <Button text={"Seguir comprando"} fn={handleGoHome} />
                     </article>

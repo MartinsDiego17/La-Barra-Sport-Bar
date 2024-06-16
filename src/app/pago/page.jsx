@@ -2,10 +2,11 @@
 import './pago.css';
 import tb from '../../app/images/transbank.webp';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 import { useStoreCart } from '../store';
 import { RiCustomerService2Fill } from "react-icons/ri";
 import { getCost } from './getLocation';
+
+import { useState, useEffect } from "react";
 
 const page = () => {
 
@@ -20,6 +21,7 @@ const page = () => {
     const [code, setCode] = useState(0);
     const [confirm, setConfirm] = useState(false);
     const [disabled, setDisabled] = useState(true);
+
     let subtotal = 0;
     chargeProducts().forEach(product => {
         subtotal += product.price;

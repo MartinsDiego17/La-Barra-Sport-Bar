@@ -30,10 +30,10 @@ export const Productos = ({ products }) => {
     }
     useEffect(() => {
         if (btnSelected.comida.length > 1) {
-            setTextNotFound("No tenemos comidas que coincidan con tu búsqueda");
+            setTextNotFound("No hay productos disponibles");
             return;
         } else if (btnSelected.bebida.length > 1) {
-            setTextNotFound("No tenemos bebidas que coincidan con tu búsqueda")
+            setTextNotFound("No hay productos disponibles")
         }
     }, [btnSelected])
     useEffect(() => {
@@ -60,6 +60,7 @@ export const Productos = ({ products }) => {
     useEffect(() => {
         setPages(Math.ceil(products.length / 12));
     }, []);
+
     const selectFood = () => {
         if (pages === 0) {
             setDisabled({
@@ -100,6 +101,7 @@ export const Productos = ({ products }) => {
                 dsl: true
             })
         }
+        console.log("DATA A RENDERIZAR: ", dataRender);
     }
     const mayor = () => {
         let dataCopy;
@@ -290,8 +292,14 @@ export const Productos = ({ products }) => {
                     </div > :
                     <div className='divNotFound' >
                         <h3 className="notFound semiLight" >{textNotFound}</h3>
-                        <p><span className='semiLight' >-</span>Revisa la ortografía de la palabra</p>
-                        <p><span className='semiLight' >-</span>Utiliza palabras más genéricas o menos palabras </p>
+                        <p>
+                            <span className='semiLight' >-</span>
+                            En caso de haber realizado una búsqueda, verifica su ortografía
+                        </p>
+                        <p>
+                            <span className='semiLight' >-</span
+                            >Si no realizaste ninguna búsqueda, espera a que se carguen los productos
+                        </p>
                     </div>
             }
 

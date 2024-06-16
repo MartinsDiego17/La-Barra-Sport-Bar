@@ -10,32 +10,47 @@ import { FaLocationDot } from "react-icons/fa6";
 import { useEffect, useState } from 'react';
 import Loader from '../loader/Loader';
 import { useStoreCart } from '@/app/store';
+import Swal from 'sweetalert2';
 
 const Product = ({ product }) => {
 
     const [productsToCart, setProductsToCart] = useState([product]);
-    const { addProducts, chargeProducts } = useStoreCart();
+    const { addProducts, chargeProducts, clearProducts } = useStoreCart();
 
     if (!product.image) return <Loader />
 
     const handleAdd = () => {
-        if (productsToCart.length > 0 && productsToCart.length != 10) {
+        if (productsToCart.length > 0 && productsToCart.length != 5) {
             const updatedProducts = [...productsToCart, product];
             setProductsToCart(updatedProducts);
         }
     };
-
     const handleRemove = () => {
         if (productsToCart.length < 2) return;
         const updatedProducts = [...productsToCart];
         updatedProducts.pop();
         setProductsToCart(updatedProducts);
     };
-
     const handleSubmit = () => {
         addProducts(productsToCart);
         setProductsToCart([product]);
-    }
+    };
+    const handleNow = () => {
+        Swal.fire({
+            title: "Comprar ahora",
+            text: "Ten en cuenta que se vaciará el resto del carrito",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, comprar ahora"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                clearProducts();
+                addProducts(productsToCart);
+                window.location.href = "/pago";
+            }
+        });
+    };
 
     return (
         <div className='patherProduct' >
@@ -56,8 +71,8 @@ const Product = ({ product }) => {
                     </div>
 
                     <div className='buttonShop' >
-                        <Button text={'COMPRAR AHORA'} /> <br />
-                        <Button text={'AGREGAR AL CARRITO'} fn={handleSubmit} />
+                        <button onClick={handleNow} >Comprar ahora</button>
+                        <button onClick={handleSubmit} >Agregar al carrito</button>
                     </div>
 
 
@@ -73,9 +88,9 @@ const Product = ({ product }) => {
                     <div className='ingredientes' >
                         <h5>INGREDIENTES</h5>
                         {
-                            product.ingredientes &&
-                            product.ingredientes.map(ingrediente => (
-                                <span>{ingrediente} <br /></span>
+                            product.ingredients &&
+                            product.ingredients.map((ingrediente, index) => (
+                                <span key={index} >{ingrediente} <br /></span>
                             ))
                         }
                     </div>

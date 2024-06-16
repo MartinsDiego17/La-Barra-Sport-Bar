@@ -1,0 +1,136 @@
+.salePather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eee;
+}
+
+.salePather * {
+    margin: 0;
+    padding: 0;
+}
+
+.salePather .saleContainer {
+    width: 65%;
+    height: 45vh;
+    background-color: white;
+    border: solid 1px #ddd;
+    box-shadow: 0px 0px 100px #ddd;
+    transition: .2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.salePather .saleContainer:hover {
+    box-shadow: 0px 0px 100px #ccc;
+}
+
+.saleContainer section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.salePather .saleContainer article {
+    width: 40%;
+    padding: 3vw;
+    padding-top: 0;
+    line-height: 1;
+    height: 45vh;
+}
+
+.saleContainer article h3 {
+    font-size: 1.6rem;
+    color: #444;
+    margin-top: 3%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.saleContainer article .primero {
+    padding-top: 10% !important;
+}
+
+.saleContainer article p {
+    margin-top: 10%;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4%;
+    display: flex;
+    font-size: 12px;
+    opacity: .9;
+    justify-content: space-between;
+}
+
+.saleContainer article p span {
+    color: #444;
+    font-weight: 900;
+}
+
+.saleContainer .listProducts {
+    max-height: 26vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+}
+
+.saleContainer .listProducts p {
+    margin-right: 5%;
+}
+
+.listProducts::-webkit-scrollbar {
+    width: 3px;
+    padding-left: 5vw;
+}
+
+.listProducts::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.listProducts::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+}
+
+.listProducts::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
+.saleContainer .buttonBack {
+    width: 5%;
+    background-color: transparent;
+    color: #222;
+    border: none;
+    outline: none;
+}
+
+.saleContainer a {
+    color: #777;
+    font-weight: 100;
+    background-color: #ddd;
+    padding: 2px 15px;
+    width: 10%;
+    margin: 1%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .2s;
+}
+
+.saleContainer a span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.saleContainer a:hover {
+    background-color: #bbb;
+    color: #222;
+}

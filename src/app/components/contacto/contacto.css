@@ -7,7 +7,7 @@
     margin-bottom: 0;
     background-color: black;
     flex-direction: column;
-    border-top: 2px solid #222;
+    border-top: 1px solid #222;
 }
 
 .contactContainer h1 {

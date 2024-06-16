@@ -3,13 +3,22 @@ import Product from '@/app/components/product/Product';
 import Relacionado from '@/app/components/relacionado/Relacionado';
 import { useEffect, useState } from 'react';
 import Loader from '@/app/components/loader/Loader';
-import { useStoreProducts } from '@/app/store';
+import { useUser } from "@clerk/nextjs";
+import { useStoreAdmin, useStoreProducts } from '@/app/store';
 
 const comidaPage = ({ params }) => {
 
     const [allProducts, setAllProducts] = useState([]);
-    const { getAllProducts } = useStoreProducts();
     const [product, setProduct] = useState({});
+    const { getAllProducts } = useStoreProducts();
+    const { isAdmin } = useStoreAdmin();
+    const [localUser, setLocalUser] = useState();
+    const user = useUser();
+
+    useEffect(() => {
+        if (localUser !== undefined || localUser) return;
+        setLocalUser(user.user);
+    }, [user]);
 
     useEffect(() => {
 
@@ -27,6 +36,9 @@ const comidaPage = ({ params }) => {
 
         fetchData();
     }, [getAllProducts]);
+
+    useEffect(() => {
+    }, [isAdmin]);
 
     const allFoods = allProducts.filter(producto => producto.category === "comida");
     let relacionados = [];

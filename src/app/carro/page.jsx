@@ -1,4 +1,3 @@
-"use client";
 import Carrito from "../components/carrito/Carrito";
 
 const Carro = () => {
@@ -8,7 +7,7 @@ const Carro = () => {
             <Carrito />
         </>
     )
-    
+
 }
 
 export default Carro

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './reservas.css';
-import { Button } from '@/app/button/Button';
 import OptionsTable from '../optionsTable/optionsTable';
 import Swal from 'sweetalert2';
 
@@ -78,7 +77,7 @@ const Reservas = ({ type, days, mes, hours, options }) => {
                 window.location.href = "/";
             }
         });
-    }
+    }; 
 
     return (
         <div className='reservasContainer'>
@@ -121,7 +120,6 @@ const Reservas = ({ type, days, mes, hours, options }) => {
                         />
                     </article>
                 )}
-
 
                 <article className='buttonsReserva'>
                     <button onClick={handleMessage} disabled={validationsDisabled()}>Consultar disponibilidad</button>

@@ -66,3 +66,8 @@
 .listContainer .itemMapped .itemImg:hover {
     background-color: inherit;
 }
+
+.quantityProducts {
+    width: 33.33%;
+    text-align: right;
+}

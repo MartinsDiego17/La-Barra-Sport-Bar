@@ -1,0 +1,89 @@
+.userDetailContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.userDetailContainer .userDetailChildren * {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.userDetailContainer .userDetailChildren {
+    margin-top: 15vh;
+    height: 65vh;
+    width: 23%;
+    padding: 5vh;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 100px #d6d6d6;
+}
+
+.userDetailContainer .userDetailChildren h1 {
+    color: #444;
+    margin-top: 8%;
+    font-weight: 600;
+}
+
+.userDetailContainer .userDetailChildren img {
+    width: 25vh;
+    height: 25vh;
+    border-radius: 50%;
+}
+
+.userDetailContainer .userDetailChildren .first {
+    margin-top: 12%;
+}
+
+.userDetailContainer .userDetailChildren p {
+    margin-top: 7%;
+    margin-bottom: 7%;
+    width: 100%;
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
+    color: #555;
+    text-align: left;
+}
+
+.userDetailContainer .userDetailChildren p span {
+    color: #222;
+    font-weight: 600;
+}
+
+.userDetailContainer .userDetailChildren a {
+    color: #777;
+    font-weight: 100;
+    background-color: #ddd;
+    padding: 4px 15px;
+    width: 23%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .2s;
+}
+
+.userDetailChildren a span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userDetailContainer .userDetailChildren a:hover {
+    background-color: #bbb;
+    color: #222;
+}
+
+.userDetailChildren div {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}

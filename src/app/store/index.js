@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import axios from 'axios';
-import { isAdmin } from '../paneladmin/fetchUsers';
 import Swal from 'sweetalert2';
 
 export const useStoreProducts = create((set) => ({
@@ -59,21 +58,18 @@ export const useStoreCart = create((set) => ({
             return updated;
         });
     },
-
     addComent: (index, coment) => {
         let products = JSON.parse(localStorage.getItem('productsInCart')) || [];
         let product = products[index];
         product.comentario = coment;
         localStorage.setItem('productsInCart', JSON.stringify(products));
     },
-
     chargeProducts: () => {
         const productsInStorage = localStorage.getItem("productsInCart");
         if (!productsInStorage) return [];
         const parsedProducts = JSON.parse(productsInStorage);
         return parsedProducts;
     },
-
     clearProducts: () => {
         set((state) => {
             if (typeof window !== "undefined") {
@@ -82,7 +78,6 @@ export const useStoreCart = create((set) => ({
             return { productsInCart: [] };
         });
     },
-
     removeProduct: (id) => {
         let products = JSON.parse(localStorage.getItem('productsInCart')) || [];
         let allById = [];
@@ -99,25 +94,31 @@ export const useStoreAdmin = create((set) => ({
     isAdmin: false,
 
     checkAdmin: async (user) => {
-        const data = await user?.user?.getOrganizationMemberships();
-        if (data.length == 0) {
+        try {
+            const data = await user?.user?.getOrganizationMemberships();
+            if (!data || data.length === 0) {
+                set({ isAdmin: false });
+                return false;
+            }
+            set({ isAdmin: true });
+            return true;
+        } catch (error) {
+            console.log("No se han podido obtener los datos", error);
+            set({ isAdmin: false });
             return false;
         }
-        return true;
     },
+}));
 
-    checkAdmin: async (user) => {
+export const useStoreUsers = create((set) => ({
+    users: [],
 
-        const data = await user?.user?.getOrganizationMemberships();
-        if (data.length == 0) {
-            set((state) => ({
-                isAdmin: state.isAdmin = false
-            }));
-            return false;
+    getAllUsers: async () => {
+        try {
+            const { data } = await axios.get("http://localhost:3002/getUsers");
+            return data;
+        } catch (error) {
+            throw new Error("Ha ocurrido un error en la solicitud de los usuarios");
         }
-        set((state) => ({
-            isAdmin: state.isAdmin = true
-        }));
-        return true;
     },
 }));

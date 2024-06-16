@@ -9,7 +9,6 @@ const page = () => {
   const { getAllProducts } = useStoreProducts();
   const [productos, setProductos] = useState([]);
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {

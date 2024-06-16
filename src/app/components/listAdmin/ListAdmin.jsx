@@ -8,18 +8,19 @@ import { searchItems } from './searchItems';
 const ListAdmin = ({ title, options, arr }) => {
 
     const [value, setValue] = useState("");
-    const [products, setProducts] = useState(arr);
+    const [items, setItems] = useState(arr);
     const [currentCategory, setCurrentCategory] = useState("");
 
     const [btnSelected, setBtnSelected] = useState({
         todos: "selected",
         comidas: "",
-        bebidas: ""
+        bebidas: "",
+        admin: ""
     })
 
     const handleBtn = (option) => {
         option = option.toLowerCase();
-        let finalProducts;
+        let finalItems;
         setValue("");
 
         if (option === "todos") {
@@ -28,7 +29,7 @@ const ListAdmin = ({ title, options, arr }) => {
                 comidas: "",
                 bebidas: ""
             });
-            setProducts(arr);
+            setItems(arr);
             return;
         }
         if (option === "comidas") {
@@ -37,9 +38,9 @@ const ListAdmin = ({ title, options, arr }) => {
                 comidas: "selected",
                 bebidas: ""
             });
-            finalProducts = arr.filter(product => product.category === "Comida" || product.category === "comida");
+            finalItems = arr.filter(product => product.category === "Comida" || product.category === "comida");
             setCurrentCategory("comida");
-            setProducts(finalProducts);
+            setItems(finalItems);
             return;
         }
         if (option === "bebidas") {
@@ -48,39 +49,57 @@ const ListAdmin = ({ title, options, arr }) => {
                 comidas: "",
                 bebidas: "selected"
             });
-            finalProducts = arr.filter(product => product.category === "Bebida" || product.category === "bebida");
+            finalItems = arr.filter(product => product.category === "Bebida" || product.category === "bebida");
             setCurrentCategory("bebida");
-            console.log(currentCategory)
-            setProducts(finalProducts);
+            setItems(finalItems);
             return;
         }
+        if (option === "admin") {
+            setBtnSelected({
+                todos: "",
+                comidas: "",
+                bebidas: "",
+                admin: "selected"
+            });
+            finalItems = arr.filter(user => user.isAdmin);
+            setCurrentCategory("admin");
+            setItems(finalItems);
+            return;
+        }
+
 
     }
 
     const handleChange = (e) => {
         setValue(e.target.value);
+
+        if (title === "Ventas" && e.target.value.length) {
+            if (e.target.value == 0) setItems(arr);
+            setItems(searchItems(0, arr, e.target.value));
+            return;
+        }
+
         if (e.target.value.length < 3) {
 
             const foods = arr.filter(product => product.category === "comida");
             const drinks = arr.filter(product => product.category === "bebida");
+            const admins = arr.filter(user => user.isAdmin);
 
-            if (currentCategory === "comida") {
-                setProducts(foods);
-            } else if (currentCategory === "bebida") {
-                setProducts(drinks);
-            } else if (currentCategory === "todos") {
-                setProducts(arr);
-            }
+            if (currentCategory === "comida") setItems(foods);
+            else if (currentCategory === "bebida") setItems(drinks);
+            else if (currentCategory === "admin") setItems(admins);
+            else if (currentCategory === "todos") setItems(arr);
 
             return;
         }
-        setProducts(searchItems(e.target.value, products))
+
+        setItems(searchItems(e.target.value, items))
     }
 
     useEffect(() => {
         if (arr.length > 0) {
             setCurrentCategory("todos");
-            setProducts(arr);
+            setItems(arr);
         }
     }, [arr])
 
@@ -106,19 +125,26 @@ const ListAdmin = ({ title, options, arr }) => {
                             <div className='buttons' >
                                 {
                                     options.map(option => (
-                                        <button key={option} id={btnSelected[option.toLowerCase()]} onClick={() => handleBtn(option)} >{option}</button>
+                                        <button key={option} id={btnSelected[option.toLowerCase()]} onClick={() => handleBtn(option)} >
+                                            {option}
+                                        </button>
                                     ))
                                 }
-                                <Link href={"/paneladmin/productos/crear"} ><button>Crear producto</button></Link>
+                                {title === "Productos" &&
+                                    <Link href={"/paneladmin/productos/crear"} >
+                                        <button className='createProduct' >Crear producto</button>
+                                    </Link>
+                                }
                             </div>
                         </article>
 
                     </section>
 
-                    <List data={products} />
+                    <List data={items} text={title} />
 
                 </div>
-            </div></>
+            </div>
+        </>
     )
 }
 

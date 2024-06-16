@@ -4,13 +4,13 @@ import './paneladmin.css';
 import { FaArrowLeft } from "react-icons/fa";
 import users from '../../app/images/adminImages/users.webp'
 import history from '../../app/images/adminImages/history.webp';
-import { LuLayoutPanelLeft } from "react-icons/lu";
 import Link from 'next/link';
 import productos from '../../app/images/adminImages/productosAdmin.jpg';
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from 'react';
-import { useStoreAdmin, useStoreProducts } from '../store';
+import { useStoreAdmin, useStoreProducts, useStoreUsers } from '../store';
 import Loader from '../components/loader/Loader';
+import { fetchVentas } from './ventas/fetchVentas';
 
 const page = () => {
 
@@ -19,55 +19,30 @@ const page = () => {
     const [admin, setAdmin] = useState();
     const { checkAdmin, isAdmin } = useStoreAdmin();
     const [userData, setUserdata] = useState("");
-    const [lengths, setLengths] = useState({
-        products: 0,
-        users: 0,
-        sells: 0,
-        rr: 0,
-        rc: 0,
-        moreSell: 0
-    })
     const { getAllProducts } = useStoreProducts();
+    const { getAllUsers } = useStoreUsers();
     const [localProducts, setLocalProducts] = useState([]);
+    const [localUsers, setLocalUsers] = useState([]);
+    const [localSales, setLocalSales] = useState([]);
     const [userImg, setUserImg] = useState("");
 
-
     useEffect(() => {
-
-        const path = window.location.href.split("/");
-        if (path) {
-          const style = document.createElement('style');
-          style.textContent = `
-            body::-webkit-scrollbar {
-              width: 15px;
-            }
-        
-            body::-webkit-scrollbar-track {
-              background-color: #aaa;
-            }
-        
-            body::-webkit-scrollbar-thumb {
-              background-color: #222;
-            }
-        
-            body::-webkit-scrollbar-thumb:hover {
-              background-color: #b10303;
-            }
-          `;
-          document.head.appendChild(style);
-        }
 
         const fetchData = async () => {
             try {
                 const products = await getAllProducts();
+                const users = await getAllUsers();
+                const sales = await fetchVentas();
                 setLocalProducts(products)
+                setLocalUsers(users)
+                setLocalSales(sales);
             } catch (error) {
                 console.error("Error fetching products:", error);
             }
         };
 
         fetchData();
-    }, [getAllProducts]);
+    }, [getAllProducts, getAllUsers, fetchVentas]);
     useEffect(() => {
     }, [])
     useEffect(() => {
@@ -96,12 +71,10 @@ const page = () => {
         return <Loader />
     }
 
-
-    /*     if (isAdmin !== undefined && !isAdmin) {
-            window.location.href = "/";
-            return;
-        } */
-
+    if (isAdmin !== undefined && !isAdmin) {
+        window.location.href = "/";
+        return;
+    }
     return (
         <div className='patherAdmin' >
 
@@ -121,9 +94,22 @@ const page = () => {
                         </article>
 
                         <article className='gridItemsAdmin' >
-                            <CardAdmin image={productos} title={"Lista de productos"} paragraph={`Productos totales: ${localProducts.length}`} />
-                            <CardAdmin image={users} title={"Lista de usuarios"} paragraph={"Usuarios totales: 24"} />
-                            <CardAdmin image={history} title={"Historial de ventas"} paragraph={"Ventas totales: 87"} />
+
+                            <CardAdmin
+                                image={productos}
+                                title={"Lista de productos"}
+                                paragraph={`Cantidad de productos: ${localProducts.length}`} />
+
+                            <CardAdmin
+                                image={users}
+                                title={"Lista de usuarios"}
+                                paragraph={`Cantidad de usuarios: ${localUsers.length}`} />
+
+                            <CardAdmin
+                                image={history}
+                                title={"Historial de ventas"}
+                                paragraph={`Cantidad de ventas: ${localSales.length}`} />
+
                         </article>
 
                     </section>

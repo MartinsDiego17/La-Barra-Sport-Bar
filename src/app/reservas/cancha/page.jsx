@@ -1,7 +1,7 @@
 "use client";
 
 import Reservas from '@/app/components/reservas/Reservas';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Page = () => {
     const [dias, setDias] = useState([]);

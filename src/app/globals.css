@@ -47,10 +47,10 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #920a0a;
+  background-color: #eee;
   border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #b10303;
+  background-color: #ccc;
 }

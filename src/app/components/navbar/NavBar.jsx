@@ -10,19 +10,23 @@ import { useStoreAdmin, useStoreCart } from '@/app/store';
 
 export const NavBar = () => {
 
-    const user = useUser();
-    const [admin, setAdmin] = useState();
-    const { checkAdmin } = useStoreAdmin();
-    const isLogin = user?.isSignedIn;
     const [length, setLength] = useState(0);
-
-    const { chargeProducts } = useStoreCart();
-
-    const path = usePathname();
+    const [admin, setAdmin] = useState();
+    const [liSelect, setLiSelect] = useState({
+        inicio: "",
+        menu: "",
+        reservas: "",
+        contacto: ""
+    })
     const [loading, setLoading] = useState(true);
+    const { chargeProducts } = useStoreCart();
+    const { checkAdmin, isAdmin } = useStoreAdmin();
+    const user = useUser();
+    const path = usePathname();
+    const isLogin = user?.isSignedIn;
 
     useEffect(() => {
-
+        if (!user.user) return;
         const checkAdminStatus = async () => {
             if (!user.user) return;
             try {
@@ -36,19 +40,11 @@ export const NavBar = () => {
         checkAdminStatus();
 
     }, [user]);
-
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
         }, 1500);
     }, [setLoading])
-
-    const [liSelect, setLiSelect] = useState({
-        inicio: "",
-        menu: "",
-        reservas: "",
-        contacto: ""
-    })
 
     const handleRoute = (route) => {
         window.location.href = route;
@@ -91,6 +87,11 @@ export const NavBar = () => {
         window.location.href = "/carro";
     }
 
+    const changeRoute = (route) => {
+        if (path != `/paneladmin/${route}` && route) window.location.href = `/paneladmin/${route}`;
+        if (!route && path != `/paneladmin`) window.location.href = "/paneladmin";
+    }
+
     const renderNavbar = () => {
         if (path.startsWith("/paneladmin")) {
             if (admin) {
@@ -100,8 +101,8 @@ export const NavBar = () => {
 
                             <article>
                                 <ul>
-                                    <li>Productos</li>
-                                    <li>Usuarios</li>
+                                    <li onClick={() => changeRoute("productos")} >Productos</li>
+                                    <li onClick={() => changeRoute(0)} >Inicio</li>
                                 </ul>
                             </article>
 
@@ -111,8 +112,8 @@ export const NavBar = () => {
 
                             <article>
                                 <ul>
-                                    <li>Ventas</li>
-                                    <li>Reservas</li>
+                                    <li onClick={() => changeRoute("usuarios")} >Usuarios</li>
+                                    <li onClick={() => changeRoute("ventas")} >Ventas</li>
                                 </ul>
                             </article>
 
@@ -120,7 +121,8 @@ export const NavBar = () => {
                     </nav>
                 );
             }
-        } else {
+        }
+        else {
             return (
                 <nav className='navContainer'>
                     {path !== "/" ? (
@@ -165,7 +167,6 @@ export const NavBar = () => {
             );
         }
     }
-
     return renderNavbar();
 
 }

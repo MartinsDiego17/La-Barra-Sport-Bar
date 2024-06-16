@@ -1,7 +1,7 @@
 "use client";
 
 import Reservas from '@/app/components/reservas/Reservas';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Page = () => {
   const [dias, setDias] = useState([]);
@@ -16,7 +16,6 @@ const Page = () => {
     let currentDay = date.getDate();
     const days = [];
     switch (month) {
-      case 1: { max = 31; break };
       case 2: { max = 28; break };
       case 3: { max = 31; break };
       case 4: { max = 30; break };

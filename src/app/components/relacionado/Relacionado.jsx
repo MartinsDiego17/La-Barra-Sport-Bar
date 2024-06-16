@@ -3,8 +3,6 @@ import './relacionado.css';
 
 const Relacionado = ({ relacionados }) => {
 
-    console.log("RELACIONADOS: ", relacionados);    
-
     return (
         <div className='relacionadoContainer' >
             <h1>PRODUCTOS RELACIONADOS</h1>
@@ -12,8 +10,8 @@ const Relacionado = ({ relacionados }) => {
             <div className='productosGrid' >
 
                 {
-                    relacionados.map(producto => (
-                        <div key={producto.id} >
+                    relacionados.map((producto, index) => (
+                        <div key={producto.id * index} >
                             <Card
                                 product={producto}
                             />
