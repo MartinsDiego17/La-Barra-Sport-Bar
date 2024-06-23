@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './reservas.css';
-import OptionsTable from '../optionsTable/optionsTable';
 import Swal from 'sweetalert2';
+import OptionsTable from '../optionsTable/OptionsTable';
 
 const Reservas = ({ type, days, mes, hours, options }) => {
     const [selectedHours, setSelectedHours] = useState({});
@@ -77,7 +77,10 @@ const Reservas = ({ type, days, mes, hours, options }) => {
                 window.location.href = "/";
             }
         });
-    }; 
+    };
+    const handleTable = (table) => {
+        setSelectedTable(table);
+    };
 
     return (
         <div className='reservasContainer'>
@@ -111,14 +114,21 @@ const Reservas = ({ type, days, mes, hours, options }) => {
                     ))}
                 </article>
 
-                {type && type === 'bar' && (
-                    <article className='optionsContainer'>
-                        <OptionsTable
-                            tables={options}
-                            selectedTable={selectedTable}
-                            setSelectedTable={setSelectedTable}
-                        />
-                    </article>
+                {type && tables.length > 0 && type === 'bar' && (
+                    <div className='tablesFather'>
+                        <h3>MESAS</h3>
+                        <div className='tablesContainer' >
+                            {
+                                tables.map(table => (
+                                    <div key={table} >
+                                        <button onClick={() => handleTable(table)} className={selectedTable === table ? 'selected' : ''} >
+                                            {table}
+                                        </button>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
                 )}
 
                 <article className='buttonsReserva'>
