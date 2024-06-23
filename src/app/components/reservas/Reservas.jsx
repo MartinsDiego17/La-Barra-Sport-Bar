@@ -34,7 +34,7 @@ const Reservas = ({ type, days, mes, hours, options }) => {
             currentDay++;
         });
 
-        setMonth(monthNames[currentMonth]);
+        setMonth(monthNames[currentMonth]); 
         setRenderedDays(newRenderedDays);
     }, [mes, days]);
     const handleHourClick = (day, month, hour) => {
