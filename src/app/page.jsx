@@ -49,7 +49,6 @@ export default function Home() {
     const fetchUser = async () => {
       try {
         let data = {};
-        console.log(user)
         if (user?.user) {
           data = await createUser(user);
         }

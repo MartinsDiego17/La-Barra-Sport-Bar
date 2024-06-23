@@ -266,7 +266,7 @@ export const Productos = ({ products }) => {
 
             </div>
             {
-                data.length > 0 &&
+                data?.length > 0 &&
                     data[0]?.id ?
                     <div className='patherProducts' >
                         <div className='productosGrid' >

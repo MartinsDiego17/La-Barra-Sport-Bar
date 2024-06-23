@@ -6,8 +6,10 @@ export const useStoreProducts = create((set) => ({
     allProducts: [],
 
     getAllProducts: async () => {
+        console.log("Funciona arriba");
         try {
             const { data } = await axios('http://localhost:3002/getProducts');
+            console.log("Funciona abajo");
             return data;
         } catch (error) {
             console.error("ERROR: ", error.message);
