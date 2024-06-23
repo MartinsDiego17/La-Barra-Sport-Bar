@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './reservas.css';
 import Swal from 'sweetalert2';
-import OptionsTable from '../optionsTable/OptionsTable';
 
 const Reservas = ({ type, days, mes, hours, options }) => {
     const [selectedHours, setSelectedHours] = useState({});
