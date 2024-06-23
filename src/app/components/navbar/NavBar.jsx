@@ -26,7 +26,7 @@ export const NavBar = () => {
     const isLogin = user?.isSignedIn;
 
     useEffect(() => {
-        if (!user.user) return;
+        if (!user.user || admin) return;
         const checkAdminStatus = async () => {
             if (!user.user) return;
             try {
@@ -169,4 +169,4 @@ export const NavBar = () => {
     }
     return renderNavbar();
 
-}
+}   

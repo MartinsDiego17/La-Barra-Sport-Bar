@@ -1,14 +1,19 @@
 const { sale, product } = require('../db');
 
 const crearVenta = async ({ total, date, products }) => {
+
     try {
         const productInstances = [];
-        for (const productName of products) {
-            const productInstance = await product.findOne({ where: { name: productName } });
-            if (productInstance) {
-                productInstances.push(productInstance);
-            } else {
-                throw new Error(`Product with name ${productName} not found`);
+
+        for (const pro of products) {
+            if (pro !== "Delivery") {
+                const productInstance = await product.findOne({ where: { name: pro } });
+                if (productInstance) {
+                    productInstance.image = ""; 
+                    productInstances.push(productInstance);
+                } else {
+                    console.log(`Product with name ${pro} not found`);
+                }
             }
         }
 
@@ -18,15 +23,23 @@ const crearVenta = async ({ total, date, products }) => {
         });
 
         for (const productInstance of productInstances) {
+            productInstance.dataValues.image = "";  
             await newSale.addProduct(productInstance);
         }
 
         const response = await sale.findOne({
             where: { id: newSale.id },
-            include: product
+            include: {
+                model: product,
+                through: {
+                    attributes: []
+                }
+            }
         });
 
-        response.products.forEach(pro => pro.image = "");
+        response.products.forEach(pro => {
+            pro.dataValues.image = "";
+        })
 
         return response;
     } catch (error) {

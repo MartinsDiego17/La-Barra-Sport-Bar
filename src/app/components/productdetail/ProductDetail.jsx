@@ -201,7 +201,7 @@ const ProductDetail = ({ product, ingredients }) => {
             localFn
         )
     }
-    const handleDelete = (iFd) => {
+    const handleDelete = (id) => {
         deleteProduct(id);
     };
     const handleChange = (e) => {

@@ -12,6 +12,7 @@ const bebidaPage = ({ params }) => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
+        console.log(2);
         const name = decodeURIComponent(params.name);
         const fetchData = async () => {
             try {

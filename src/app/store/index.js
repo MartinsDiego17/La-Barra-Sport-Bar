@@ -7,12 +7,12 @@ export const useStoreProducts = create((set) => ({
 
     getAllProducts: async () => {
         try {
-            const { data } = await axios.get("http://localhost:3002/getProducts");
+            const { data } = await axios('http://localhost:3002/getProducts');
             return data;
         } catch (error) {
-            throw new Error("Ha ocurrido un error en la solicitud de los productos");
+            console.error("ERROR: ", error.message);
         }
-    },
+    }
 }));
 
 export const useStoreCart = create((set) => ({

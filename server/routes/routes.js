@@ -15,6 +15,8 @@ const handlerCreateSale = require('../handlers/handlerCreateSale');
 const handlerGetSales = require('../handlers/handlerGetSales');
 const handlerDeleteSales = require('../handlers/handlerDeleteSales');
 const handlerSaleById = require('../handlers/handlerSaleById');
+const handlerCreatePreference = require('../handlers/handlerCreatePreference');
+const handlerWebhook = require('../handlers/handlerWebhook');
 
 const router = Router();
 
@@ -30,6 +32,8 @@ router.post('/product', handlerCreateProduct);
 router.post('/ingrediente', handlerCreateIngredient);
 router.post('/user', handlerCreateUser);
 router.post('/sale', handlerCreateSale);
+router.post('/create_preference', handlerCreatePreference); 
+router.post('/webhook', handlerWebhook);
 
 router.delete('/product/delete/:id', handlerDeleteProduct);
 router.delete('/user/delete/:id', handlerDeleteUser);

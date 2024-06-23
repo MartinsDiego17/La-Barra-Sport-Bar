@@ -9,18 +9,16 @@ import { useStoreProducts, useStoreAdmin } from "./store"
 import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { createUser } from "./createUser";
+import ComingSoon from "./components/comingSoon/ComingSoon";
 
 export default function Home() {
 
   const { getAllProducts } = useStoreProducts();
-  const { checkAdmin, isAdmin } = useStoreAdmin();
-  const [usuario, setUsuario] = useState({});
+  const { checkAdmin } = useStoreAdmin();
   const [allProducts, setAllProducts] = useState([]);
-  const [infoUser, setInfoUser] = useState({});
   const [localAdmin, setLocalAdmin] = useState("verify");
   const user = useUser();
 
-  //SETEA EL ESTADO LOCAL DE BOOLEANO
   useEffect(() => {
     const fetchAdmin = async () => {
       if (user.isLoaded) {
@@ -29,40 +27,53 @@ export default function Home() {
       }
     }
     fetchAdmin();
-  }, [user, checkAdmin, isAdmin]);
-
-
-  useEffect(() => {
-    if (!user.isLoaded) setUsuario(user);
-  }, [user, setUsuario, usuario]);
+  }, [setLocalAdmin]);
 
   useEffect(() => {
 
-    if (infoUser?.id && infoUser.id > 0) return;
-
-    const fetchData = async () => {
+    const fetchProducts = async () => {
       try {
         const products = await getAllProducts();
-        let data;
-        if (user.user) data = await createUser(user);
-        setInfoUser(data);
         setAllProducts(products);
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("ERROR: ", error.message);
+      }
+    }
+
+    fetchProducts();
+
+  }, [setAllProducts]);
+
+  useEffect(() => {
+
+    const fetchUser = async () => {
+      try {
+        let data = {};
+        console.log(user)
+        if (user?.user) {
+          data = await createUser(user);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error.message);
       }
     };
 
-    fetchData();
-  }, [getAllProducts, user]);
+    fetchUser();
+  }, []);
 
   return (
     <>
-      <ParticlesWall />
-      <Inicio />
-      <Options />
-      <Menu products={allProducts} />
-      <Nosotros />
-      <Contacto />
+      <div className="toComputer" >
+        <ParticlesWall />
+        <Inicio />
+        <Options />
+        <Menu products={allProducts} />
+        <Nosotros />
+        <Contacto />
+      </ div>
+      <div className="comingSoon" >
+        <ComingSoon />
+      </div>
     </>
   )
 }

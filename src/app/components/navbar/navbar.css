@@ -215,3 +215,7 @@
     width: 10vw;
     text-align: center;
 }
+
+.navContainer .burguerMenu {
+    display: none;
+}

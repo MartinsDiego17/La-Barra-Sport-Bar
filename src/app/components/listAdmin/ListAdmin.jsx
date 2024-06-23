@@ -73,6 +73,11 @@ const ListAdmin = ({ title, options, arr }) => {
     const handleChange = (e) => {
         setValue(e.target.value);
 
+        if(e.target.value <= 3) {
+            setItems(arr);
+            return;
+        }
+
         if (title === "Ventas" && e.target.value.length) {
             if (e.target.value == 0) setItems(arr);
             setItems(searchItems(0, arr, e.target.value));

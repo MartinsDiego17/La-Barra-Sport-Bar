@@ -10,6 +10,10 @@ body {
   background-attachment: fixed;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 .primary {
   color: #d70000;
 }
@@ -53,4 +57,23 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background-color: #ccc;
+}
+
+.comingSoon {
+  display: none;
+}
+
+@media (max-width: 800px) {
+
+  .toComputer,
+  .navContainer,
+  .footerContainer,
+  .programadores {
+    display: none !important;
+  }
+
+  .comingSoon {
+    display: flex !important;
+    justify-content: center;
+  }
 }

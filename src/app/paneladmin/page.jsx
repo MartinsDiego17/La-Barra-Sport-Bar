@@ -48,7 +48,7 @@ const page = () => {
     useEffect(() => {
 
         const checkAdminStatus = async () => {
-            if (!user.user) return;
+            if (!user.user || admin) return;
             try {
                 const isAdminUser = await checkAdmin(user);
                 setUserImg(user.user.imageUrl);

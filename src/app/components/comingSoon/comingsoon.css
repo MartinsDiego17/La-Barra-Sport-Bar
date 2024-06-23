@@ -1,0 +1,54 @@
+.comingSoonContainer {
+    margin-top: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    background-color: rgba(34, 34, 34, .5);
+    backdrop-filter: blur(10px);
+    padding: 5%;
+}
+
+.comingSoonContainer p {
+    color: #ddd;
+    font-size: 1rem;
+    font-weight: 100;
+    margin-top: 0;
+    text-align: center;
+}
+
+.iconHammer {
+    font-size: 6rem;
+    opacity: .7;
+    color: #b10303;
+}
+
+.comingSoonContainer h4 {
+    letter-spacing: 1px;
+    color: #ccc;
+    font-size: .8rem;
+}
+
+.comingSoonContainer .redesComingSoon {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comingSoonContainer .redesComingSoon span {
+    color: #ddd;
+    opacity: .8;
+    font-size: 1.5rem;
+    transition: .2s;
+}
+
+.redesComingSoon span:hover {
+    opacity: 1;
+}
+
+.comingSoonContainer hr {
+    width: 80%;
+    opacity: .1;
+}

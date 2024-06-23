@@ -21,7 +21,7 @@ const comidaPage = ({ params }) => {
     }, [user]);
 
     useEffect(() => {
-
+        console.log(3);
         const name = decodeURIComponent(params.name);
         const fetchData = async () => {
             try {

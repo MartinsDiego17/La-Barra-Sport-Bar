@@ -3,8 +3,6 @@ const { product, ingredient } = require("../db");
 const updateProduct = async ({ id, image, name, category, price, stock, ingredients }) => {
     let productToUpdate = await product.findByPk(id);
 
-    console.log("INGREDIENTES EN EL BACK: ", ingredients);
-
     if (!productToUpdate) {
         throw new Error('Producto no encontrado');
     }
