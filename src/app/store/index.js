@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { create } from 'zustand';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -6,10 +7,9 @@ export const useStoreProducts = create((set) => ({
     allProducts: [],
 
     getAllProducts: async () => {
-        console.log("Funciona arriba");
         try {
-            const { data } = await axios('http://localhost:3002/getProducts');
-            console.log("Funciona abajo");
+            const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+            const { data } = await axios(url);
             return data;
         } catch (error) {
             console.error("ERROR: ", error.message);
@@ -117,7 +117,8 @@ export const useStoreUsers = create((set) => ({
 
     getAllUsers: async () => {
         try {
-            const { data } = await axios.get("http://localhost:3002/getUsers");
+            const url = process.env.NEXT_PUBLIC_GET_USERS;
+            const { data } = await axios.get(url);
             return data;
         } catch (error) {
             throw new Error("Ha ocurrido un error en la solicitud de los usuarios");

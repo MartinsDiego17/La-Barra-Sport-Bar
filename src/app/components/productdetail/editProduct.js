@@ -1,3 +1,4 @@
+require('dotenv').config();
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -22,7 +23,8 @@ export const editProduct = async (product) => {
     }
 
     try {
-        const { data } = await axios.put(`http://localhost:3002/product/update/${product.id}`, product);
+        const url = process.env.NEXT_PUBLIC_UPDATE_PRODUCT;
+        const { data } = await axios.put(`${url}/${product.id}`, product);
         Swal.fire({
             title: "Haz editado el producto con éxito.",
             icon: "success",

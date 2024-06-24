@@ -1,3 +1,4 @@
+require('dotenv').config();
 import axios from "axios";
 import Swal from 'sweetalert2';
 
@@ -7,7 +8,8 @@ export const createProduct = async (product) => {
     product.ingredients = product.ingredientes;
 
     try {
-        const { data } = await axios("http://localhost:3002/getProducts");
+        const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+        const { data } = await axios(url);
         const existingProduct = data.find(producto => producto.name.toUpperCase() === product.name.toUpperCase());
 
         if (existingProduct) {
@@ -37,7 +39,8 @@ export const createProduct = async (product) => {
     }
 
     try {
-        const { data } = await axios.post('http://localhost:3002/product', product);
+        const urlPost = process.env.NEXT_PUBLIC_POST_PRODUCT;
+        const { data } = await axios.post(urlPost, product);
         Swal.fire({
             title: "Haz creado el producto con éxito.",
             icon: "success",

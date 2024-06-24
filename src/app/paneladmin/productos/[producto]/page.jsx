@@ -1,5 +1,6 @@
 "use client";
 
+require('dotenv').config();
 import { useEffect, useState } from "react";
 import { getProduct } from "./getProduct";
 import ProductDetail from "@/app/components/productdetail/ProductDetail";
@@ -15,7 +16,8 @@ const productPage = ({ params }) => {
 
     const fetchIngredients = async () => {
       try {
-        const { data } = await axios("http://localhost:3002/getIngredients");
+        const url = process.env.NEXT_PUBLIC_GET_INGREDIENTES;
+        const { data } = await axios(url);
         setIngredientes(data);
       } catch (error) {
         console.error("Error fetching ingredients: ", error);

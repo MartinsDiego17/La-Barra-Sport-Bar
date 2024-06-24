@@ -1,3 +1,4 @@
+require('dotenv').config();
 import axios from "axios"
 import Swal from "sweetalert2"
 
@@ -22,7 +23,8 @@ export const deleteProduct = async (id) => {
             });
         }
         try {
-            const { data } = await axios.delete(`http://localhost:3002/product/delete/${id}`)
+            const url = process.env.NEXT_PUBLIC_DELETE_PRODUCT;
+            const { data } = await axios.delete(`url/${id}`)
             setTimeout(() => {
                 window.location.href = "/paneladmin/productos"
             }, 2000);

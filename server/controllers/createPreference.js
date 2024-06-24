@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { MercadoPagoConfig, Preference } = require('mercadopago');
 const { generateUrlAccess } = require('../extra/generateUrlAccess');
 const token = process.env.NEXT_PUBLIC_MP_ACCESS_TOKEN;

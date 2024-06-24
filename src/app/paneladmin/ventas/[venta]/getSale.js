@@ -1,9 +1,11 @@
+require('dotenv').config();
 import axios from "axios"
 
 export const getSale = async (id) => {
 
     try {
-        const { data } = await axios(`http://localhost:3002/getSales/${id}`);
+        const url = process.env.NEXT_PUBLIC_GET_SALES;
+        const { data } = await axios(`${url}/${id}`);
         return data;
     } catch (error) {
         return { error: error.message }

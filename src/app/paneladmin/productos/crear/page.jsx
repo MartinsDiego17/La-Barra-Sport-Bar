@@ -1,5 +1,6 @@
 "use client";
 
+require('dotenv').config();
 import FormCreate from "@/app/components/formcreate/FormCreate";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -11,7 +12,8 @@ const createProduct = () => {
     useEffect(() => {
 
         const fetchIngredients = async () => {
-            const { data }= await axios("http://localhost:3002/getIngredients");
+            const url = process.env.NEXT_PUBLIC_GET_INGREDIENTES;
+            const { data }= await axios(url);
             setIngredientes(data);
         }
         fetchIngredients();

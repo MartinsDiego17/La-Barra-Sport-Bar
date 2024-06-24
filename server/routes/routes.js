@@ -22,11 +22,11 @@ const router = Router();
 
 router.get('/getProducts', handlerGetProducts);
 router.get('/getProducts/:name', handlerGetByName);
-router.get('/getUsers/:id', handlerUserById);
-router.get('/getIngredients', handlerGetIngredients);
 router.get('/getUsers', handlerGetUsers);
+router.get('/getUsers/:id', handlerUserById);
 router.get('/getSales', handlerGetSales);
 router.get('/getSales/:id', handlerSaleById);
+router.get('/getIngredients', handlerGetIngredients);
 
 router.post('/product', handlerCreateProduct);
 router.post('/ingrediente', handlerCreateIngredient);

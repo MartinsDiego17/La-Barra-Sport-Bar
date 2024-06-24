@@ -28,10 +28,8 @@ export default function Home() {
     }
     fetchAdmin();
   }, [setLocalAdmin]);
-
   useEffect(() => {
-
-    const fetchProducts = async () => {
+    const fetchProducts = async () => { 
       try {
         const products = await getAllProducts();
         setAllProducts(products);
@@ -43,7 +41,6 @@ export default function Home() {
     fetchProducts();
 
   }, [setAllProducts]);
-
   useEffect(() => {
 
     const fetchUser = async () => {

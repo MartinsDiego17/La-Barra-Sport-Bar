@@ -1,5 +1,5 @@
+require('dotenv').config();
 import axios from "axios";
- 
 
 export const createUser = async (user) => {
 
@@ -14,10 +14,12 @@ export const createUser = async (user) => {
 
         if (!userToBack.name) userToBack.name = userToBack.email;
         try {
-            const { data } = await axios('http://localhost:3002/getUsers');
+            const urlUsers = process.env.NEXT_PUBLIC_GET_USERS;
+            const urlPostUser = process.env.NEXT_PUBLIC_POST_USER;
+            const { data } = await axios(urlUsers);
             const existents = data.filter(user => user.email === userToBack.email);
             if (existents.length > 0) return existents[0];
-            const creado = await axios.post('http://localhost:3002/user', userToBack);
+            const creado = await axios.post(urlPostUser, userToBack);
             return creado;
         } catch (error) {
             console.error("ERROR AL CREAR USUARIO: ", error.message);

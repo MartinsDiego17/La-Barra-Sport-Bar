@@ -1,3 +1,4 @@
+require('dotenv').config();
 const crearVenta = require("./createSale");
 
 const handleStatus = async (data) => {
