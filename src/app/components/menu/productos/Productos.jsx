@@ -17,7 +17,7 @@ export const Productos = ({ products }) => {
         comida: "btnSelected",
         bebida: ""
     });
-    const [pages, setPages] = useState(Math.ceil(products.length / 12));
+    const [pages, setPages] = useState(1);
     const [disabled, setDisabled] = useState({
         dsf: true,
         dsl: false
@@ -58,7 +58,8 @@ export const Productos = ({ products }) => {
         }
     }, [pages]);
     useEffect(() => {
-        setPages(Math.ceil(products.length / 12));
+        if (!Array.isArray(products)) products = [];
+        setPages(Math.ceil(products?.length && products.length / 12));
     }, []);
 
     const selectFood = () => {
