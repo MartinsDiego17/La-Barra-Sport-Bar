@@ -58,7 +58,10 @@ export const Productos = ({ products }) => {
         }
     }, [pages]);
     useEffect(() => {
-        if (!Array.isArray(products)) products = [];
+        if (!Array.isArray(products)) {
+            products = [];
+            console.log("Productos no llega como array");
+        }
         setPages(Math.ceil(products?.length && products.length / 12));
     }, []);
 

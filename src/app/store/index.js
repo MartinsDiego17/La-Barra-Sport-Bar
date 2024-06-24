@@ -9,7 +9,9 @@ export const useStoreProducts = create((set) => ({
     getAllProducts: async () => {
         try {
             const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+            console.log("Funciona arriba");
             const { data } = await axios(url);
+            console.log("Lista de productos: ", data);
             return data;
         } catch (error) {
             console.error("ERROR: ", error.message);
