@@ -24,7 +24,7 @@ export const Productos = ({ products }) => {
     })
     let comidas = [];
     let bebidas = [];
-    if (products.length > 0) {
+    if (products?.length > 0) {
         comidas = products.filter(product => product.category === "Comida" || product.category === "comida");
         bebidas = products.filter(product => product.category === "Bebida" || product.category === "bebida");
     }

@@ -9,7 +9,6 @@ export const useStoreProducts = create((set) => ({
     getAllProducts: async () => {
         try {
             const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
-            console.log("La ruta obtenida es: ", url);
             const { data } = await axios(url);
             return data;
         } catch (error) {
