@@ -23,7 +23,8 @@ export const config = {
   ]
 };  */
 
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { createRouteMatcher } from '@clerk/nextjs/dist/types/server/authMiddleware';
+import { clerkMiddleware } from '@clerk/nextjs/server';
 
 const isProtectedRoute = createRouteMatcher([
   '/paneladmin(.*)',
