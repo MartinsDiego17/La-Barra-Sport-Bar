@@ -1,4 +1,4 @@
-import { authMiddleware } from "@clerk/nextjs";
+/* import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   
@@ -21,4 +21,25 @@ export const config = {
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/(api|trpc)(.*)"
   ]
-}; 
+};  */
+
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+
+const isProtectedRoute = createRouteMatcher([
+  '/paneladmin(.*)',
+]); 
+
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) {
+    auth().protect(has => {
+      return (
+        has({ permission: 'org:sys_memberships:manage' }) ||
+        has({ permission: 'org:sys_domains_manage' })
+      )
+    })
+  }
+});
+
+export const config = {
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+};
