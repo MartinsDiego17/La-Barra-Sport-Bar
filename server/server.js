@@ -6,6 +6,13 @@ const { conn } = require("./db");
 const routes = require("./routes/routes");
 const cors = require("cors");
 
+const corsOptions = {
+    origin: 'https://la-barra-boulevard.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204
+};
+
 const app = express();
 const port = 3002;
 
@@ -14,7 +21,12 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(morgan("dev"));
 
-app.use(cors());
+app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Credentials", "true");
+    next();
+});
 
 app.use("/", routes);
 
