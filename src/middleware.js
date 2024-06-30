@@ -12,11 +12,8 @@ export default authMiddleware({
     "/reservas", 
     "/reservas/cancha",
     "/reservas/restaurant", 
-  ],
-
-  ignoredRoutes: [
     "/getProducts"
-  ]
+  ],
 
 });
 
