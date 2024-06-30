@@ -1,7 +1,7 @@
 import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
-  
+
   publicRoutes: [
     "/",
     "/comida/:name",
@@ -9,11 +9,16 @@ export default authMiddleware({
     "/carro",
     "/pago",
     "/create_preference",
-    "/reservas", 
+    "/reservas",
     "/reservas/cancha",
-    "/reservas/restaurant", 
-    "/getProducts"
+    "/reservas/restaurant",
   ],
+
+  ignoredRoutes: [
+    "/(server/controllers/)(.*)",
+    "/(server/handlers/)(.*)",
+    "/(server/routes/)(.*)",
+  ]
 
 });
 
