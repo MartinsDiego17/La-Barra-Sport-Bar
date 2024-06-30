@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './reservas.css';
 import Swal from 'sweetalert2';
 
-const Reservas = ({ type, days, mes, hours, options }) => {
+const Reservas = ({ type, days, mes, hours, tables }) => {
     const [selectedHours, setSelectedHours] = useState({});
     const [month, setMonth] = useState('');
     const [renderedDays, setRenderedDays] = useState([]);
@@ -113,12 +113,12 @@ const Reservas = ({ type, days, mes, hours, options }) => {
                     ))}
                 </article>
 
-                {type && tables.length > 0 && type === 'bar' && (
+                {type && tables?.length > 0 && type === 'bar' && (
                     <div className='tablesFather'>
                         <h3>MESAS</h3>
                         <div className='tablesContainer' >
                             {
-                                tables.map(table => (
+                                tables?.map(table => (
                                     <div key={table} >
                                         <button onClick={() => handleTable(table)} className={selectedTable === table ? 'selected' : ''} >
                                             {table}
