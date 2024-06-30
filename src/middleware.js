@@ -15,6 +15,8 @@ export default authMiddleware({
   ],
 
   ignoredRoutes: [
+    "/getProducts",
+    "https://la-barra-boulevard.vercel.app/",
     "/(server/controllers/)(.*)",
     "/(server/handlers/)(.*)",
     "/(server/routes/)(.*)",
