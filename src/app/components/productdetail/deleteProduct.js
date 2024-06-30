@@ -23,8 +23,10 @@ export const deleteProduct = async (id) => {
             });
         }
         try {
-            const url = process.env.NEXT_PUBLIC_DELETE_PRODUCT;
-            const { data } = await axios.delete(`url/${id}`)
+            const url = process.env.NODE_ENV === "development" ?
+                process.env.NEXT_PUBLIC_DELETE_PRODUCT_LOCAL :
+                process.env.NEXT_PUBLIC_DELETE_PRODUCT;
+            const { data } = await axios.delete(`${url}/${id}`)
             setTimeout(() => {
                 window.location.href = "/paneladmin/productos"
             }, 2000);

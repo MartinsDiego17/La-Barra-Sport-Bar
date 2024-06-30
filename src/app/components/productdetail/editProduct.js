@@ -23,7 +23,9 @@ export const editProduct = async (product) => {
     }
 
     try {
-        const url = process.env.NEXT_PUBLIC_UPDATE_PRODUCT;
+        const url = process.env.NODE_ENV === "development" ?
+            process.env.NEXT_PUBLIC_UPDATE_PRODUCT_LOCAL :
+            process.env.NEXT_PUBLIC_UPDATE_PRODUCT;
         const { data } = await axios.put(`${url}/${product.id}`, product);
         Swal.fire({
             title: "Haz editado el producto con éxito.",

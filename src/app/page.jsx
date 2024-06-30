@@ -48,7 +48,7 @@ export default function Home() {
       try {
         let data = {};
         if (user?.user) {
-          data = await createUser(user);
+          data = await createUser(user); 
         }
       } catch (error) {
         console.error("Error fetching user:", error.message);

@@ -1,4 +1,4 @@
-/* import { authMiddleware } from "@clerk/nextjs";
+import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   
@@ -9,9 +9,9 @@ export default authMiddleware({
     "/carro",
     "/pago",
     "/create_preference",
-    "/reservas",
+    "/reservas", 
     "/reservas/cancha",
-    "/reservas/restaurant",
+    "/reservas/restaurant", 
   ]
 
 });
@@ -21,26 +21,4 @@ export const config = {
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/(api|trpc)(.*)"
   ]
-};  */
-
-import { createRouteMatcher } from '@clerk/nextjs/dist/types/server/authMiddleware';
-import { clerkMiddleware } from '@clerk/nextjs/server';
-
-const isProtectedRoute = createRouteMatcher([
-  '/paneladmin(.*)',
-]); 
-
-export default clerkMiddleware((auth, req) => {
-  if (isProtectedRoute(req)) {
-    auth().protect(has => {
-      return (
-        has({ permission: 'org:sys_memberships:manage' }) ||
-        has({ permission: 'org:sys_domains_manage' })
-      )
-    })
-  }
-});
-
-export const config = {
-  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
-};
+}; 

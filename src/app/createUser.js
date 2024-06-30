@@ -14,8 +14,17 @@ export const createUser = async (user) => {
 
         if (!userToBack.name) userToBack.name = userToBack.email;
         try {
-            const urlUsers = process.env.NEXT_PUBLIC_GET_USERS;
-            const urlPostUser = process.env.NEXT_PUBLIC_POST_USER;
+
+            const isLocal = process.env.NODE_ENV === "development";
+
+            const urlUsers = isLocal ?
+                process.env.NEXT_PUBLIC_GET_USERS_LOCAL :
+                process.env.NEXT_PUBLIC_GET_USERS;
+
+            const urlPostUser = isLocal ?
+                process.env.NEXT_PUBLIC_POST_USER_LOCAL :
+                process.env.NEXT_PUBLIC_POST_USER;
+
             const { data } = await axios(urlUsers);
             const existents = data.filter(user => user.email === userToBack.email);
             if (existents.length > 0) return existents[0];

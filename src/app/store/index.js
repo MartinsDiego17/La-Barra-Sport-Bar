@@ -9,9 +9,10 @@ export const useStoreProducts = create((set) => ({
 
     getAllProducts: async () => {
         try {
-            console.log("CLAVE PÚBLICA CLERK: ", process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
-            console.log("CLAVE SECRETA CLERK: ", process.env.CLERK_SECRET_KEY);
-            const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+            const url = process.env.NODE_ENV === "development" ?
+                process.env.NEXT_PUBLIC_GET_PRODUCTS_LOCAL :
+                process.env.NEXT_PUBLIC_GET_PRODUCTS;
+
             const { data } = await axios(url);
             return data;
         } catch (error) {
@@ -120,7 +121,9 @@ export const useStoreUsers = create((set) => ({
 
     getAllUsers: async () => {
         try {
-            const url = process.env.NEXT_PUBLIC_GET_USERS;
+            const url = process.env.NODE_ENV === "development" ?
+                process.env.NEXT_PUBLIC_GET_USERS_LOCAL :
+                process.env.NEXT_PUBLIC_GET_USERS;
             const { data } = await axios.get(url);
             return data;
         } catch (error) {

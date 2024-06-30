@@ -16,7 +16,9 @@ const productPage = ({ params }) => {
 
     const fetchIngredients = async () => {
       try {
-        const url = process.env.NEXT_PUBLIC_GET_INGREDIENTES;
+        const url = process.env.NODE_ENV === "development" ?
+          process.env.NEXT_PUBLIC_GET_INGREDIENTES_LOCAL :
+          process.env.NEXT_PUBLIC_GET_INGREDIENTES;
         const { data } = await axios(url);
         setIngredientes(data);
       } catch (error) {

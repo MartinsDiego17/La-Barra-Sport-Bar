@@ -139,7 +139,7 @@ export const NavBar = () => {
                         </ul>
                     }
 
-                    <ul className='userAndCart' >
+                    <ul className='userAndCart' > 
                         {
                             isLogin ? (
                                 <>
@@ -162,7 +162,7 @@ export const NavBar = () => {
                             )
                         }
                         <li onClick={goCart}>Carrito <span className='quantityProducts' >({chargeProducts().length})</span></li>
-                    </ul>
+                    </ul> 
                 </nav>
             );
         }

@@ -57,7 +57,7 @@ export const Card = ({ product }) => {
     <div className='cardContainer'>
 
       <a href={`http://localhost:3000/${site}/${name}`}>
-        <Image src={image} width={220} height={220} alt='Hamburguesa' className='imagen' />
+        <Image src={image} width={220} height={220} alt={name} className='imagen' />
         <p className='nombre' >{name.toUpperCase()}</p>
       </a>
 

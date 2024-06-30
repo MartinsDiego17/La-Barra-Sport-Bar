@@ -4,7 +4,9 @@ import axios from "axios"
 export const getSale = async (id) => {
 
     try {
-        const url = process.env.NEXT_PUBLIC_GET_SALES;
+        const url = process.env.NODE_ENV === "development" ?
+            process.env.NEXT_PUBLIC_GET_SALES_LOCAL :
+            process.env.NEXT_PUBLIC_GET_SALES;
         const { data } = await axios(`${url}/${id}`);
         return data;
     } catch (error) {

@@ -8,13 +8,15 @@ export const createProduct = async (product) => {
     product.ingredients = product.ingredientes;
 
     try {
-        const url = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+        const url = process.env.NODE_ENV === "development" ?
+            process.env.NEXT_PUBLIC_GET_PRODUCTS_LOCAL :
+            process.env.NEXT_PUBLIC_GET_PRODUCTS;
         const { data } = await axios(url);
         const existingProduct = data.find(producto => producto.name.toUpperCase() === product.name.toUpperCase());
 
         if (existingProduct) {
             Swal.fire("Ya hay productos con ese nombre.");
-            return false;  
+            return false;
         }
     } catch (error) {
         console.log({ error: error.message });
@@ -39,7 +41,9 @@ export const createProduct = async (product) => {
     }
 
     try {
-        const urlPost = process.env.NEXT_PUBLIC_POST_PRODUCT;
+        const urlPost = process.env.NODE_ENV === "development" ?
+            process.env.NEXT_PUBLIC_POST_PRODUCT_LOCAL :
+            process.env.NEXT_PUBLIC_POST_PRODUCT;
         const { data } = await axios.post(urlPost, product);
         Swal.fire({
             title: "Haz creado el producto con éxito.",
