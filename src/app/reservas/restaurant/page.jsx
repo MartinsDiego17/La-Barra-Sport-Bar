@@ -59,7 +59,7 @@ const Page = () => {
           '01:00'
         ]}
         max={max}
-        options={Array.from({ length: 30 }, (_, i) => i + 1)}
+        tables={Array.from({ length: 30 }, (_, i) => i + 1)}
       />
     </>
   )

@@ -1,8 +1,6 @@
 import { authMiddleware } from "@clerk/nextjs";
- 
 
 export default authMiddleware({
-
   publicRoutes: [
     "/",
     "/comida/:name",
@@ -16,12 +14,12 @@ export default authMiddleware({
   ],
 
   ignoredRoutes: [
-    "/getProducts",
-    "/(server/controllers/)(.*)",
-    "/(server/handlers/)(.*)",
-    "/(server/routes/)(.*)",
+    "/api/controllers/(.*)",
+    "/api/handlers/(.*)",
+    "/api/routes/(.*)",
+    "/api/server",
+    "/api/db",
   ]
-
 });
 
 export const config = {
@@ -29,4 +27,4 @@ export const config = {
     "/((?!.+\\.[\\w]+$|_next).*)",
     "/(api|trpc)(.*)"
   ]
-}; 
+};
