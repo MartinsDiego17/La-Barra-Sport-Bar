@@ -14,13 +14,14 @@ export default authMiddleware({
   ],
 
   ignoredRoutes: [
-    "la-barra-boulevard.vercel.app/getProducts",
-    "/api/controllers/(.*)",
-    "/api/handlers/(.*)",
-    "/api/routes/(.*)",
-    "/api/server",
-    "/api/db",
-  ]
+    "/api/getProducts"
+  ],
+
+  requireAdminRoutes: ["/paneladmin"],
+  onUnauthorized: (req, res) => {
+    res.status(401).send("No estás autorizado para acceder a esta ruta");
+  }
+
 });
 
 export const config = {
