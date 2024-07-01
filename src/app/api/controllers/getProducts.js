@@ -1,6 +1,7 @@
 const { product, ingredient } = require("../db");
 
 const getProducts = async () => {
+
     const products = await product.findAll({
         include: { model: ingredient, through: { attributes: [] }, },
     });
