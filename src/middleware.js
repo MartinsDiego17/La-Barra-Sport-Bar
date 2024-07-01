@@ -14,6 +14,7 @@ export default authMiddleware({
   ],
 
   ignoredRoutes: [
+    "/getProducts",
     "/api/controllers/(.*)",
     "/api/handlers/(.*)",
     "/api/routes/(.*)",
