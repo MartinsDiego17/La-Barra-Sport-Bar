@@ -20,26 +20,26 @@ const handlerWebhook = require('../handlers/handlerWebhook');
 
 const router = Router();
 
-router.get('/getProducts', handlerGetProducts); 
-router.get('/getProducts/:name', handlerGetByName);
-router.get('/getUsers', handlerGetUsers);
-router.get('/getUsers/:id', handlerUserById);
-router.get('/getSales', handlerGetSales);
-router.get('/getSales/:id', handlerSaleById);
-router.get('/getIngredients', handlerGetIngredients);
+router.get('/api/getProducts', handlerGetProducts);
+router.get('/api/getProducts/:name', handlerGetByName);
+router.get('/api/getUsers', handlerGetUsers);
+router.get('/api/getUsers/:id', handlerUserById);
+router.get('/api/getSales', handlerGetSales);
+router.get('/api/getSales/:id', handlerSaleById);
+router.get('/api/getIngredients', handlerGetIngredients);
 
-router.post('/product', handlerCreateProduct);
-router.post('/ingrediente', handlerCreateIngredient);
-router.post('/user', handlerCreateUser);
-router.post('/sale', handlerCreateSale);
-router.post('/create_preference', handlerCreatePreference); 
-router.post('/webhook', handlerWebhook);
+router.post('/api/product', handlerCreateProduct);
+router.post('/api/ingrediente', handlerCreateIngredient);
+router.post('/api/user', handlerCreateUser);
+router.post('/api/sale', handlerCreateSale);
+router.post('/api/create_preference', handlerCreatePreference);
+router.post('/api/webhook', handlerWebhook);
 
-router.delete('/product/delete/:id', handlerDeleteProduct);
-router.delete('/user/delete/:id', handlerDeleteUser);
-router.delete('/deleteSales', handlerDeleteSales);
+router.delete('/api/product/delete/:id', handlerDeleteProduct);
+router.delete('/api/user/delete/:id', handlerDeleteUser);
+router.delete('/api/deleteSales', handlerDeleteSales);
 
-router.put('/product/update/:id', handlerUpdateProduct);
-router.put('/user/update/:id', handlerUpdateUser);
+router.put('/api/product/update/:id', handlerUpdateProduct);
+router.put('/api/user/update/:id', handlerUpdateUser);
 
 module.exports = router;

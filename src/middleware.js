@@ -8,14 +8,14 @@ export default authMiddleware({
     "/bebida/:name",
     "/carro",
     "/pago",
-    "/create_preference",
-    "/reservas",
+    "/api/create_preference", 
+    "/reservas", 
     "/reservas/cancha",
     "/reservas/restaurant",
   ],
 
   ignoredRoutes: [ 
-    "/getProducts"
+    "/api/getProducts"
   ],
 
   requireAdminRoutes: ["/paneladmin"],
