@@ -15,7 +15,7 @@ export default authMiddleware({
   ],
 
   ignoredRoutes: [ 
-    "/api/getProducts"
+    "/getProducts"
   ],
 
   requireAdminRoutes: ["/paneladmin"],

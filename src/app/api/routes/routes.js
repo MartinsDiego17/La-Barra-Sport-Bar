@@ -20,7 +20,7 @@ const handlerWebhook = require('../handlers/handlerWebhook');
 
 const router = Router();
 
-router.get('/getProducts', handlerGetProducts);
+router.get('/getProducts', handlerGetProducts); 
 router.get('/getProducts/:name', handlerGetByName);
 router.get('/getUsers', handlerGetUsers);
 router.get('/getUsers/:id', handlerUserById);
