@@ -21,7 +21,7 @@ const handlerDeleteIngredient = require('../handlers/handlerDeleteIngredient');
 
 const router = Router();
 
-router.get('api/getProducts', handlerGetProducts);
+router.get('/api/getProducts', handlerGetProducts);
 router.get('/api/getProducts/:name', handlerGetByName);
 router.get('/api/getUsers', handlerGetUsers);
 router.get('/api/getUsers/:id', handlerUserById);
