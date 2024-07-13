@@ -8,3 +8,4 @@ module.exports = (sequelize) => {
         isAdmin: { type: DataTypes.BOOLEAN }
     }, { timestamps: false });
 };
+    

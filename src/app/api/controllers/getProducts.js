@@ -19,7 +19,6 @@ const getProducts = async () => {
             ingredients: ing,
         };
     });
-
     return allProducts;
 };
 

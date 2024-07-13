@@ -1,6 +1,7 @@
 const { product, ingredient } = require('../db');
 
 const crearProducto = async ({ image, name, category, price, stock, ingredients }) => {
+
     // Validaciones
     if (!image || !name || !category || !price || stock === undefined) {
         throw new Error("Todos los campos son obligatorios.");

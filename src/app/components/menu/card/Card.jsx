@@ -6,6 +6,7 @@ import { IoMdArrowForward } from "react-icons/io";
 import Swal from 'sweetalert2';
 import { useStoreCart } from '@/app/store';
 import { addProduct } from './addProduct';
+import prueba from '../../../images/fondo.webp'
 import { useEffect, useState } from 'react';
 
 export const Card = ({ product }) => {
@@ -57,7 +58,7 @@ export const Card = ({ product }) => {
     <div className='cardContainer'>
 
       <a href={`http://localhost:3000/${site}/${name}`}>
-        <Image src={image} width={220} height={220} alt={name} className='imagen' />
+        <Image src={prueba} width={220} height={220} alt={name} className='imagen' />
         <p className='nombre' >{name.toUpperCase()}</p>
       </a>
 

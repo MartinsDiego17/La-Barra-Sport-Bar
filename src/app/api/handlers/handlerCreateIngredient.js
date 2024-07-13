@@ -3,7 +3,7 @@ const crearIngrediente = require("../controllers/createIngredient");
 const handlerCreateIngredient = async (req, res) => {
 
     try {
-        const { name, } = req.body;
+        const { name } = req.body;
         const creado = await crearIngrediente({ name });
         res.status(200).json(creado)
 

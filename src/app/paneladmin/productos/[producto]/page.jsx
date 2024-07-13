@@ -4,7 +4,7 @@ require('dotenv').config();
 import { useEffect, useState } from "react";
 import { getProduct } from "./getProduct";
 import ProductDetail from "@/app/components/productdetail/ProductDetail";
-import axios from "axios";
+import { getIngredients } from "./getIngredients";
 
 const productPage = ({ params }) => {
 
@@ -14,33 +14,27 @@ const productPage = ({ params }) => {
 
   useEffect(() => {
 
-    const fetchIngredients = async () => {
-      try {
-        const url = process.env.NODE_ENV === "development" ?
-          process.env.NEXT_PUBLIC_GET_INGREDIENTES_LOCAL :
-          process.env.NEXT_PUBLIC_GET_INGREDIENTES;
-        const { data } = await axios(url);
-        setIngredientes(data);
-      } catch (error) {
-        console.error("Error fetching ingredients: ", error);
-      }
-    };
     const fetchData = async () => {
       try {
+        const ingredientsLocal = await getIngredients();
+        setIngredientes(ingredientsLocal);
         const productFound = await getProduct(name);
         setProduct(productFound)
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error("Error fetching data: ", error.message);
       }
     };
-    fetchIngredients();
     fetchData();
 
-  }, [getProduct]);
+  }, [getProduct, getIngredients]);
 
   if (product?.name?.length > 1) {
     return (
-      <ProductDetail product={product} ingredients={ingredientes} />
+      <ProductDetail
+        product={product}
+        ingredients={ingredientes}
+        setIngredientes={setIngredientes}
+      />
     );
   }
 

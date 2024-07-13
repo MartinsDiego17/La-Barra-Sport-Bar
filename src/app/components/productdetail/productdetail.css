@@ -307,3 +307,25 @@
     height: 3vh;
     align-items: center;
 }
+
+.selectAndButtons {
+    width: fit-content;
+}
+
+.selectAndButtons select {
+    display: block;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 1vh !important;
+}
+
+.selectAndButtons div {
+    display: flex;
+}
+
+.selectAndButtons div button {
+    color: #eee;
+    padding: 5px;
+    background-color: #222;
+}
+

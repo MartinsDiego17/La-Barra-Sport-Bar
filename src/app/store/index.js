@@ -13,7 +13,7 @@ export const useStoreProducts = create((set) => ({
             const url = process.env.NODE_ENV === "development" ?
                 process.env.NEXT_PUBLIC_GET_PRODUCTS_LOCAL :
                 process.env.NEXT_PUBLIC_GET_PRODUCTS;
-
+            
             const { data } = await axios(url);
             console.log("Data: ", data);
             return data;

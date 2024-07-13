@@ -8,4 +8,4 @@
             price: { type: DataTypes.INTEGER, allowNull: false, },
             stock: { type: DataTypes.BOOLEAN, },
         }, { timestamps: false });
-    };  
+    };      

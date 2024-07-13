@@ -8,8 +8,11 @@ import Swal from 'sweetalert2';
 import ButtonBack from '../buttonback/ButtonBack';
 import { deleteProduct } from './deleteProduct';
 import { editProduct } from './editProduct';
+import { createIngredient } from './createIngredient';
+import ModalDelete from './modalDelete/ModalDelete';
+import { getIngredients } from '@/app/paneladmin/productos/[producto]/getIngredients';
 
-const ProductDetail = ({ product, ingredients }) => {
+const ProductDetail = ({ product, ingredients, setIngredientes }) => {
 
     const alertFn = (text1, text2, fn) => {
         Swal.fire({
@@ -33,6 +36,7 @@ const ProductDetail = ({ product, ingredients }) => {
         conStock: "",
         sinStock: ""
     })
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         if (product.stock) {
@@ -46,6 +50,11 @@ const ProductDetail = ({ product, ingredients }) => {
         })
     }, []);
 
+    useEffect(() => {
+        if (isOpen) document.body.style.height = '100vh';
+        else document.body.style.height = 'fit-content';
+    }, [setIsOpen, isOpen])
+
     const handleBtn = (btn) => {
         setBtnSelected({
             [btn]: btn
@@ -56,6 +65,18 @@ const ProductDetail = ({ product, ingredients }) => {
         })
     }
 
+    const handleCreateIngredient = () => {
+        createIngredient();
+    };
+    const handleDeleteIngredient = () => {
+        setIsOpen(true);
+        const fetchIngredients = async () => {
+            const ingLocales = await getIngredients()
+            setIngredientes(ingLocales);
+            return ingLocales;
+        }
+        fetchIngredients();
+    };
     const handleUpdate = (event) => {
 
         const { name, value } = event.target;
@@ -230,6 +251,11 @@ const ProductDetail = ({ product, ingredients }) => {
 
     return (
         <>
+            <ModalDelete
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                ingredients={ingredients}
+            />
             <div className='productContainerAdmin' >
 
                 <div className='sonDetailProduct' >
@@ -253,12 +279,18 @@ const ProductDetail = ({ product, ingredients }) => {
                             <p className='ingredientsDetail' >
                                 Lista de ingredientes
 
-                                <select name="" id="" onChange={handleChange} >
-                                    <option value=""></option>
-                                    {ingredients.map(ingrediente => (
-                                        <option value={ingrediente.name} >{ingrediente.name}</option>
-                                    ))}
-                                </select>
+                                <div className='selectAndButtons' >
+                                    <select name="" id="" onChange={handleChange} >
+                                        <option value=""></option>
+                                        {ingredients.map(ingrediente => (
+                                            <option value={ingrediente.name} >{ingrediente.name}</option>
+                                        ))}
+                                    </select>
+                                    <div>
+                                        <button onClick={handleCreateIngredient}>Crear</button>
+                                        <button onClick={handleDeleteIngredient}>Eliminar</button>
+                                    </div>
+                                </div>
                             </p>
 
                             <p className='ingredientsSpan' >

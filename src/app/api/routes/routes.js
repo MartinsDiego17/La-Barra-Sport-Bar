@@ -17,6 +17,7 @@ const handlerDeleteSales = require('../handlers/handlerDeleteSales');
 const handlerSaleById = require('../handlers/handlerSaleById');
 const handlerCreatePreference = require('../handlers/handlerCreatePreference');
 const handlerWebhook = require('../handlers/handlerWebhook');
+const handlerDeleteIngredient = require('../handlers/handlerDeleteIngredient');
 
 const router = Router();
 
@@ -36,6 +37,7 @@ router.post('/api/create_preference', handlerCreatePreference);
 router.post('/api/webhook', handlerWebhook);
 
 router.delete('/api/product/delete/:id', handlerDeleteProduct);
+router.delete('/api/ingredient/delete/:id', handlerDeleteIngredient);
 router.delete('/api/user/delete/:id', handlerDeleteUser);
 router.delete('/api/deleteSales', handlerDeleteSales);
 
