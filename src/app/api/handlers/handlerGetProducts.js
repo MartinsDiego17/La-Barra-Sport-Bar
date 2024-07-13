@@ -1,6 +1,7 @@
 const getProducts = require("../controllers/getProducts");
 
 const handlerGetProducts = async (req, res) => {
+    console.log("this is the back")
     try {
         const allProducts = await getProducts();
         res.status(200).json(allProducts);

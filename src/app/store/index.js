@@ -14,12 +14,11 @@ export const useStoreProducts = create((set) => ({
             process.env.NEXT_PUBLIC_GET_PRODUCTS_LOCAL :
             process.env.NEXT_PUBLIC_GET_PRODUCTS;
             
-            console.log("Ruta: ", url);
             const { data } = await axios(url);
             console.log("Data: ", data);
             return data;
         } catch (error) {
-            console.error("ERROR EN STORE: ", error);
+            console.error("ERROR: ", error.message);
         }
     }
 }));
