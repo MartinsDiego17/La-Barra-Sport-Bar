@@ -14,10 +14,7 @@ import { fetchVentas } from './ventas/fetchVentas';
 
 const page = () => {
 
-    const [loading, setLoading] = useState(true);
     const user = useUser();
-    const [admin, setAdmin] = useState();
-    const { checkAdmin, isAdmin } = useStoreAdmin();
     const [userData, setUserdata] = useState("");
     const { getAllProducts } = useStoreProducts();
     const { getAllUsers } = useStoreUsers();
@@ -48,12 +45,10 @@ const page = () => {
     useEffect(() => {
 
         const checkAdminStatus = async () => {
-            if (!user.user || admin) return;
+            if (!user.user) return;
             try {
-                const isAdminUser = await checkAdmin(user);
                 setUserImg(user.user.imageUrl);
                 setUserdata(user.user.fullName);
-                setAdmin(isAdminUser);
             } catch (error) {
                 console.error("Error al verificar el estado de administrador:", error);
             }
@@ -62,19 +57,7 @@ const page = () => {
         checkAdminStatus();
 
     }, [user]);
-    useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, []);
-    if (loading) {
-        return <Loader />
-    }
 
-    if (isAdmin !== undefined && !isAdmin) {
-        window.location.href = "/";
-        return;
-    }
     return (
         <div className='patherAdmin' >
 

@@ -1,4 +1,8 @@
-import { authMiddleware } from "@clerk/nextjs";
+
+import { authMiddleware, redirectToSignIn } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
+
+console.log()
 
 export default authMiddleware({
   publicRoutes: [
@@ -7,21 +11,29 @@ export default authMiddleware({
     "/bebida/:name",
     "/carro",
     "/pago",
-    "/api/create_preference", 
-    "/reservas", 
+    "/api/create_preference",
+    "/reservas",
     "/reservas/cancha",
     "/reservas/restaurant",
   ],
 
-  ignoredRoutes: [ 
-    "/api/getProducts"
+  afterAuth(auth, req, evt) {
+      if (!auth.userId && req.nextUrl.pathname.startsWith('/paneladmin')) {
+        return redirectToSignIn({ returnBackUrl: req.url });
+      } else if (auth.userId && !auth.orgId && !auth.isPublicRoute) {
+        return redirectToSignIn({ returnBackUrl: req.url });
+      } else if (auth.userId && auth.isPublicRoute) {
+        return NextResponse.next();
+      }
+  },
+
+  ignoredRoutes: [
   ],
 
   requireAdminRoutes: ["/paneladmin"],
   onUnauthorized: (req, res) => {
     res.status(401).send("No estás autorizado para acceder a esta ruta");
   }
-
 });
 
 export const config = {
