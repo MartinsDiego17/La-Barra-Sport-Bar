@@ -1,5 +1,4 @@
 import { authMiddleware } from "@clerk/nextjs";
-import { RiVoiceRecognitionLine } from "react-icons/ri";
 
 export default authMiddleware({
   publicRoutes: [
