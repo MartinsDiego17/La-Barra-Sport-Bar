@@ -34,7 +34,7 @@ const bebidaPage = ({ params }) => {
         if (allDrinks[i] || allDrinks[i] !== undefined) relacionados.push(allDrinks[i]);
     }
 
-    if (allProducts.length < 1 || !product.image || !relacionados[0].id || !product) return <Loader />
+    if (allProducts.length < 1 || !product.image    || !product) return <Loader />
     return (
         <div className='patherContainer' >
             <Product product={product} />

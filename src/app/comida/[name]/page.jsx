@@ -46,12 +46,12 @@ const comidaPage = ({ params }) => {
         if (allFoods[i] || allFoods[i] !== undefined) relacionados.push(allFoods[i]);
     }
 
+    if (allProducts.length < 1 || !product.image || !product) return <Loader />
 
-    if (allProducts.length < 1 || !product.image || !relacionados[0].id || !product) return <Loader />
     return (
-        <div className='patherContainer' >
+        <div className='patherContainer' > 
             <Product product={product} />
-            <Relacionado relacionados={relacionados} />
+            {relacionados.length && <Relacionado relacionados={relacionados} />}
         </div>
     );
 };

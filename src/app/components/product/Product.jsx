@@ -2,12 +2,11 @@
 import './product.css';
 import Image from 'next/image';
 import { MdVerifiedUser } from "react-icons/md";
-import { Button } from '@/app/button/Button';
 import visaUrl from '../../images/tarjetas/visa.png';
 import masterCardUrl from '../../images/tarjetas/mastercard.png';
 import americanUrl from '../../images/tarjetas/american.png';
 import { FaLocationDot } from "react-icons/fa6";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Loader from '../loader/Loader';
 import { useStoreCart } from '@/app/store';
 import Swal from 'sweetalert2';

@@ -10,7 +10,6 @@ import { useStoreAdmin, useStoreCart } from '@/app/store';
 
 export const NavBar = () => {
 
-    const [length, setLength] = useState(0);
     const [admin, setAdmin] = useState();
     const [liSelect, setLiSelect] = useState({
         inicio: "",
@@ -161,7 +160,7 @@ export const NavBar = () => {
                                 </a>
                             )
                         }
-                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({chargeProducts().length})</span></li>
+                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({0/* {chargeProducts().length} */})</span></li>
                     </ul> 
                 </nav>
             );
