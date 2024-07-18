@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { createUser } from "./createUser";
 import ComingSoon from "./components/comingSoon/ComingSoon";
-import { testApi } from "./supabase/testApi";
+import { testApi } from "./utils/testApi";
 
 export default function Home() {
 
