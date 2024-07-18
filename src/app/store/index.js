@@ -12,9 +12,11 @@ export const useStoreProducts = create((set) => ({
             const url = process.env.NODE_ENV === "development" ?
             process.env.NEXT_PUBLIC_GET_PRODUCTS_LOCAL :
             process.env.NEXT_PUBLIC_GET_PRODUCTS;
+
+            console.log("URL: ", url);
             
             const { data } = await axios(url);
-            console.log("PRODUCTOS DES DE EL BACK: ", data);
+            console.log("PRODUCTOS DESDE EL BACK: ", data);
             return data;
         } catch (error) {
             console.error("ERROR: ", error.message);
