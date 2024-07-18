@@ -29,9 +29,6 @@ export default authMiddleware({
       }
   },
 
-  ignoredRoutes: [
-  ],
-
   requireAdminRoutes: ["/paneladmin"],
   onUnauthorized: (req, res) => {
     res.status(401).send("No estás autorizado para acceder a esta ruta");
