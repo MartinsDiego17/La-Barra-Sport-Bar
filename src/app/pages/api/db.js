@@ -6,8 +6,14 @@ const IngredientsModel = require('./models/ingredients');
 const UsersModel = require('./models/users');
 const SalesModel = require('./models/sales');
 
+const DB_HOST = "postgresql://postgres.mpzdhwonlzymergalvmc:Olakease05*@aws-0-us-east-1.pooler.supabase.com:6543/postgres";
+const DB_PORT = 5432;
+const DB_NAME = "La-Barra";
+const DB_USER = "MartinsDiego17";
+const DB_PASSWORD = "Olakease0518";
+
 const sequelize = new Sequelize(
-  DB_DATABASE
+  DB_HOST
 );
 
 ProductsModel(sequelize);

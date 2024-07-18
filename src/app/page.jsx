@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { useUser } from "@clerk/nextjs";
 import { createUser } from "./createUser";
 import ComingSoon from "./components/comingSoon/ComingSoon";
+import { testApi } from "./supabase/testApi";
 
 export default function Home() {
 
@@ -18,6 +19,8 @@ export default function Home() {
   const [allProducts, setAllProducts] = useState([]);
   const [localAdmin, setLocalAdmin] = useState("verify");
   const user = useUser();
+
+  
 
   useEffect(() => {
     const fetchAdmin = async () => {
@@ -44,6 +47,7 @@ export default function Home() {
   useEffect(() => {
 
     const fetchUser = async () => {
+      testApi();
       try {
         let data = {};
         if (user?.user) {
