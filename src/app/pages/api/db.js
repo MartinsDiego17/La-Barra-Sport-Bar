@@ -1,18 +1,13 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_DATABSE } = process.env;
+const { DB_DATABASE } = process.env;
 const ProductsModel = require('./models/products');
 const IngredientsModel = require('./models/ingredients');
 const UsersModel = require('./models/users');
 const SalesModel = require('./models/sales');
 
 const sequelize = new Sequelize(
-  /*   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/labarra`,
-    {
-      logging: false,
-      native: false
-    } */
-  DB_DATABSE
+  DB_DATABASE
 );
 
 ProductsModel(sequelize);

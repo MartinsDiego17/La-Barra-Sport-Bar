@@ -73,10 +73,10 @@ export const useStoreCart = create((set) => ({
         localStorage.setItem('productsInCart', JSON.stringify(products));
     },
     chargeProducts: () => {
-        const productsInStorage = localStorage.getItem("productsInCart");
-        if (!productsInStorage) return [];
-        const parsedProducts = JSON.parse(productsInStorage);
-        return parsedProducts;
+            const productsInStorage = localStorage.getItem("productsInCart");
+            if (!productsInStorage) return [];
+            const parsedProducts = JSON.parse(productsInStorage);
+            return parsedProducts;
     },
     clearProducts: () => {
         set((state) => {

@@ -18,10 +18,11 @@ const handlerSaleById = require('../handlers/handlerSaleById');
 const handlerCreatePreference = require('../handlers/handlerCreatePreference');
 const handlerWebhook = require('../handlers/handlerWebhook');
 const handlerDeleteIngredient = require('../handlers/handlerDeleteIngredient');
+const getProductos = require('../products/getProductos');
 
 const router = Router();
 
-router.get('/api/getProducts', handlerGetProducts);
+router.get('/api/getProducts', getProductos);
 router.get('/api/getProducts/:name', handlerGetByName);
 router.get('/api/getUsers', handlerGetUsers);
 router.get('/api/getUsers/:id', handlerUserById);

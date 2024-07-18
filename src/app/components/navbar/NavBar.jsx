@@ -11,6 +11,7 @@ import { useStoreAdmin, useStoreCart } from '@/app/store';
 export const NavBar = () => {
 
     const [admin, setAdmin] = useState();
+    const [quantityProducts, setQuantityProducts] = useState(0);
     const [liSelect, setLiSelect] = useState({
         inicio: "",
         menu: "",
@@ -20,10 +21,14 @@ export const NavBar = () => {
     const [loading, setLoading] = useState(true);
     const { chargeProducts } = useStoreCart();
     const { checkAdmin, isAdmin } = useStoreAdmin();
+
     const user = useUser();
     const path = usePathname();
     const isLogin = user?.isSignedIn;
 
+    useEffect(() => {
+            setQuantityProducts(chargeProducts().length);
+    }, []);
     useEffect(() => {
         if (!user.user || admin) return;
         const checkAdminStatus = async () => {
@@ -85,12 +90,10 @@ export const NavBar = () => {
     const goCart = () => {
         window.location.href = "/carro";
     }
-
     const changeRoute = (route) => {
         if (path != `/paneladmin/${route}` && route) window.location.href = `/paneladmin/${route}`;
         if (!route && path != `/paneladmin`) window.location.href = "/paneladmin";
     }
-
     const renderNavbar = () => {
         if (path.startsWith("/paneladmin")) {
             if (admin) {
@@ -160,7 +163,9 @@ export const NavBar = () => {
                                 </a>
                             )
                         }
-                        <li onClick={goCart}>Carrito <span className='quantityProducts' >({0/* {chargeProducts().length} */})</span></li>
+                        <li onClick={goCart}>Carrito 
+                            <span className='quantityProducts' >({quantityProducts})</span>
+                            </li>
                     </ul> 
                 </nav>
             );
