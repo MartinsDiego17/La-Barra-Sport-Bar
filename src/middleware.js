@@ -15,7 +15,8 @@ export default authMiddleware({
     "/reservas",
     "/reservas/cancha",
     "/reservas/restaurant",
-    "/prueba"
+    "/api/prueba",
+    "/api/getProducts"
   ],
 
   afterAuth(auth, req, evt) {
