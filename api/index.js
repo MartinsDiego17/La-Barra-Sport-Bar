@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 app.use(cors());
 
 app.use("/", routes);
-app.get("/prueba", (req, res) => {  
+app.get("/api/prueba", (req, res) => {  
     res.send("Express on Vercel");
     console.log("Desde el back");
 });
