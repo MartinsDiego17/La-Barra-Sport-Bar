@@ -15,6 +15,7 @@
             "source": "/(.*)",
             "destination": "/src/app/$1"
         }
-    ],
+    ], 
+    
     "cleanUrls": true
 }
