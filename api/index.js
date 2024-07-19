@@ -19,7 +19,7 @@ app.use("/", routes);
 
 app.get("/api/prueba", (req, res) => {
     res.send("Express on Vercel");
-    console.log("Desde el back");
+    console.log("Desde el backk");
 });
 
 conn.sync({ alter: true }).then(() => {
