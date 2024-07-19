@@ -28,4 +28,4 @@ conn.sync({ alter: true }).then(() => {
     });
 });
 
-module.exports = app; // Exportar la app para Vercel
+module.exports = app; 
