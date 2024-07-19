@@ -9,7 +9,7 @@ export const createUser = async (user) => {
             name: user?.user?.fullName,
             email: user?.user?.emailAddresses[0]?.emailAddress,
             image: user?.user?.imageUrl,
-            isAdmin: admin?.length > 0 ? true : false
+            isAdmin: admin?.length > 0 ? true : false,
         };
 
         if (!userToBack.name) userToBack.name = userToBack.email;
