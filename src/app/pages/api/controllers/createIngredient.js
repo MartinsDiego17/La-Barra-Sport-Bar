@@ -6,7 +6,7 @@ const crearIngrediente = async ({ name }) => {
         name,
     });
 
-    return response;
+    return response
 
 }
 
