@@ -3,7 +3,6 @@ import { Footer } from './components/footer/Footer';
 import { NavBar } from "./components/navbar/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Poppins } from "next/font/google";
-import { usePathname } from 'next/navigation';
 
 const poppins = Poppins({ subsets: ["latin"], weight: "500" });
 

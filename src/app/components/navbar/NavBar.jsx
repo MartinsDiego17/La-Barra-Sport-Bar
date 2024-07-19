@@ -1,12 +1,11 @@
-'use client';
-
+"use client";
 import Link from 'next/link';
 import './navbar.css';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { UserButton, useUser } from '@clerk/nextjs';
 import { FaUser } from 'react-icons/fa';
 import { useStoreAdmin, useStoreCart } from '@/app/store';
+import { usePathname } from 'next/navigation';
 
 export const NavBar = () => {
 
