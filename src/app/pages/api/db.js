@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+const pg = require('pg'); 
 const { DB_DATABASE } = process.env;
 const ProductsModel = require('./models/products');
 const IngredientsModel = require('./models/ingredients');
@@ -13,7 +14,11 @@ const DB_USER = "MartinsDiego17";
 const DB_PASSWORD = "Olakease0518";
 
 const sequelize = new Sequelize(
-  DB_HOST
+  DB_NAME,
+  {
+      dialectModule : pg,
+      dialect:"postgres"
+  }
 );
 
 ProductsModel(sequelize);
